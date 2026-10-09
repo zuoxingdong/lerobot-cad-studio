@@ -54,6 +54,7 @@ jobs:
       # the MJCF zips the page downloads go through tools/sim/check.py
       - run: uv sync --locked --extra sim
       # ubuntu-latest ships google-chrome; tools/tests/_root.mjs also reads $CHROME.  $CI relaxes the two timing checks
+      # and skips sim-teleop and sim-lab (no GPU); run those locally
       - run: npm run test:e2e -- --shard ${{ matrix.shard }} --timeout 1200
 
   sim:

@@ -4,7 +4,9 @@
      node tools/tests/e2e/run.mjs [--keep] [--timeout 1200] [--only a,b,c] [--shard 1|2|3] [--src other.html]
 
    `--shard n` runs one third of the suites (CI runs the three in parallel).  With $CI set the
-   harness gets ?ci=1: the two timing checks take their relaxed bounds and every watchdog doubles.
+   harness gets ?ci=1: the two timing checks take their relaxed bounds and every watchdog doubles,
+   and the `gpu` suites are skipped (SwiftShader on a runner is too slow for MuJoCo in real time;
+   `--only` still runs them).
 
    Serves site/ on loopback under the Pages path (_root.mjs BASE), starts ONE headless Chrome and
    walks it through the suites in `tools/tests/e2e/cases/`, one page at a time —
@@ -36,7 +38,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 /* the suites; `file: true` runs the page from file://, `page` loads that page in place of index.html,
    `case` names the module when two suites share one (`--only <case>` runs both).  `shard` balances the
-   three CI jobs; measured on 4 cores: 1 = 290 s, 2 = 276 s, 3 = 299 s */
+   three CI jobs, gpu suites skipped; measured on a runner: 1 = 250 s, 2 = 300 s, 3 = 320 s */
 const SUITES = [
   { name: 'core',         shard: 2, watchdog: 240, what: 'Home, tree, swaps and cascades, the jaw, Options, import, delete, a gizmo move, Recents, a URDF import' },
   { name: 'shell',        shard: 2, watchdog: 300, what: 'J1 / J2 / J3 click counts, 70 % canvas free, text budget, the pill, 1 2 3, help, narrow windows, layers' },
@@ -45,10 +47,10 @@ const SUITES = [
   { name: 'link-folder',  shard: 2, watchdog: 300, what: 'Ask an agent: prompt, linked folder, a design written mid-session → toast → Use, errors, drop' },
   { name: 'check',        shard: 2, watchdog: 300, what: 'the Check tab: tiles, look-through, calibration, per-camera verdicts on load, blocked presets' },
   { name: 'print-export', shard: 2, watchdog: 420, what: 'print poses, the Export sheet and its waiver, a non-manifold import, the MJCF zip for check.py' },
-  { name: 'sim-teleop',   shard: 1, watchdog: 330, file: true, what: 'Sim tab from file://: MuJoCo loads, W drives, arrows jog, F grips, Esc releases, the Design pose back exactly, 3 open/close cycles' },
-  { name: 'sim-lab',      shard: 3, watchdog: 420, what: 'Lab task: step, reset, sliced plan, the puck lh -> inc -> reader, the instruments, the downloaded MJCF zip for check.py' },
+  { name: 'sim-teleop',   shard: 1, watchdog: 330, file: true, gpu: true, what: 'Sim tab from file://: MuJoCo loads, W drives, arrows jog, F grips, Esc releases, the Design pose back exactly, 3 open/close cycles' },
+  { name: 'sim-lab',      shard: 3, watchdog: 420, gpu: true, what: 'Lab task: step, reset, sliced plan, the puck lh -> inc -> reader, the instruments, the downloaded MJCF zip for check.py' },
   { name: 'showcase',     shard: 1, watchdog: 300, file: true, page: 'showcase.html', what: 'showcase.html from file://: loads, plays, 3 chapter marks, free camera, robot cameras, keys, budgets' },
-  { name: 'showcase-http', case: 'showcase', shard: 2, watchdog: 300, page: 'showcase.html', what: 'the same over http' },
+  { name: 'showcase-http', case: 'showcase', shard: 3, watchdog: 300, page: 'showcase.html', what: 'the same over http' },
 ];
 
 /** `uv run --extra sim python tools/sim/check.py <dir>`: {ok, ms, detail} from its last line */
@@ -79,7 +81,9 @@ if (isMain) {
   const skipped = [];
   const plan = SUITES.filter((s) => {
     if (only.length && !only.includes(s.name) && !(s.case && only.includes(s.case))) return false;
-    return !SHARD || s.shard === SHARD;
+    if (SHARD && s.shard !== SHARD) return false;
+    if (CI && s.gpu && !only.length) { skipped.push([s.name, 'needs a GPU; run it locally']); return false; }
+    return true;
   });
   /* THE FILE:// SUITE GOES FIRST.  One Chrome walks the chain by `location.href`, and a
      page served over http MAY NOT navigate to a `file://` URL — Chrome blocks it silently,
