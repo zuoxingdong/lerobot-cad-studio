@@ -1,0 +1,10 @@
+/* The studio's one stylesheet, in cascade order: the design tokens, the base layer (reset,
+   type, controls, Home, the page frame, the tree, the centre column) and the panels and
+   overlays.  esbuild inlines all three into the built page. */
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./panels.css";
+@import "./ops.css";
+@import "./sim.css";
+@import "./agent.css";

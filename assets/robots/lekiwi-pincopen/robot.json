@@ -1,0 +1,656 @@
+{
+ "schema": "rps/robot@2",
+ "id": "lekiwi-pincopen",
+ "name": "LeKiwi + PincOpen",
+ "description": "LeKiwi with the PincOpen gripper on the wrist, the over-the-shoulder corner mast carrying the top camera, the DF200 forward arch carrying the wrist camera and the vertical Pi case. Every slot offers the design that is on the robot, the stock LeKiwi or PincOpen part where there is one, nothing at all, and an import.",
+ "version": "efa608d+1b5a3dc",
+ "source": {
+  "note": "geometry inherited from the lekiwi package; the gripper comes from the pincopen package (CC-BY-SA-4.0); the parts are this project's own"
+ },
+ "units": "mm",
+ "up": "z",
+ "base": "lekiwi",
+ "attach": [
+  {
+   "robot": "pincopen",
+   "at": "wrist_flange",
+   "local": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "note": "The PincOpen assembly frame IS lekiwi.frames.wrist_flange, by construction: that frame was derived so +X is the finger direction and the gripper's back face lands on the wrist-roll flange, so the attachment local is the identity. PincOpen assembly frame -> robot frame at the arm ZERO pose. APPROXIMATE, derived from the stock gripper. +X = the arm_wrist_roll axis (0,0.42262,-0.90631), the stock finger direction. +Z = -arm_gripper hinge axis (0,0.90631,0.42262), so the PincOpen camera stack points the same way as the stock wrist camera bracket. +Y = Z x X = robot -X, the stock jaw opening direction. Origin: the PincOpen back face (full-gripper X_min = -53.49 mm) is put on the wrist-roll output flange; the stock fixed jaw starts 1.0 mm behind it. The PincOpen mirror plane Y=0 and finger mid-plane Z=0 are put on the stock gripper centreline. Assumed: PincOpen bolts straight onto the wrist-roll flange with no adapter plate; no CAD of the real adapter was available. Expect a few mm of error along +X."
+  }
+ ],
+ "hide": [
+  "Moving_Jaw_08d-v1",
+  "STS3215_03a-v1-4",
+  "Wrist_Roll_08c-v1",
+  "Wrist-Camera-Mount-v11",
+  "Camera-Model-v3-1",
+  "Bottom-V2-v3",
+  "Top-V2-v2"
+ ],
+ "hide_note": "the WHOLE stock gripper - fixed jaw (Wrist_Roll_08c-v1), moving jaw and jaw servo - comes off and PincOpen bolts to the wrist-roll horn; the stock wrist camera is replaced by the DF200 arch; the stock flat Pi case is replaced by the vertical rev-I case (it also fouls the mast legs). These are MESHES: the links of the same names, and the frames on them, stay.",
+ "frames": {
+  "deck_top_centre_rear": {
+   "origin": [
+    0,
+    -36.5,
+    57
+   ],
+   "fit": "base_centre",
+   "note": "XY centre of the rear deck (X \u00b188, Y -81..+8)"
+  },
+  "deck_rear_pocket": {
+   "origin": [
+    0,
+    -71.65,
+    57
+   ],
+   "fit": "base_centre",
+   "note": "XY centre of the rev-I Pi case footprint (X \u00b143.75, Y -91.8..-51.5)"
+  },
+  "cam_top_corner": {
+   "origin": [
+    -75.3399,
+    -18.5711,
+    504.8547
+   ],
+   "tilt_deg": 45.0,
+   "pan_deg": 10.0,
+   "note": "the corner mast head at its shipped index-pin hole: rear-left post, panned 10\u00b0 across the workspace, 45\u00b0 nose-down"
+  }
+ },
+ "cameras": [
+  {
+   "id": "wrist",
+   "label": "Wrist",
+   "name": "Wrist (PincOpen + DF200 arch)",
+   "group": "camera",
+   "mount_frame": "wrist_flange",
+   "posed_by": "slots.wrist_camera_mount",
+   "hfov_range": [
+    40,
+    140
+   ],
+   "aspect": 1.3333333333333333,
+   "near": 14,
+   "far": 8000,
+   "tilt_deg": 35.0,
+   "verified": {
+    "against": "the DF200 wrist arch as shipped: assets/parts/df200_arch/part.json -> cameras.wrist, folded through frames.wrist_flange. The PincOpen assembly frame IS that frame, so the fold is the identity.",
+    "sensor_pincopen_mm": [
+     -19.9583,
+     0.0,
+     99.2316
+    ],
+    "design_tilt_deg": 35.0,
+    "verified_tilt_deg": null,
+    "droop_deg": null,
+    "droop_note": "unmeasured - nothing has been photographed through this bracket yet.",
+    "framing_source": "gen_wristcam_arch.framing_table() and its landmark table, at hFOV 87.3\u00b0 (half-vFOV 35.582\u00b0)",
+    "gates": "Gates: the servo LED and the servo nose out of frame by at least 4.7\u00b0 at every pupil offset in the bracket, |v_grasp| <= 1, and both pads in frame closed and at 40 mm open. At hFOV 87.3\u00b0 only 30\u00b0 and 35\u00b0 pass, by 9.25 and 1.96\u00b0 of LED margin over the gate. The rest fail the LED gate: 40\u00b0 by 5.31\u00b0, 45\u00b0 by 12.56\u00b0, 50\u00b0 by 19.79\u00b0, 55\u00b0 by 26.99\u00b0, 60\u00b0 by 34.16\u00b0. 35\u00b0 is shipped as the steeper of the two that pass, so it keeps the most gripper-relative resolution."
+   },
+   "note": "DEVICE ONLY - the mount pose is published by the fitted `wrist_camera_mount` option, in the `wrist_flange` frame, so it follows the arm. The default (df200_arch) puts the sensor at (-19.96, 0.00, 99.23) in the PincOpen assembly frame, 35\u00b0 below the finger direction (+X); the stock SO-101 bracket is on `stock`, and `pincopen_holder` / `none` publish `null` - the camera is off.",
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "source": {
+    "value": 87.3,
+    "vfov_deg": 71.1,
+    "what": "user-confirmed DF200 100\u00b0 diagonal, 640 \u00d7 480 4:3, rectilinear.",
+    "derivation": "All three cameras on the robot are the JR DF200 \"100\u00b0 without distortion\" module, streamed MJPG at 640 \u00d7 480 (user-confirmed 2026-09-15). 100\u00b0 on the DIAGONAL of a rectilinear 4:3 frame is 2*atan(tan(50)*4/5) = 87.3\u00b0 horizontal, 2*atan(tan(50)*3/5) = 71.1\u00b0 vertical. This is a hardware fact, not a fit: the fitted numbers this package shipped before are the alternatives beside it.",
+    "url": "user-confirmed hardware: JR DF200, 2026-09-15"
+   },
+   "alternatives": [
+    {
+     "hfov_deg": 60,
+     "label": "measured from the top feed",
+     "note": "A two-landmark (front omni-wheel tops) fit of one screenshot of the live top feed. It is under-determined - tilt and FOV trade against each other - and at the confirmed 87.3 the same screenshot no longer reproduces: its wheel spacing and its silhouette scale want 60-66. The screenshot is most likely a crop. Kept so the old coverage numbers can be reproduced.",
+     "url": "measured: fit of the live top-camera feed, 2026-09-12"
+    },
+    {
+     "hfov_deg": 81,
+     "label": "measured from the wrist feed",
+     "note": "A three-landmark (servo LED, gripper body top edge, fingertip) least-squares fit of the real wrist feed: 32.7\u00b0 half-vFOV, i.e. 65.4\u00b0 V = 81\u00b0 H at 4:3. The three landmarks solved separately give 74.6 / 83.3 / 90.8, mean 82.9 - the confirmed 87.3 is inside that spread.",
+     "url": "measured: least-squares fit of the real wrist image, 2026-09-13"
+    },
+    {
+     "hfov_deg": 90,
+     "label": "Arducam OV5648 (LeKiwi BOM)",
+     "note": "The camera the upstream LeKiwi BOM lists for base_camera_mount.stl: Arducam 5MP OV5648 wide-angle USB, \"Field of View (FOV): 90 degree (H)\", M12 lens. It is the camera the URDF models; it is not the one on this robot.",
+     "url": "https://www.uctronics.com/arducam-5mp-wide-angle-usb-camera-for-computer-1-4-cmos-ov5648-mini-uvc-usb.html"
+    }
+   ]
+  },
+  {
+   "id": "top",
+   "label": "Top",
+   "name": "Top (corner mast)",
+   "group": "camera",
+   "mount_frame": "robot",
+   "posed_by": "slots.top_camera_mount",
+   "from_frame": "cam_top_corner",
+   "hfov_range": [
+    30,
+    120
+   ],
+   "aspect": 1.3333333333333333,
+   "near": 26,
+   "far": 9000,
+   "verified": {
+    "against": "the corner mast as shipped: assets/parts/corner_mast_printed/part.json -> cameras.top, in robot millimetres.",
+    "design_tilt_deg": 45.0,
+    "verified_tilt_deg": null,
+    "droop_deg": null,
+    "droop_note": "unmeasured - nothing has been photographed through this mast yet.",
+    "note": "The package poses the corner mast's DESIGN. No camera on this robot has a measured as-installed offset, so `calibDefaultFor()` yields 0 for all three and the strip shows \"unmeasured\"."
+   },
+   "note": "DEVICE ONLY - the mount pose is published by the fitted `top_camera_mount` option, in ROBOT millimetres. The default (corner_mast_printed) puts the sensor at (-75.34, -18.57, 504.85), 45\u00b0 nose-down and panned 10\u00b0; `none` - which is what stock LeKiwi carries overhead - publishes `null`, and the camera is off. Column-major: col0 = image right, col1 = image up, col2 = -optical axis, col3 = sensor point.",
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "source": {
+    "value": 87.3,
+    "vfov_deg": 71.1,
+    "what": "user-confirmed DF200 100\u00b0 diagonal, 640 \u00d7 480 4:3, rectilinear.",
+    "derivation": "All three cameras on the robot are the JR DF200 \"100\u00b0 without distortion\" module, streamed MJPG at 640 \u00d7 480 (user-confirmed 2026-09-15). 100\u00b0 on the DIAGONAL of a rectilinear 4:3 frame is 2*atan(tan(50)*4/5) = 87.3\u00b0 horizontal, 2*atan(tan(50)*3/5) = 71.1\u00b0 vertical. This is a hardware fact, not a fit: the fitted numbers this package shipped before are the alternatives beside it.",
+    "url": "user-confirmed hardware: JR DF200, 2026-09-15"
+   },
+   "alternatives": [
+    {
+     "hfov_deg": 60,
+     "label": "measured from the top feed",
+     "note": "A two-landmark (front omni-wheel tops) fit of one screenshot of the live top feed. It is under-determined - tilt and FOV trade against each other - and at the confirmed 87.3 the same screenshot no longer reproduces: its wheel spacing and its silhouette scale want 60-66. The screenshot is most likely a crop. Kept so the old coverage numbers can be reproduced.",
+     "url": "measured: fit of the live top-camera feed, 2026-09-12"
+    },
+    {
+     "hfov_deg": 81,
+     "label": "measured from the wrist feed",
+     "note": "A three-landmark (servo LED, gripper body top edge, fingertip) least-squares fit of the real wrist feed: 32.7\u00b0 half-vFOV, i.e. 65.4\u00b0 V = 81\u00b0 H at 4:3. The three landmarks solved separately give 74.6 / 83.3 / 90.8, mean 82.9 - the confirmed 87.3 is inside that spread.",
+     "url": "measured: least-squares fit of the real wrist image, 2026-09-13"
+    },
+    {
+     "hfov_deg": 90,
+     "label": "Arducam OV5648 (LeKiwi BOM)",
+     "note": "The camera the upstream LeKiwi BOM lists for base_camera_mount.stl: Arducam 5MP OV5648 wide-angle USB, \"Field of View (FOV): 90 degree (H)\", M12 lens. It is the camera the URDF models; it is not the one on this robot.",
+     "url": "https://www.uctronics.com/arducam-5mp-wide-angle-usb-camera-for-computer-1-4-cmos-ov5648-mini-uvc-usb.html"
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "top_camera_mount": {
+   "label": "Overhead camera mount",
+   "anchor": "deck_top_centre_rear",
+   "hint": "The mast that carries the top-down camera over the deck.",
+   "provides": [
+    "cameras.top"
+   ],
+   "default": "corner_mast_printed",
+   "covers": [],
+   "options": [
+    "corner_mast_printed",
+    {
+     "id": "none",
+     "label": "No overhead camera (stock LeKiwi)",
+     "kind": "none",
+     "cameras": {
+      "top": null
+     },
+     "note": "Stock LeKiwi has no mast and no top camera - the deck is bare. The overhead view is this project's addition."
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "deck_grid"
+    }
+   ]
+  },
+  "wrist_camera_mount": {
+   "label": "Wrist camera mount",
+   "anchor": "wrist_flange",
+   "hint": "The camera that looks down the fingers; seats on the PincOpen camera face (Z 19.5).",
+   "provides": [
+    "cameras.wrist"
+   ],
+   "default": "df200_arch",
+   "covers": [
+    "camera_basement",
+    "camera_mobile_sup",
+    "Wrist-Camera-Mount-v11",
+    "Camera-Model-v3-1"
+   ],
+   "interface": {
+    "seat_z": 19.5,
+    "hole_pattern_mm": [
+     15.0,
+     37.82
+    ],
+    "note": "the camera face of the PincOpen gripper, as that package publishes it"
+   },
+   "options": [
+    "df200_arch",
+    {
+     "id": "pincopen_holder",
+     "label": "PincOpen camera holder (as assembled)",
+     "kind": "components",
+     "show": [
+      "camera_basement",
+      "camera_mobile_sup"
+     ],
+     "cameras": {
+      "wrist": null
+     },
+     "note": "The camera stack upstream PincOpen ships: the basement bolted to the 4x M2 seat at Z 19.5, with the sliding support in it up to Z 104.9. It publishes NO camera pose, and that is a measurement, not an omission. The PincOpen package declares no sensor and no lens for this holder, and the camera face is a SEAT (four M2 at Z 19.50), not a sensor datum. The support slides, so there is no height to publish either. Fitting this therefore switches the wrist camera OFF: measure your own head and type the pose in under \"As installed\"."
+    },
+    {
+     "id": "stock",
+     "label": "Stock LeKiwi wrist camera",
+     "kind": "components",
+     "show": [
+      "Wrist-Camera-Mount-v11",
+      "Camera-Model-v3-1"
+     ],
+     "cameras": {
+      "wrist": {
+       "carrier": "Camera-Model-v3-1",
+       "local": [
+        -0.573576436,
+        -0.0,
+        0.819152044,
+        0.0,
+        0.14224426,
+        0.984807753,
+        0.099600503,
+        0.0,
+        -0.806707284,
+        0.173648178,
+        -0.564862521,
+        0.0,
+        8.458769771,
+        -14.30825337,
+        -11.167946599,
+        1.0
+       ],
+       "tilt_deg": -34.3927,
+       "tilt_robot_deg_at_zero": 80.0,
+       "source": "the stock SO-101 wrist bracket (Wrist-Camera-Mount-v11), recovered from the URDF: the camera-in-mesh transform of the front module Camera-Model-v3, re-applied to the Camera-Model-v3-1 instance the wrist carries - the two are the same mesh. `tilt_deg` is nose-down in the CARRIER frame (this camera link); in the ROBOT frame, at the URDF zero pose, the lens sits 80\u00b0 nose-down. Intrinsics from user-confirmed hardware: JR DF200, 2026-09-15."
+      }
+     },
+     "note": "The stock SO-101 wrist bracket and its camera module, on the wrist-roll link - the same pose the stock LeKiwi package publishes, to the byte. It cannot share the wrist with PincOpen, whose top plate is in the same place, so fitting it swaps the gripper back to the stock jaw."
+    },
+    {
+     "id": "none",
+     "label": "No wrist camera",
+     "kind": "none",
+     "cameras": {
+      "wrist": null
+     }
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "wrist_flange"
+    }
+   ]
+  },
+  "gripper": {
+   "label": "Gripper",
+   "anchor": "wrist_flange",
+   "hint": "What is bolted to the wrist-roll flange.",
+   "default": "pincopen",
+   "covers": [
+    "attachment:pincopen",
+    "Wrist_Roll_08c-v1",
+    "Moving_Jaw_08d-v1",
+    "STS3215_03a-v1-4"
+   ],
+   "options": [
+    {
+     "id": "pincopen",
+     "label": "PincOpen (as assembled)",
+     "kind": "attachment",
+     "package": "pincopen"
+    },
+    {
+     "id": "stock_jaw",
+     "label": "Stock SO-101 jaw",
+     "kind": "components",
+     "show": [
+      "Wrist_Roll_08c-v1",
+      "Moving_Jaw_08d-v1",
+      "STS3215_03a-v1-4"
+     ],
+     "note": "The whole stock gripper back on the wrist: the fixed jaw, the moving jaw it closes onto and the gripper motor in its stock place, with the stock wrist camera back on its bracket. PincOpen reuses that same motor, remounted."
+    },
+    {
+     "id": "none",
+     "label": "No gripper (bare wrist)",
+     "kind": "none"
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "wrist_flange"
+    }
+   ]
+  },
+  "fingertips": {
+   "label": "Fingertips",
+   "anchor": "fingertip_pad",
+   "mirrored": true,
+   "hint": "The Tip_Support that bolts to each finger on the 3x M2 pattern.",
+   "default": "original",
+   "covers": [
+    "tip_support",
+    "tip_support_2",
+    "removable_tip",
+    "removable_tip_2"
+   ],
+   "interface": {
+    "holes_mm": [
+     [
+      51.64,
+      3.5
+     ],
+     [
+      51.64,
+      -3.5
+     ],
+     [
+      61.64,
+      0.0
+     ]
+    ],
+    "note": "the 3x M2 tip pattern, as the PincOpen package publishes it"
+   },
+   "options": [
+    {
+     "id": "original",
+     "label": "Original PincOpen tips",
+     "kind": "components",
+     "show": [
+      "tip_support",
+      "tip_support_2",
+      "removable_tip",
+      "removable_tip_2"
+     ],
+     "note": "The Tip_Support pair and their removable noses as upstream PincOpen ships them - what is on the robot. They bolt to the PincOpen fingers on the 3x M2 pattern, so they need the PincOpen gripper: fitting them brings it back, and taking it off takes them off."
+    },
+    {
+     "id": "none",
+     "label": "No fingertips (bare fingers)",
+     "kind": "none"
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "fingertip_pad"
+    }
+   ]
+  },
+  "pi_case": {
+   "label": "Raspberry Pi case",
+   "anchor": "deck_rear_pocket",
+   "hint": "The Pi 5 enclosure in the deck rear pocket.",
+   "default": "vertical_revI",
+   "covers": [
+    "Bottom-V2-v3",
+    "Top-V2-v2"
+   ],
+   "options": [
+    "vertical_revI:pi_case_vertical",
+    {
+     "id": "stock",
+     "label": "Stock LeKiwi case (Bottom-V2 + Top-V2)",
+     "kind": "components",
+     "show": [
+      "Bottom-V2-v3",
+      "Top-V2-v2"
+     ],
+     "note": "The flat stock case - it lies across the rear deck and blocks the mast legs."
+    },
+    {
+     "id": "none",
+     "label": "No Pi case",
+     "kind": "none"
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "deck_grid"
+    }
+   ]
+  },
+  "front_camera": {
+   "label": "Front camera",
+   "anchor": "Camera-Mount-v8",
+   "default": "stock",
+   "hint": "The forward-looking camera on the base bracket.",
+   "provides": [
+    "cameras.front"
+   ],
+   "covers": [
+    "Camera-Model-v3",
+    "Camera-Mount-v8"
+   ],
+   "options": [
+    {
+     "id": "stock",
+     "label": "Stock LeKiwi front camera",
+     "kind": "components",
+     "show": [
+      "Camera-Model-v3",
+      "Camera-Mount-v8"
+     ],
+     "cameras": {
+      "front": {
+       "carrier": "Camera-Model-v3",
+       "local": [
+        -0.173648177667,
+        -2.12657684958e-17,
+        -0.984807753012,
+        0,
+        0.969846310393,
+        -0.173648177667,
+        -0.171010071663,
+        0,
+        -0.171010071663,
+        -0.984807753012,
+        0.030153689607,
+        0,
+        -15.4958963875,
+        5.38549325584,
+        -11.483627943,
+        1
+       ],
+       "tilt_deg": 1.7279,
+       "tilt_robot_deg_at_zero": -10.0,
+       "source": "the stock LeKiwi front bracket, recovered from the URDF visual origin of Camera-Model-v3 (see the package note). `tilt_deg` is nose-down in the CARRIER frame (this camera link); in the ROBOT frame, at the URDF zero pose, the lens sits -10\u00b0 nose-down. Intrinsics from user-confirmed hardware: JR DF200, 2026-09-15."
+      }
+     }
+    },
+    {
+     "id": "none",
+     "label": "No front camera",
+     "kind": "none",
+     "cameras": {
+      "front": null
+     }
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "Camera-Mount-v8"
+    }
+   ]
+  }
+ },
+ "rules": [
+  {
+   "slot": "wrist_camera_mount",
+   "option": "df200_arch",
+   "requires": {
+    "gripper": {
+     "any": [
+      "pincopen"
+     ],
+     "else": "pincopen"
+    }
+   }
+  },
+  {
+   "slot": "wrist_camera_mount",
+   "option": "pincopen_holder",
+   "requires": {
+    "gripper": {
+     "any": [
+      "pincopen"
+     ],
+     "else": "pincopen"
+    }
+   }
+  },
+  {
+   "slot": "wrist_camera_mount",
+   "option": "stock",
+   "requires": {
+    "gripper": {
+     "any": [
+      "stock_jaw",
+      "none",
+      "import"
+     ],
+     "else": "stock_jaw"
+    }
+   }
+  },
+  {
+   "slot": "gripper",
+   "option": "pincopen",
+   "requires": {
+    "wrist_camera_mount": {
+     "any": [
+      "df200_arch",
+      "pincopen_holder",
+      "none",
+      "import"
+     ],
+     "else": "df200_arch"
+    }
+   }
+  },
+  {
+   "slot": "gripper",
+   "option": "stock_jaw",
+   "requires": {
+    "wrist_camera_mount": {
+     "any": [
+      "stock",
+      "none",
+      "import"
+     ],
+     "else": "stock"
+    },
+    "fingertips": {
+     "any": [
+      "none",
+      "import"
+     ],
+     "else": "none"
+    }
+   }
+  },
+  {
+   "slot": "gripper",
+   "option": "none",
+   "requires": {
+    "wrist_camera_mount": {
+     "any": [
+      "stock",
+      "none",
+      "import"
+     ],
+     "else": "none"
+    },
+    "fingertips": {
+     "any": [
+      "none",
+      "import"
+     ],
+     "else": "none"
+    }
+   }
+  },
+  {
+   "slot": "gripper",
+   "option": "import",
+   "requires": {
+    "wrist_camera_mount": {
+     "any": [
+      "stock",
+      "none",
+      "import"
+     ],
+     "else": "none"
+    },
+    "fingertips": {
+     "any": [
+      "none",
+      "import"
+     ],
+     "else": "none"
+    }
+   }
+  },
+  {
+   "slot": "fingertips",
+   "option": "original",
+   "requires": {
+    "gripper": {
+     "any": [
+      "pincopen"
+     ],
+     "else": "pincopen"
+    }
+   }
+  }
+ ],
+ "default_design": {
+  "top_camera_mount": "corner_mast_printed",
+  "wrist_camera_mount": "df200_arch",
+  "gripper": "pincopen",
+  "fingertips": "original",
+  "pi_case": "vertical_revI",
+  "front_camera": "stock"
+ },
+ "mass": {
+  "estimate_kg": 2.69,
+  "band_kg": [
+   2.3,
+   3.1
+  ],
+  "source": "The stock LeKiwi estimate (2.45 kg, see the lekiwi package) plus this build's net 0.24 kg by the sim's volume rule. Added: the PincOpen gripper, the corner mast and the DF200 arch with their two modules, the vertical Pi case. Removed: the stock jaws, wrist camera mount and Pi case. The band is that 2.69 kg \u00b115 %."
+ },
+ "thumbnail": "thumb.png",
+ "generated_by": "tools/build/make_robots.py"
+}

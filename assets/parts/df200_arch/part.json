@@ -1,0 +1,151 @@
+{
+ "schema": "rps/part@1",
+ "id": "df200_arch",
+ "label": "DF200 arch \u00b7 35\u00b0",
+ "robot": "lekiwi-pincopen",
+ "slot": "wrist_camera_mount",
+ "frame": "attachment",
+ "local": null,
+ "meshes": [
+  {
+   "id": "arch",
+   "label": "DF200 wrist arch \u00b7 frame",
+   "file": "mesh/arch.stl",
+   "print": "print/arch_PRINT.stl",
+   "print_name": "df200_arch_arch_PRINT.stl",
+   "color": "#46a08b",
+   "volume_cm3": 20.179,
+   "note": "Feet on the Z 19.50 seat and rails at |Y| 14.8..27.1, outboard of the servo. TRUE 4 mm leg plates at |Y| 22.6..26.6, coplanar with the cheeks they feed: rev 1 lofted them between planes 5.1 mm apart while the profile climbed 51 mm, so the web measured 0.54-0.84 mm perpendicular. A 45\u00b0 humped crossbar over the servo's connectors, the zip-tie lug and the 30..60\u00b0 index fan. Prints UPRIGHT on its own two seat rails: 398.5 mm\u00b2 of bed contact against rev 1's 0.0, and 12.5 % overhang. Support the two cheek undersides, the fan's lower edge and the crown hump."
+  },
+  {
+   "id": "head",
+   "label": "DF200 wrist arch \u00b7 camera head",
+   "file": "mesh/head.stl",
+   "print": "print/head_PRINT.stl",
+   "print_name": "df200_arch_head_PRINT.stl",
+   "color": "#46a08b",
+   "volume_cm3": 13.678,
+   "note": "The clamp block alone: 36.4 \u00d7 36.4 pocket, 3 mm lip, OPEN REAR, two ears. The tilt index seats are BLIND, 3.0 mm deep, and cut in BOTH side walls, which is what makes this ONE STL for the corner mast and the wrist arch. Prints lens face down on 975.8 mm\u00b2 of bed contact, 5.5 % overhang. Support the two hinge-lug ends - a 23.7 mm bridge."
+  },
+  {
+   "id": "retainer",
+   "label": "DF200 wrist arch \u00b7 camera retainer",
+   "file": "mesh/retainer.stl",
+   "print": "part:cam_retainer",
+   "color": "#7fb2e8",
+   "volume_cm3": 5.998,
+   "note": "The 58 \u00d7 26 retainer plate with its 24 \u00d7 14 cable window, at its seated pose on the head's ears. NOT a plate of this set: print the shared \"Camera retainer plate\" upgrade instead. It is the same solid to 0.005 mm, measured on the exported meshes, and one of them serves every camera head this project builds. 2x M3 \u00d7 12 self-tapping into \u00d82.60 \u00d7 9.50 pilots, 8.0 mm of bite."
+  },
+  {
+   "id": "df200",
+   "label": "DF200 wrist arch \u00b7 DF200 module (stand-in)",
+   "file": "mesh/df200.stl",
+   "hardware": true,
+   "color": "#2b3138",
+   "volume_cm3": 17.641,
+   "note": "The JR DF200 module itself, as a volumetric stand-in: 36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 lens barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 rear connector, sensor 4 mm behind the front face. Seated in the pocket at the shipped detent, front face on the 3 mm lip, barrel through the 30 \u00d7 30 aperture. The connector is on the image-UP axis, so it passes the retainer's 24 \u00d7 14 window. Measured on the exported meshes: module n head 0.001 mm\u00b3, connector n retainer 0.000 mm\u00b3. The retainer boss presses the back face by 0.40 mm (206 mm\u00b3 - the clamp preload; a 0.5 mm pocket shim goes behind a thinner module). NOT a printable part: it is what you buy."
+  }
+ ],
+ "cameras": {
+  "wrist": {
+   "local": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.573576436351046,
+    0.0,
+    0.8191520442889918,
+    0.0,
+    -0.8191520442889918,
+    -0.0,
+    0.573576436351046,
+    0.0,
+    -19.958320327161772,
+    0.0,
+    99.23161506172266,
+    1.0
+   ],
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "aspect": 1.3333333333333333,
+   "source": "user-confirmed JR DF200 \"100\u00b0 without distortion\", 640 \u00d7 480 MJPG 4:3, rectilinear -> 87.3\u00b0 H / 71.1\u00b0 V (2026-09-15)",
+   "tilt_deg": 35.0
+  }
+ },
+ "mount": {
+  "interface": "camera_plate",
+  "bolts_mm": [
+   [
+    -41.27,
+    18.91
+   ],
+   [
+    -41.27,
+    -18.91
+   ],
+   [
+    -26.27,
+    18.91
+   ],
+   [
+    -26.27,
+    -18.91
+   ]
+  ],
+  "face": {
+   "point": [
+    -40.3471,
+    0.0018,
+    19.5
+   ],
+   "normal": [
+    0,
+    0,
+    -1
+   ]
+  }
+ },
+ "params": {
+  "tilt_deg": {
+   "kind": "hinge",
+   "value": 35.0,
+   "values": [
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+   ],
+   "usable": [
+    30.0,
+    35.0
+   ],
+   "origin": [
+    -42.16295090390226,
+    0.0,
+    74.49390334559011
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "design": 35.0,
+   "moves": [
+    "head",
+    "retainer",
+    "df200"
+   ],
+   "camera": "wrist"
+  }
+ },
+ "source": "this project",
+ "notes": "The DF200 on the wrist, ahead of the servo instead of behind it: the motor and its LED leave the frame by GEOMETRY, not by tilt. Two plates, 42.0 g; 49.4 g with the shared retainer, against a 60 g budget. Tilt is a hinge detent, 30..60\u00b0 in 5\u00b0 steps. The framing model measures from the lens ENTRANCE PUPIL, 8 mm in front of the sensor point, not from the sensor. Shipped at 35\u00b0, where the servo LED clears the frame by 6.66\u00b0; at 40\u00b0 it is 0.61\u00b0 inside it. Only 30\u00b0 and 35\u00b0 pass every gate.",
+ "docs": [
+  "ASSEMBLY.md",
+  "DESIGN.md"
+ ]
+}

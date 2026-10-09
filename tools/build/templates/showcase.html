@@ -1,0 +1,36 @@
+<!--
+  tools/build/templates/showcase.html - the shell for the built site/showcase.html.
+
+  tools/build/build.mjs replaces the markers with the bundled CSS, the manifest of
+  site/lab/, __PAGES_URL__ and the JS (an IIFE, so the page also runs from file://). The big assets
+  load after first paint: fetched over http, or through their .js wrappers from file://.
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>LeKiwi + PincOpen · photoreal showcase</title>
+<meta name="description" content="LeKiwi + PincOpen carries a sample puck through a photoreal lab: the MuJoCo run replayed in the browser with the hero film's cameras.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="__PAGES_URL__showcase.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LeRobot CAD Studio">
+<meta property="og:title" content="LeKiwi + PincOpen · photoreal showcase">
+<meta property="og:description" content="The MuJoCo lab run replayed in the browser in a baked photoreal lab, with the hero film's cameras.">
+<meta property="og:url" content="__PAGES_URL__showcase.html">
+<meta property="og:image" content="__PAGES_URL__media/hero-poster.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="LeKiwi + PincOpen carries a sample puck to the incubator in the photoreal lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/*__CSS__*/
+</style>
+<div id="app"></div>
+<script>
+/*__MANIFEST__*/
+</script>
+<script>
+/*__JS__*/
+</script>

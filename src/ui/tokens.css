@@ -1,0 +1,86 @@
+/* The design system's colour, spacing and type tokens.  Light lives on bare :root; dark is
+   declared twice — the system query guarded with :root:not([data-theme="light"]), and
+   :root[data-theme="dark"] — so the theme toggle wins in both directions. */
+
+/* The web font is loaded ONCE, by the <link> in tools/build/templates/index.html; an @import here
+   fetched the same stylesheet a second time on every page load.  Offline the stacks below
+   fall back to the system faces. */
+
+:root{
+  --ground:#e7eaf0; --surface:#f6f8fb; --surface-2:#ffffff; --surface-3:#eceff5;
+  --line:#c3cad5; --line-soft:#dde2ea;
+  --ink:#141920; --ink-2:#454e5c; --ink-3:#5d6678;
+  --accent:#2f5bd3; --accent-hi:#3f6fe6; --accent-ink:#ffffff;
+  --accent-soft:#e5ecfb; --accent-line:rgba(47,91,211,.45);
+  --ok:#1f6b3e; --ok-soft:#e6f2ea; --warn:#8a5200; --warn-soft:#fbefdc;
+  --err:#a3161c; --err-soft:#fbe9e9; --focus:#0b62d6;
+  --viewer-bg:#dde1e8; --viewer-bg-2:#c9cfd9;
+  --grid-line:#aab2be; --grid-line-strong:#7d8795;
+  --sel-3d:#2f6fe0; --hover-3d:rgba(47,111,224,.55);
+  --cam-front:#3a6ea8; --cam-wrist:#b0487f; --cam-top:#6b55b8;
+  --unk:#7b8494; --unk-soft:#eceff3;
+  /* read by src/scene/materials.js: the one source of colour, so the 3D outline matches the
+     2D selection.  Amber is warn only. */
+  --outline-select:#2f6fe0; --outline-hover:#6d95ea; --danger:#a3161c; --frustum:#2f5bd3;
+  --mat-robot:#ccd2da; --mat-arm:#d6dbe2; --mat-gripper:#c4cbd4; --mat-upgrade:#b7c1ce;
+  --mat-imported:#d08a3c; --mat-ghost:#aab2be;
+  --e-1:0 1px 2px rgba(20,26,34,.10);
+  --e-2:0 2px 4px rgba(20,26,34,.08), 0 8px 20px rgba(20,26,34,.12);
+  --e-3:0 4px 8px rgba(20,26,34,.10), 0 24px 64px rgba(20,26,34,.22);
+  --scrim:rgba(11,14,18,.45);
+  --sp-1:2px; --sp-2:4px; --sp-3:6px; --sp-4:8px; --sp-5:12px; --sp-6:16px;
+  --sp-8:24px; --sp-9:32px; --sp-10:48px;
+  --r-1:3px; --r-2:5px; --r-3:8px; --r-full:999px;
+  --font-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  /* type: meta · body and controls · titles · page */
+  --fs-1:11px; --fs-2:13px; --fs-3:15px; --fs-4:20px;
+  /* layout; the rail drag handles override the widths */
+  --rail-l:264px; --rail-r:320px; --row-h:28px; --ctl-h:30px; --pop-border:transparent;
+  --t-fast:120ms; --t-pop:180ms;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ground:#0d1116; --surface:#161a20; --surface-2:#1c2129; --surface-3:#11151a;
+  --line:#2b323c; --line-soft:#222831;
+  --ink:#e8ecf2; --ink-2:#aab3bf; --ink-3:#848e9c;
+  --accent:#7ea2ff; --accent-hi:#a3bdff; --accent-ink:#0d1320;
+  --accent-soft:#1d2744; --accent-line:rgba(126,162,255,.5);
+  --ok:#63b87f; --ok-soft:#152318; --warn:#e0a24a; --warn-soft:#2a2116;
+  --err:#ea6c70; --err-soft:#2a1a1c; --focus:#6aa6ff;
+  --viewer-bg:#0b0e12; --viewer-bg-2:#161b22;
+  --grid-line:#2f3742; --grid-line-strong:#4a5563;
+  --sel-3d:#7ea2ff; --hover-3d:rgba(126,162,255,.5);
+  --cam-front:#6f9fd6; --cam-wrist:#d57aa6; --cam-top:#9c89e2;
+  --unk:#7b8494; --unk-soft:#1d2229;
+  --outline-select:#7ea2ff; --outline-hover:#5b80d8; --danger:#ea6c70; --frustum:#7ea2ff;
+  --mat-robot:#8e97a4; --mat-arm:#99a2af; --mat-gripper:#848d9a; --mat-upgrade:#78838f;
+  --mat-imported:#c58038; --mat-ghost:#5d6678;
+  --e-1:0 1px 2px rgba(0,0,0,.45);
+  --e-2:0 2px 4px rgba(0,0,0,.5), 0 8px 20px rgba(0,0,0,.5);
+  --e-3:0 4px 8px rgba(0,0,0,.5), 0 24px 64px rgba(0,0,0,.55);
+  --pop-border:var(--line);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --ground:#0d1116; --surface:#161a20; --surface-2:#1c2129; --surface-3:#11151a;
+  --line:#2b323c; --line-soft:#222831;
+  --ink:#e8ecf2; --ink-2:#aab3bf; --ink-3:#848e9c;
+  --accent:#7ea2ff; --accent-hi:#a3bdff; --accent-ink:#0d1320;
+  --accent-soft:#1d2744; --accent-line:rgba(126,162,255,.5);
+  --ok:#63b87f; --ok-soft:#152318; --warn:#e0a24a; --warn-soft:#2a2116;
+  --err:#ea6c70; --err-soft:#2a1a1c; --focus:#6aa6ff;
+  --viewer-bg:#0b0e12; --viewer-bg-2:#161b22;
+  --grid-line:#2f3742; --grid-line-strong:#4a5563;
+  --sel-3d:#7ea2ff; --hover-3d:rgba(126,162,255,.5);
+  --cam-front:#6f9fd6; --cam-wrist:#d57aa6; --cam-top:#9c89e2;
+  --unk:#7b8494; --unk-soft:#1d2229;
+  --outline-select:#7ea2ff; --outline-hover:#5b80d8; --danger:#ea6c70; --frustum:#7ea2ff;
+  --mat-robot:#8e97a4; --mat-arm:#99a2af; --mat-gripper:#848d9a; --mat-upgrade:#78838f;
+  --mat-imported:#c58038; --mat-ghost:#5d6678;
+  --e-1:0 1px 2px rgba(0,0,0,.45);
+  --e-2:0 2px 4px rgba(0,0,0,.5), 0 8px 20px rgba(0,0,0,.5);
+  --e-3:0 4px 8px rgba(0,0,0,.5), 0 24px 64px rgba(0,0,0,.55);
+  --pop-border:var(--line);
+  color-scheme:dark;
+}

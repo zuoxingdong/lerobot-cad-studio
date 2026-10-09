@@ -1,0 +1,3600 @@
+{
+ "schema": "rps/robot@1",
+ "id": "lekiwi",
+ "name": "LeKiwi (stock)",
+ "description": "LeKiwi mobile base (3 omni wheels) + SO-101 arm, exactly as the upstream repo ships it.",
+ "version": "efa608d",
+ "source": {
+  "repo": "https://github.com/SIGRobotics-UIUC/LeKiwi",
+  "commit": "efa608d7ee5a495a4803b1d28cd0c955b4f1e033",
+  "license": "Apache-2.0",
+  "fetched": "2026-09-13",
+  "files": "urdf/LeKiwi.urdf, meshes/ (URDF/meshes), print/ (3DPrintMeshes) - copied verbatim, see SOURCE.md"
+ },
+ "units": "mm",
+ "up": "z",
+ "frame": {
+  "ground_z": -32.9,
+  "notes": "robot frame, mm: +X right, +Y forward, +Z up; top deck plate Z = 57.0, shoulder-pan axis at (0, 67.15)"
+ },
+ "bed": [
+  256,
+  256,
+  256
+ ],
+ "kinematics": {
+  "urdf": "urdf/LeKiwi.urdf",
+  "root_link": "base_plate_layer1-v5",
+  "mesh_dir": "meshes/",
+  "mesh_units": "mm",
+  "urdf_units": "m",
+  "scale_note": "URDF lengths are metres, the referenced meshes are millimetres and carry no <mesh scale>; multiply link poses by 1000 after FK (or the meshes by 0.001 before).",
+  "joints": [
+   {
+    "name": "base_plate_layer1-v5_baseplate2bottom_mount",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "drive_motor_mount-v11-2",
+    "xyz": [
+     -0.02,
+     -0.1,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "drive_motor_mount-v11-2_Rigid-2",
+    "type": "fixed",
+    "parent": "drive_motor_mount-v11-2",
+    "child": "ST3215_Servo_Motor-v1-2",
+    "xyz": [
+     -0.01214,
+     -0.016,
+     -0.00761
+    ],
+    "rpy": [
+     3.141592654,
+     1.570796327,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "omni_wheel_mount-v5-2_Rigid-61",
+    "type": "fixed",
+    "parent": "omni_wheel_mount-v5-2",
+    "child": "4-Omni-Directional-Wheel_Single_Body-v1-2",
+    "xyz": [
+     0.0,
+     0.0,
+     -0.007175
+    ],
+    "rpy": [
+     -1.570796327,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_back_wheel",
+    "type": "continuous",
+    "parent": "ST3215_Servo_Motor-v1-2",
+    "child": "omni_wheel_mount-v5-2",
+    "xyz": [
+     0.01025,
+     -0.0352,
+     -0.03275
+    ],
+    "rpy": [
+     -1.570796327,
+     1.570796327,
+     0.0
+    ],
+    "axis": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_baseplate2right_mount",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "drive_motor_mount-v11-1",
+    "xyz": [
+     0.07928203,
+     0.02267949,
+     0.0
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "drive_motor_mount-v11-1_Rigid-35",
+    "type": "fixed",
+    "parent": "drive_motor_mount-v11-1",
+    "child": "ST3215_Servo_Motor-v1-1",
+    "xyz": [
+     -0.0077864,
+     -0.01851355,
+     0.00761
+    ],
+    "rpy": [
+     -0.0,
+     -1.570796327,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_right_wheel",
+    "type": "continuous",
+    "parent": "ST3215_Servo_Motor-v1-1",
+    "child": "omni_wheel_mount-v5-1",
+    "xyz": [
+     0.01025,
+     0.04636234,
+     -0.01480191
+    ],
+    "rpy": [
+     -1.570796327,
+     1.570796327,
+     0.0
+    ],
+    "axis": [
+     0.866025,
+     0.0,
+     0.5
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "omni_wheel_mount-v5-1_Rigid-63",
+    "type": "fixed",
+    "parent": "omni_wheel_mount-v5-1",
+    "child": "4-Omni-Directional-Wheel_Single_Body-v1-1",
+    "xyz": [
+     0.00621373,
+     0.0,
+     0.0035875
+    ],
+    "rpy": [
+     -1.570796327,
+     0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_baseplate2left_mount",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "drive_motor_mount-v11",
+    "xyz": [
+     -0.05928203,
+     0.05732051,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "drive_motor_mount-v11_Rigid-39",
+    "type": "fixed",
+    "parent": "drive_motor_mount-v11",
+    "child": "ST3215_Servo_Motor-v1",
+    "xyz": [
+     0.0199264,
+     -0.00251355,
+     -0.00761
+    ],
+    "rpy": [
+     3.141592654,
+     1.570796327,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_left_wheel",
+    "type": "continuous",
+    "parent": "ST3215_Servo_Motor-v1",
+    "child": "omni_wheel_mount-v5",
+    "xyz": [
+     0.01025,
+     -0.01076234,
+     0.04685909
+    ],
+    "rpy": [
+     -1.570796327,
+     1.570796327,
+     0.0
+    ],
+    "axis": [
+     -0.866025,
+     -0.0,
+     0.5
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "omni_wheel_mount-v5_Rigid-65",
+    "type": "fixed",
+    "parent": "omni_wheel_mount-v5",
+    "child": "4-Omni-Directional-Wheel_Single_Body-v1",
+    "xyz": [
+     -0.00621373,
+     0.0,
+     0.0035875
+    ],
+    "rpy": [
+     -1.570796327,
+     0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-15",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "servo_controller_mount-v3",
+    "xyz": [
+     0.0,
+     0.06,
+     0.0
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-18",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "lipo_battery_mount-v3",
+    "xyz": [
+     -0.04,
+     -0.02,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "lipo_battery_mount-v3_Rigid-19",
+    "type": "fixed",
+    "parent": "lipo_battery_mount-v3",
+    "child": "Battery---Battery-5.2-Ah-DC5521-Plug-v2",
+    "xyz": [
+     -0.0115,
+     0.0,
+     -0.0065
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-20",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff_Rigid-21",
+    "type": "fixed",
+    "parent": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff",
+    "child": "base_plate_layer2-v3",
+    "xyz": [
+     0.0,
+     0.0,
+     -0.05
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer2-v3_Rigid-22",
+    "type": "fixed",
+    "parent": "base_plate_layer2-v3",
+    "child": "Bottom-V2-v3",
+    "xyz": [
+     -0.02,
+     -0.1,
+     0.007
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Bottom-V2-v3_Rigid-24",
+    "type": "fixed",
+    "parent": "Bottom-V2-v3",
+    "child": "Top-V2-v2",
+    "xyz": [
+     0.0197,
+     0.036125,
+     0.0025
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-28",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "Camera-Mount-v8",
+    "xyz": [
+     0.02,
+     0.1,
+     0.0
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Camera-Mount-v8_Rigid-29",
+    "type": "fixed",
+    "parent": "Camera-Mount-v8",
+    "child": "Camera-Model-v3",
+    "xyz": [
+     -0.034,
+     0.00636666,
+     0.03831948
+    ],
+    "rpy": [
+     3.141592654,
+     -1.396263402,
+     3.141592654
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-30",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-5",
+    "xyz": [
+     0.02,
+     -0.1,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-31",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-4",
+    "xyz": [
+     0.07660254,
+     0.06732051,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-32",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-3",
+    "xyz": [
+     -0.09660254,
+     0.03267949,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer2-v3_Rigid-42",
+    "type": "fixed",
+    "parent": "base_plate_layer2-v3",
+    "child": "Base_08q-v1",
+    "xyz": [
+     0.04,
+     0.08,
+     0.007
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Base_08q-v1_Rigid-43",
+    "type": "fixed",
+    "parent": "Base_08q-v1",
+    "child": "WaveShare_Mounting_Plate_01d-v1",
+    "xyz": [
+     -0.04,
+     -0.07525199,
+     0.0603
+    ],
+    "rpy": [
+     3.141592654,
+     0.0,
+     2.35619449
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Base_08q-v1_Rigid-44",
+    "type": "fixed",
+    "parent": "Base_08q-v1",
+    "child": "STS3215_03a-v1",
+    "xyz": [
+     -0.02975,
+     -0.04565199,
+     0.0278
+    ],
+    "rpy": [
+     1.570796327,
+     -0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_shoulder_pan",
+    "type": "continuous",
+    "parent": "STS3215_03a-v1",
+    "child": "Rotation_Pitch_08i-v1",
+    "xyz": [
+     -0.01025,
+     0.0346,
+     -0.0328
+    ],
+    "rpy": [
+     1.570796327,
+     -0.0,
+     0.0
+    ],
+    "axis": [
+     -0.0,
+     0.0,
+     1.0
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Rotation_Pitch_08i-v1_Rigid-46",
+    "type": "fixed",
+    "parent": "Rotation_Pitch_08i-v1",
+    "child": "SO_ARM100_08k_Asym_Mirror_Clip-v1",
+    "xyz": [
+     0.023,
+     -0.04085,
+     -0.0232
+    ],
+    "rpy": [
+     -0.0,
+     -0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Base_08q-v1_Rigid-47",
+    "type": "fixed",
+    "parent": "Base_08q-v1",
+    "child": "Passive_Horn_01-v1",
+    "xyz": [
+     -0.04,
+     -0.01285199,
+     0.0136
+    ],
+    "rpy": [
+     -1.570796327,
+     -0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Rotation_Pitch_08i-v1_Rigid-48",
+    "type": "fixed",
+    "parent": "Rotation_Pitch_08i-v1",
+    "child": "STS3215_03a-v1-1",
+    "xyz": [
+     -0.0163,
+     -0.04085,
+     -0.0194
+    ],
+    "rpy": [
+     0.0,
+     -0.0,
+     -0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_shoulder_lift",
+    "type": "continuous",
+    "parent": "STS3215_03a-v1-1",
+    "child": "SO_ARM100_08k_116_Square-v1",
+    "xyz": [
+     0.0346,
+     0.01025,
+     -0.0328
+    ],
+    "rpy": [
+     3.141592654,
+     0.0,
+     -0.0
+    ],
+    "axis": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "SO_ARM100_08k_116_Square-v1_Rigid-50",
+    "type": "fixed",
+    "parent": "SO_ARM100_08k_116_Square-v1",
+    "child": "STS3215_03a-v1-2",
+    "xyz": [
+     -0.0361,
+     -0.10151227,
+     -0.01369951
+    ],
+    "rpy": [
+     -0.0,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_elbow_flex",
+    "type": "continuous",
+    "parent": "STS3215_03a-v1-2",
+    "child": "SO_ARM100_08k_Mirror-v1",
+    "xyz": [
+     0.0346,
+     -0.01306971,
+     0.03178184
+    ],
+    "rpy": [
+     -0.0,
+     -0.0,
+     -0.0
+    ],
+    "axis": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "SO_ARM100_08k_Mirror-v1_Rigid-52",
+    "type": "fixed",
+    "parent": "SO_ARM100_08k_Mirror-v1",
+    "child": "STS3215_03a-v1-3",
+    "xyz": [
+     -0.0361,
+     0.09885064,
+     0.03311838
+    ],
+    "rpy": [
+     -3.141592654,
+     0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_wrist_flex",
+    "type": "continuous",
+    "parent": "STS3215_03a-v1-3",
+    "child": "Wrist_Roll_Pitch_08i-v1",
+    "xyz": [
+     0.0346,
+     -0.03408158,
+     0.00439862
+    ],
+    "rpy": [
+     3.141592654,
+     0.0,
+     -0.0
+    ],
+    "axis": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Wrist_Roll_Pitch_08i-v1_Rigid-54",
+    "type": "fixed",
+    "parent": "Wrist_Roll_Pitch_08i-v1",
+    "child": "STS3215_03a_Wrist_Roll-v1",
+    "xyz": [
+     0.0089,
+     0.0339283,
+     -0.04850591
+    ],
+    "rpy": [
+     -3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_wrist_roll",
+    "type": "continuous",
+    "parent": "STS3215_03a_Wrist_Roll-v1",
+    "child": "Wrist_Roll_08c-v1",
+    "xyz": [
+     -0.029,
+     0.00810632,
+     0.0068695
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": [
+     0.0,
+     0.422618,
+     -0.906308
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Wrist_Roll_08c-v1_Rigid-56",
+    "type": "fixed",
+    "parent": "Wrist_Roll_08c-v1",
+    "child": "STS3215_03a-v1-4",
+    "xyz": [
+     0.013,
+     0.01994213,
+     -0.00490682
+    ],
+    "rpy": [
+     1.570796327,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "arm_gripper",
+    "type": "continuous",
+    "parent": "STS3215_03a-v1-4",
+    "child": "Moving_Jaw_08d-v1",
+    "xyz": [
+     -0.0328,
+     -0.02391225,
+     0.02702641
+    ],
+    "rpy": [
+     -1.570796327,
+     0.0,
+     -0.0
+    ],
+    "axis": [
+     -0.0,
+     -0.906308,
+     -0.422618
+    ],
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Wrist_Roll_08c-v1_Rigid-58",
+    "type": "fixed",
+    "parent": "Wrist_Roll_08c-v1",
+    "child": "Wrist-Camera-Mount-v11",
+    "xyz": [
+     0.013,
+     0.0271926,
+     -0.00152587
+    ],
+    "rpy": [
+     -1.570796327,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-69",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-2",
+    "xyz": [
+     0.1,
+     -0.02,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "base_plate_layer1-v5_Rigid-70",
+    "type": "fixed",
+    "parent": "base_plate_layer1-v5",
+    "child": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-1",
+    "xyz": [
+     -0.1,
+     -0.02,
+     0.0
+    ],
+    "rpy": [
+     3.141592654,
+     -0.0,
+     0.0
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   },
+   {
+    "name": "Wrist-Camera-Mount-v11_Rigid-71",
+    "type": "fixed",
+    "parent": "Wrist-Camera-Mount-v11",
+    "child": "Camera-Model-v3-1",
+    "xyz": [
+     0.00155,
+     0.00712333,
+     0.06397354
+    ],
+    "rpy": [
+     1.570796327,
+     -0.0,
+     2.181661565
+    ],
+    "axis": null,
+    "lower": null,
+    "upper": null
+   }
+  ],
+  "arm_joint_order": [
+   "arm_shoulder_pan",
+   "arm_shoulder_lift",
+   "arm_elbow_flex",
+   "arm_wrist_flex",
+   "arm_wrist_roll",
+   "arm_gripper"
+  ],
+  "arm_links": [
+   "Base_08q-v1",
+   "Camera-Model-v3",
+   "Camera-Model-v3-1",
+   "Camera-Mount-v8",
+   "Moving_Jaw_08d-v1",
+   "Rotation_Pitch_08i-v1",
+   "SO_ARM100_08k_116_Square-v1",
+   "SO_ARM100_08k_Asym_Mirror_Clip-v1",
+   "SO_ARM100_08k_Mirror-v1",
+   "STS3215_03a-v1",
+   "STS3215_03a-v1-1",
+   "STS3215_03a-v1-2",
+   "STS3215_03a-v1-3",
+   "STS3215_03a-v1-4",
+   "STS3215_03a_Wrist_Roll-v1",
+   "WaveShare_Mounting_Plate_01d-v1",
+   "Wrist-Camera-Mount-v11",
+   "Wrist_Roll_08c-v1",
+   "Wrist_Roll_Pitch_08i-v1"
+  ],
+  "drive_joints": [
+   "base_left_wheel",
+   "base_right_wheel",
+   "base_back_wheel"
+  ],
+  "joint_limits_deg": {
+   "arm_shoulder_pan": [
+    -110.0,
+    110.0
+   ],
+   "arm_shoulder_lift": [
+    -194.8,
+    5.2
+   ],
+   "arm_elbow_flex": [
+    -12.03,
+    181.63
+   ],
+   "arm_wrist_flex": [
+    -19.5,
+    170.5
+   ],
+   "arm_wrist_roll": [
+    -69.29,
+    250.71
+   ],
+   "arm_gripper": [
+    -100.0,
+    10.0
+   ]
+  },
+  "joint_limits_map": {
+   "arm_shoulder_pan": {
+    "ref_joint": "shoulder_pan",
+    "sign": 1,
+    "offset_deg": 0.0,
+    "ref_limits_deg": [
+     -110.0,
+     110.0
+    ]
+   },
+   "arm_shoulder_lift": {
+    "ref_joint": "shoulder_lift",
+    "sign": -1,
+    "offset_deg": -94.8,
+    "ref_limits_deg": [
+     -100.0,
+     100.0
+    ]
+   },
+   "arm_elbow_flex": {
+    "ref_joint": "elbow_flex",
+    "sign": -1,
+    "offset_deg": 84.8,
+    "ref_limits_deg": [
+     -96.8274,
+     96.8274
+    ]
+   },
+   "arm_wrist_flex": {
+    "ref_joint": "wrist_flex",
+    "sign": -1,
+    "offset_deg": 75.5,
+    "ref_limits_deg": [
+     -95.0,
+     95.0
+    ]
+   },
+   "arm_wrist_roll": {
+    "ref_joint": "wrist_roll",
+    "sign": -1,
+    "offset_deg": 93.5,
+    "ref_limits_deg": [
+     -157.2101,
+     162.7887
+    ]
+   },
+   "arm_gripper": {
+    "ref_joint": "gripper",
+    "sign": -1,
+    "offset_deg": 0.0,
+    "ref_limits_deg": [
+     -10.0,
+     100.0
+    ]
+   }
+  },
+  "joint_limits_source": "Source: TheRobotStudio/SO-ARM100, Simulation/SO101/so101_new_calib.urdf (https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/Simulation/SO101/so101_new_calib.urdf, fetched 2026-09-12) -- the only SO-101 description that carries <limit> tags. Its <limit> values, in degrees: shoulder_pan +-110, shoulder_lift +-100, elbow_flex +-96.83, wrist_flex +-95, wrist_roll -157.21..+162.79, gripper -10..+100. The LeKiwi URDF (external/LeKiwi/URDF/LeKiwi.urdf) has NO <limit> tags and, more importantly, a DIFFERENT joint zero: its zero pose is the folded/parked CAD configuration (upper arm horizontal backwards, forearm folded forward again) while the reference zero has the upper arm up and the forearm forward. The mapping q_lekiwi = sign * q_ref + offset_deg was solved geometrically, not guessed: both URDFs describe the same physical arm, so for each joint the axis LINE (point + direction) of every downstream joint must coincide once the two chains are aligned by one rigid transform. Fitting sign+offset per joint over 6-8 random configurations leaves max axis-line offset 5.1 mm and max axis-angle 0.87 deg (identity mapping: 254 mm / 180 deg; the best wrong sign combination: 145x worse cost), the residual being the genuine CAD difference between the two exports (forearm 136.0 vs 135.0 mm, two DH offsets 1.5 and 3.5 mm apart). Signs: pan +1, lift/elbow/wrist_flex/wrist_roll/gripper -1 -- i.e. every LeKiwi arm axis except the shoulder pan points the opposite way to the SO-101 reference axis. The pan offset is not observable from geometry (a base rotation absorbs it) and is taken as 0, which is correct by inspection: at pan 0 the arm points robot +Y in both models, and the limit is symmetric anyway. The gripper offset is likewise not observable from the axis lines (nothing is downstream of it), and a mesh test cannot find it either: the stock jaw pivots INSIDE its own bracket, so Moving_Jaw_08d-v1 intersects Wrist_Roll_08c-v1 at every angle from -120 to +103 deg in the decimated meshes. It is taken as 0 on the finger-tip measurement instead: tip separation (moving-jaw tip to fixed-finger tip, collide.js gripOpening) falls monotonically 142.2 mm at -100, 62.7 at -30, 41.6 at -15, 20.1 at 0, 7.1 at +10, with its minimum 6.2 mm at +15 -- so LeKiwi arm_gripper 0 is the near-closed jaw exactly as the reference's 0 is, +10 is the closed stop (matching the reference's 10 deg of over-close) and NEGATIVE arm_gripper OPENS. This also agrees with the app's own presets, which use arm_gripper -30 for the two reaching poses. SANITY: the LeKiwi URDF zero pose (all six joints 0) lands inside every one of these ranges, 3.8..69.3 deg from the nearest stop -- as a parked CAD pose should. CAVEAT for the app: three of the four presets shipped in v3 were authored before any limit existed and fall OUTSIDE this range -- stowed (lift +40, wrist_flex -54), reach floor (lift +20, elbow -76), reach table (lift +9). Only 'raised max' is legal. Independently of the limits, collide.js finds those same three presets to be in HARD COLLISION with the robot (upper arm through Base_08q / the WaveShare plate / the deck plate), so they are not merely out of travel, they are impossible. See the SO-101 motion reference for IK-corrected replacements that hit the same tip positions. arm_joint_range_deg above is the OLD UI travel hint and is kept only so that nothing that reads it breaks; joint_limits_deg is the physical one.",
+  "zero_pose_note": "The URDF zero pose is the folded/parked CAD configuration, NOT the SO-101 reference zero; joint_limits_map carries the sign+offset that relates the two. All six joints at 0 is inside every limit."
+ },
+ "components": [
+  {
+   "id": "Base_08q-v1",
+   "label": "Arm base (08q)",
+   "link": "Base_08q-v1",
+   "mesh": "meshes/Base_08q-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    -39.999997308,
+    -58.051990748,
+    -2.4,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Passive_Horn_01-v1",
+   "label": "Passive pan horn (01)",
+   "link": "Passive_Horn_01-v1",
+   "mesh": "meshes/Passive_Horn_01-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    2.692e-06,
+    0.0,
+    -7.48e-07,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Rotation_Pitch_08i-v1",
+   "label": "Shoulder pan bracket (08i)",
+   "link": "Rotation_Pitch_08i-v1",
+   "mesh": "meshes/Rotation_Pitch_08i-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    2.692e-06,
+    12.000000748,
+    48.4,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "SO_ARM100_08k_116_Square-v1",
+   "label": "Upper arm, 116 mm (08k)",
+   "link": "SO_ARM100_08k_116_Square-v1",
+   "mesh": "meshes/SO_ARM100_08k_116_Square-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    0.996194698,
+    0.087155743,
+    0.0,
+    -0.0,
+    -0.087155743,
+    0.996194698,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -19.699997308,
+    -63.791452919,
+    -17.626866945,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "SO_ARM100_08k_Asym_Mirror_Clip-v1",
+   "label": "Shoulder clip (08k)",
+   "link": "SO_ARM100_08k_Asym_Mirror_Clip-v1",
+   "mesh": "meshes/SO_ARM100_08k_Asym_Mirror_Clip-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -0.0,
+    -1.0,
+    -0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -23.199997308,
+    -26.949999252,
+    -37.249907337,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "SO_ARM100_08k_Mirror-v1",
+   "label": "Forearm (08k)",
+   "link": "SO_ARM100_08k_Mirror-v1",
+   "mesh": "meshes/SO_ARM100_08k_Mirror-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    -0.984807753,
+    -0.173648178,
+    0.0,
+    0.0,
+    0.173648178,
+    -0.984807753,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -19.699997308,
+    69.421436185,
+    -20.252778383,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a-v1",
+   "label": "Shoulder pan servo (STS3215)",
+   "link": "STS3215_03a-v1",
+   "mesh": "meshes/STS3215_03a-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    -10.249997308,
+    15.9,
+    -20.299999252,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a-v1-1",
+   "label": "Shoulder lift servo (STS3215)",
+   "link": "STS3215_03a-v1-1",
+   "mesh": "meshes/STS3215_03a-v1-1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    15.900002692,
+    10.250000748,
+    -20.3,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a-v1-2",
+   "label": "Elbow servo (STS3215)",
+   "link": "STS3215_03a-v1-2",
+   "mesh": "meshes/STS3215_03a-v1-2.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    -0.087155743,
+    0.996194698,
+    0.0,
+    0.0,
+    -0.996194698,
+    -0.087155743,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    15.900002692,
+    -11.980260243,
+    19.329407756,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a-v1-3",
+   "label": "Wrist flex servo (STS3215)",
+   "link": "STS3215_03a-v1-3",
+   "mesh": "meshes/STS3215_03a-v1-3.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    -0.984807753,
+    -0.173648178,
+    0.0,
+    -0.0,
+    0.173648178,
+    -0.984807753,
+    0.0,
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    15.900002692,
+    -21.771486659,
+    6.56922526,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a-v1-4",
+   "label": "Stock jaw servo (STS3215)",
+   "link": "STS3215_03a-v1-4",
+   "mesh": "meshes/STS3215_03a-v1-4.stl",
+   "group": "gripper",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.906307787,
+    -0.422618262,
+    0.0,
+    0.0,
+    -0.422618262,
+    0.906307787,
+    0.0,
+    -20.299997308,
+    -16.009284576,
+    10.078452554,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "STS3215_03a_Wrist_Roll-v1",
+   "label": "Wrist roll servo (STS3215)",
+   "link": "STS3215_03a_Wrist_Roll-v1",
+   "mesh": "meshes/STS3215_03a_Wrist_Roll-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.906307787,
+    -0.422618262,
+    0.0,
+    0.0,
+    -0.422618262,
+    0.906307787,
+    0.0,
+    -16.499997308,
+    16.00928213,
+    -10.078456791,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Wrist_Roll_08c-v1",
+   "label": "Stock SO-101 fixed jaw (Wrist Roll 08c)",
+   "link": "Wrist_Roll_08c-v1",
+   "mesh": "meshes/Wrist_Roll_08c-v1.stl",
+   "group": "gripper",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    0.906307787,
+    0.422618262,
+    0.0,
+    0.0,
+    0.422618262,
+    -0.906307787,
+    0.0,
+    2.692e-06,
+    -6.36e-07,
+    1.173e-06,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": true,
+   "print_file": "print/webcam_mount/so100_gripper_cam_mount_insert.stl",
+   "print_file_match": {
+    "file": "webcam_mount/so100_gripper_cam_mount_insert.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.2242,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     2.600000381,
+     0.0,
+     1.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.037498,
+    "print_fit_rmse_mm": 0.004701815,
+    "print_bbox_mm": [
+     65.2,
+     48.0,
+     106.375
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    2.600000381,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.037498,
+   "print_fit_rmse_mm": 0.004701815,
+   "print_bbox_mm": [
+    65.2,
+    48.0,
+    106.375
+   ]
+  },
+  {
+   "id": "Wrist_Roll_Pitch_08i-v1",
+   "label": "Wrist bracket (08i)",
+   "link": "Wrist_Roll_Pitch_08i-v1",
+   "mesh": "meshes/Wrist_Roll_Pitch_08i-v1.stl",
+   "group": "arm",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.906307787,
+    0.422618262,
+    0.0,
+    -0.0,
+    -0.422618262,
+    0.906307787,
+    0.0,
+    -20.099997308,
+    11.833314901,
+    -25.376621076,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff",
+   "label": "Hex deck standoff (1 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -0.0,
+    -25.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-1",
+   "label": "Hex deck standoff (2 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-1",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-1.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -25.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-2",
+   "label": "Hex deck standoff (3 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-2",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-2.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -24.815969602,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-3",
+   "label": "Hex deck standoff (4 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-3",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-3.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    -3.78e-07,
+    -1.924e-06,
+    -25.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-4",
+   "label": "Hex deck standoff (5 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-4",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-4.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    3.78e-07,
+    1.924e-06,
+    -25.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-5",
+   "label": "Hex deck standoff (6 of 6)",
+   "link": "94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-5",
+   "mesh": "meshes/94868A713_NO-THREADS_Female-Threaded-Hex-Standoff-5.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -25.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "base_plate_layer1-v5",
+   "label": "Base plate, lower (layer 1)",
+   "link": "base_plate_layer1-v5",
+   "mesh": "meshes/base_plate_layer1-v5.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/base_plate_layer1.stl",
+   "print_file_match": {
+    "file": "base_plate_layer1.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.054,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     -1.467582703,
+     7.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     215.87,
+     212.935,
+     7.0
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.467582703,
+    7.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    215.87,
+    212.935,
+    7.0
+   ]
+  },
+  {
+   "id": "base_plate_layer2-v3",
+   "label": "Top deck plate (layer 2)",
+   "link": "base_plate_layer2-v3",
+   "mesh": "meshes/base_plate_layer2-v3.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    7.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "lipo_battery_mount-v3",
+   "label": "LiPo battery mount",
+   "link": "lipo_battery_mount-v3",
+   "mesh": "meshes/lipo_battery_mount-v3.stl",
+   "group": "base",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -10.0,
+    0.0,
+    -3.5,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/battery_mount.stl",
+   "print_file_match": {
+    "file": "battery_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0001,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     3.5,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     62.0,
+     79.0,
+     16.5
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    62.0,
+    79.0,
+    16.5
+   ]
+  },
+  {
+   "id": "Camera-Model-v3",
+   "label": "Front camera module",
+   "link": "Camera-Model-v3",
+   "mesh": "meshes/Camera-Model-v3.stl",
+   "group": "camera",
+   "frame": "mesh",
+   "local": [
+    -0.173648178,
+    -0.0,
+    -0.984807753,
+    0.0,
+    -0.96984631,
+    0.173648178,
+    0.171010072,
+    0.0,
+    0.171010072,
+    0.984807753,
+    -0.03015369,
+    0.0,
+    -16.008926602,
+    2.431069997,
+    -11.393166874,
+    1.0
+   ],
+   "color": "#2b3138",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Camera-Model-v3-1",
+   "label": "Wrist camera module",
+   "link": "Camera-Model-v3-1",
+   "mesh": "meshes/Camera-Model-v3-1.stl",
+   "group": "camera",
+   "frame": "mesh",
+   "local": [
+    -0.573576436,
+    -0.0,
+    0.819152044,
+    0.0,
+    -0.14224426,
+    -0.984807753,
+    -0.099600503,
+    0.0,
+    0.806707284,
+    -0.173648178,
+    0.564862521,
+    0.0,
+    6.038647919,
+    -13.787308837,
+    -12.862534163,
+    1.0
+   ],
+   "color": "#2b3138",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Camera-Mount-v8",
+   "label": "Front camera bracket",
+   "link": "Camera-Mount-v8",
+   "mesh": "meshes/Camera-Mount-v8.stl",
+   "group": "camera",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -20.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": "#2b3138",
+   "printable": true,
+   "print_file": "print/base_camera_mount.stl",
+   "print_file_match": {
+    "file": "base_camera_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     -3.330536366,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     16.661,
+     48.0,
+     45.185
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -3.330536366,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    16.661,
+    48.0,
+    45.185
+   ]
+  },
+  {
+   "id": "Wrist-Camera-Mount-v11",
+   "label": "Wrist camera bracket",
+   "link": "Wrist-Camera-Mount-v11",
+   "mesh": "meshes/Wrist-Camera-Mount-v11.stl",
+   "group": "camera",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.906307787,
+    0.422618262,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.422618262,
+    0.906307787,
+    0.0,
+    -12.449997308,
+    3.303e-06,
+    -3.627e-06,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Battery---Battery-5.2-Ah-DC5521-Plug-v2",
+   "label": "Battery, 5.2 Ah (DC5521 plug)",
+   "link": "Battery---Battery-5.2-Ah-DC5521-Plug-v2",
+   "mesh": "meshes/Battery---Battery-5.2-Ah-DC5521-Plug-v2.stl",
+   "group": "electronics",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.0,
+    0.0,
+    0.0,
+    -35.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "color": "#4d5f72",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "Bottom-V2-v3",
+   "label": "Stock Pi case, bottom (V2)",
+   "link": "Bottom-V2-v3",
+   "mesh": "meshes/Bottom-V2-v3.stl",
+   "group": "electronics",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    1.0,
+    0.0,
+    19.99999997,
+    36.0,
+    0.0,
+    1.0
+   ],
+   "color": "#b5714c",
+   "printable": true,
+   "print_file": "print/pi_case_bottom.stl",
+   "print_file_match": {
+    "file": "pi_case_bottom.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0007,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     -5.078968048,
+     0.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.024395,
+    "print_fit_rmse_mm": 0.007559002,
+    "print_bbox_mm": [
+     93.1,
+     69.808,
+     13.284
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": true,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -5.078968048,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.024395,
+   "print_fit_rmse_mm": 0.007559002,
+   "print_bbox_mm": [
+    93.1,
+    69.808,
+    13.284
+   ]
+  },
+  {
+   "id": "Top-V2-v2",
+   "label": "Stock Pi case, top (V2)",
+   "link": "Top-V2-v2",
+   "mesh": "meshes/Top-V2-v2.stl",
+   "group": "electronics",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.300226025,
+    -0.125,
+    26.499570509,
+    1.0
+   ],
+   "color": "#b5714c",
+   "printable": true,
+   "print_file": "print/pi_case_top.stl",
+   "print_file_match": {
+    "file": "pi_case_top.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0005,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.024213,
+    "print_fit_rmse_mm": 0.006279552,
+    "print_bbox_mm": [
+     93.1,
+     59.65,
+     24.399
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": true,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.024213,
+   "print_fit_rmse_mm": 0.006279552,
+   "print_bbox_mm": [
+    93.1,
+    59.65,
+    24.399
+   ]
+  },
+  {
+   "id": "WaveShare_Mounting_Plate_01d-v1",
+   "label": "WaveShare mounting plate (01d)",
+   "link": "WaveShare_Mounting_Plate_01d-v1",
+   "mesh": "meshes/WaveShare_Mounting_Plate_01d-v1.stl",
+   "group": "electronics",
+   "frame": "mesh",
+   "local": [
+    -0.707106781,
+    0.707106781,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    1.0,
+    0.0,
+    0.707106781,
+    0.707106781,
+    0.0,
+    0.0,
+    -5.409369308,
+    -5.338654823,
+    -0.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "servo_controller_mount-v3",
+   "label": "Servo controller mount",
+   "link": "servo_controller_mount-v3",
+   "mesh": "meshes/servo_controller_mount-v3.stl",
+   "group": "electronics",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    6.0,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/servo_controller_mount.stl",
+   "print_file_match": {
+    "file": "servo_controller_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     6.0,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     60.0,
+     45.0,
+     11.0
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    6.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    60.0,
+    45.0,
+    11.0
+   ]
+  },
+  {
+   "id": "Moving_Jaw_08d-v1",
+   "label": "Stock SO-101 moving jaw (08d)",
+   "link": "Moving_Jaw_08d-v1",
+   "mesh": "meshes/Moving_Jaw_08d-v1.stl",
+   "group": "gripper",
+   "frame": "mesh",
+   "local": [
+    -1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    -0.422618262,
+    0.906307787,
+    0.0,
+    -0.0,
+    0.906307787,
+    0.422618262,
+    0.0,
+    2.692e-06,
+    18.488680684,
+    8.621416469,
+    1.0
+   ],
+   "color": "#c3c8cf",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "4-Omni-Directional-Wheel_Single_Body-v1",
+   "label": "Omni wheel, left",
+   "link": "4-Omni-Directional-Wheel_Single_Body-v1",
+   "mesh": "meshes/4-Omni-Directional-Wheel_Single_Body-v1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.129409523,
+    0.224143868,
+    0.965925826,
+    0.0,
+    0.482962913,
+    -0.836516304,
+    0.258819045,
+    0.0,
+    0.866025404,
+    0.5,
+    -0.0,
+    0.0,
+    -13.748155616,
+    -7.937504497,
+    -0.0,
+    1.0
+   ],
+   "color": "#3a3f45",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "4-Omni-Directional-Wheel_Single_Body-v1-1",
+   "label": "Omni wheel, right",
+   "link": "4-Omni-Directional-Wheel_Single_Body-v1-1",
+   "mesh": "meshes/4-Omni-Directional-Wheel_Single_Body-v1-1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.5,
+    0.866025404,
+    -0.0,
+    0.0,
+    -0.866025404,
+    0.5,
+    0.0,
+    0.0,
+    13.748155932,
+    -7.937495503,
+    -0.0,
+    1.0
+   ],
+   "color": "#3a3f45",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "4-Omni-Directional-Wheel_Single_Body-v1-2",
+   "label": "Omni wheel, back",
+   "link": "4-Omni-Directional-Wheel_Single_Body-v1-2",
+   "mesh": "meshes/4-Omni-Directional-Wheel_Single_Body-v1-2.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    0.965925826,
+    -0.0,
+    -0.258819045,
+    0.0,
+    0.258819045,
+    0.0,
+    0.965925826,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    7e-09,
+    15.875,
+    0.0,
+    1.0
+   ],
+   "color": "#3a3f45",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "ST3215_Servo_Motor-v1",
+   "label": "Drive servo, left (ST3215)",
+   "link": "ST3215_Servo_Motor-v1",
+   "mesh": "meshes/ST3215_Servo_Motor-v1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    0.866025404,
+    -0.5,
+    0.0,
+    -0.0,
+    0.5,
+    0.866025404,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    10.25,
+    6.521312294,
+    25.795246183,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "ST3215_Servo_Motor-v1-1",
+   "label": "Drive servo, right (ST3215)",
+   "link": "ST3215_Servo_Motor-v1-1",
+   "mesh": "meshes/ST3215_Servo_Motor-v1-1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    -0.866025404,
+    -0.5,
+    0.0,
+    0.0,
+    0.5,
+    -0.866025404,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    10.25,
+    19.478687706,
+    -19.238066498,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "ST3215_Servo_Motor-v1-2",
+   "label": "Drive servo, back (ST3215)",
+   "link": "ST3215_Servo_Motor-v1-2",
+   "mesh": "meshes/ST3215_Servo_Motor-v1-2.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    10.25,
+    -25.6,
+    -7.250000007,
+    1.0
+   ],
+   "color": "#242a30",
+   "printable": false,
+   "print_file": null,
+   "print_file_match": null,
+   "stock_removed": false
+  },
+  {
+   "id": "drive_motor_mount-v11",
+   "label": "Drive motor mount, left",
+   "link": "drive_motor_mount-v11",
+   "mesh": "meshes/drive_motor_mount-v11.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.866025404,
+    -0.5,
+    0.0,
+    0.0,
+    -0.5,
+    0.866025404,
+    -0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    -2.303e-06,
+    1.924e-06,
+    -3.5,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/drive_motor_mount.stl",
+   "print_file_match": {
+    "file": "drive_motor_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     3.5,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     34.0,
+     31.0,
+     11.16
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  {
+   "id": "drive_motor_mount-v11-1",
+   "label": "Drive motor mount, right",
+   "link": "drive_motor_mount-v11-1",
+   "mesh": "meshes/drive_motor_mount-v11-1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    0.866025404,
+    0.5,
+    0.0,
+    0.0,
+    -0.5,
+    0.866025404,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    2.303e-06,
+    1.924e-06,
+    3.5,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/drive_motor_mount.stl",
+   "print_file_match": {
+    "file": "drive_motor_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     3.5,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     34.0,
+     31.0,
+     11.16
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  {
+   "id": "drive_motor_mount-v11-2",
+   "label": "Drive motor mount, back",
+   "link": "drive_motor_mount-v11-2",
+   "mesh": "meshes/drive_motor_mount-v11-2.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -3.5,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/drive_motor_mount.stl",
+   "print_file_match": {
+    "file": "drive_motor_mount.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     3.5,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.0,
+    "print_fit_rmse_mm": 0.0,
+    "print_bbox_mm": [
+     34.0,
+     31.0,
+     11.16
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  {
+   "id": "omni_wheel_mount-v5",
+   "label": "Omni wheel hub, left",
+   "link": "omni_wheel_mount-v5",
+   "mesh": "meshes/omni_wheel_mount-v5.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    -0.5,
+    -0.0,
+    -0.866025404,
+    0.0,
+    -0.866025404,
+    0.0,
+    0.5,
+    0.0,
+    -4.838917003,
+    -0.0,
+    2.793754497,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/servo_wheel_hub.stl",
+   "print_file_match": {
+    "file": "servo_wheel_hub.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0049,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     -0.597381592,
+     0.000207901,
+     5.587500095,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.007671,
+    "print_fit_rmse_mm": 0.000723716,
+    "print_bbox_mm": [
+     54.65,
+     55.862,
+     14.0
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  },
+  {
+   "id": "omni_wheel_mount-v5-1",
+   "label": "Omni wheel hub, right",
+   "link": "omni_wheel_mount-v5-1",
+   "mesh": "meshes/omni_wheel_mount-v5-1.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    -0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.5,
+    -0.0,
+    0.866025404,
+    0.0,
+    0.866025404,
+    0.0,
+    0.5,
+    0.0,
+    4.838917318,
+    -0.0,
+    2.793745503,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/servo_wheel_hub.stl",
+   "print_file_match": {
+    "file": "servo_wheel_hub.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0049,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     -0.597381592,
+     0.000207901,
+     5.587500095,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.007671,
+    "print_fit_rmse_mm": 0.000723716,
+    "print_bbox_mm": [
+     54.65,
+     55.862,
+     14.0
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  },
+  {
+   "id": "omni_wheel_mount-v5-2",
+   "label": "Omni wheel hub, back",
+   "link": "omni_wheel_mount-v5-2",
+   "mesh": "meshes/omni_wheel_mount-v5-2.stl",
+   "group": "wheels",
+   "frame": "mesh",
+   "local": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    7e-09,
+    0.0,
+    -5.5875,
+    1.0
+   ],
+   "color": "#8d949e",
+   "printable": true,
+   "print_file": "print/servo_wheel_hub.stl",
+   "print_file_match": {
+    "file": "servo_wheel_hub.stl",
+    "extent_delta_mm": 0.0,
+    "volume_delta_pct": 0.0049,
+    "print_transform": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     -0.597381592,
+     0.000207901,
+     5.587500095,
+     1.0
+    ],
+    "print_fit_worst_mm": 0.007671,
+    "print_fit_rmse_mm": 0.000723716,
+    "print_bbox_mm": [
+     54.65,
+     55.862,
+     14.0
+    ],
+    "how": "matched to the upstream 3DPrintMeshes file with the same mesh volume (<=0.5 %) and the same bounding box (<=0.5 mm); a small volume delta means the print file carries a feature the URDF visual does not"
+   },
+   "stock_removed": false,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  }
+ ],
+ "frames": {
+  "ground": {
+   "z": -32.9,
+   "note": "wheel contact plane, robot mm"
+  },
+  "deck_grid": {
+   "pitch": 20,
+   "z": 57,
+   "radius": 107,
+   "hole_d": 3.5,
+   "note": "top deck plate bolt grid: 20 mm pitch, Z 57, usable radius 107, hole \u00d83.50 (M3 clearance), measured on the deck mesh"
+  },
+  "pan_axis": [
+   0,
+   67.15
+  ],
+  "reach_disc": {
+   "centre": [
+    0,
+    67.15
+   ],
+   "radius": 304,
+   "y_min": 100
+  },
+  "wrist_flange": {
+   "link": "Wrist_Roll_08c-v1",
+   "local": [
+    0,
+    0.4226179651788168,
+    -0.9063079253256678,
+    0,
+    -0.9999999999999999,
+    5.502311409442623e-48,
+    9.629811037203008e-48,
+    0,
+    2.2786090111262734e-47,
+    0.906307925325668,
+    0.4226179651788166,
+    0,
+    0,
+    22.605834957414913,
+    -48.47841092566998,
+    1
+   ],
+   "matrix_at_zero": [
+    8.133030057583163e-47,
+    0.4226179651788165,
+    -0.906307925325668,
+    0,
+    -0.9999999999999999,
+    2.5276683720604654e-47,
+    -7.795134298309805e-47,
+    0,
+    -1.0035179172538607e-47,
+    0.9063079253256681,
+    0.42261796517881633,
+    0,
+    -4.800000000000041,
+    164.52606495741495,
+    114.54826907432997,
+    1
+   ],
+   "axes": "+X = the arm_wrist_roll axis (finger direction), +Z = -arm_gripper hinge axis, +Y = Z x X",
+   "derived": "so101_wrist_flange",
+   "note": "PincOpen assembly frame -> robot frame at the arm ZERO pose. APPROXIMATE, derived from the stock gripper. +X = the arm_wrist_roll axis (0,0.42262,-0.90631), the stock finger direction. +Z = -arm_gripper hinge axis (0,0.90631,0.42262), so the PincOpen camera stack points the same way as the stock wrist camera bracket. +Y = Z x X = robot -X, the stock jaw opening direction. Origin: the PincOpen back face (full-gripper X_min = -53.49 mm) is put on the wrist-roll output flange; the stock fixed jaw starts 1.0 mm behind it. The PincOpen mirror plane Y=0 and finger mid-plane Z=0 are put on the stock gripper centreline. Assumed: PincOpen bolts straight onto the wrist-roll flange with no adapter plate; no CAD of the real adapter was available. Expect a few mm of error along +X."
+  }
+ },
+ "cameras": [
+  {
+   "id": "front",
+   "label": "Front",
+   "name": "Front (navigation)",
+   "group": "camera",
+   "hfov_range": [
+    40,
+    140
+   ],
+   "aspect": 1.3333333333333333,
+   "near": 22,
+   "far": 8000,
+   "posed_by": "slots.front_camera",
+   "note": "DEVICE ONLY - this entry is the camera, not a mount. The fitted front camera option publishes the pose: the stock bracket carries the URDF datum, and removing it switches the camera off.",
+   "pose_derivation": "camera <- Camera-Model-v3 link frame (mm), column-major: col0 = image right, col1 = image up, col2 = -optical axis, col3 = sensor point. Derived from the URDF visual origin of the link (xyz -0.01601 0.00243 -0.01139, rpy 1.74533 1.39626 -pi) plus meshes/Camera-Model-v3.stl: a 38 \u00d7 38 \u00d7 3 mm board at mesh z 0..3 with an M12 lens barrel (r 6.1..6.8) from z 3 to 21.5, so the optical axis is mesh +Z and the sensor is the board front face, mesh (0,0,3). At the base pose that is robot (0, 111.75, 25.05) aiming (0, 0.98481, 0.17365) = +Y, 10.000\u00b0 ABOVE horizontal (verified: the axis ray clears Camera-Mount-v8 and every stock mesh, never meets the ground, and matches a photograph of the real front feed). robot_matrix is the same pose already multiplied through FK, used when ctx.fk cannot resolve the link.",
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "source": {
+    "value": 87.3,
+    "vfov_deg": 71.1,
+    "what": "user-confirmed DF200 100\u00b0 diagonal, 640 \u00d7 480 4:3, rectilinear.",
+    "derivation": "All three cameras on the robot are the JR DF200 \"100\u00b0 without distortion\" module, streamed MJPG at 640 \u00d7 480 (user-confirmed 2026-09-15). 100\u00b0 on the DIAGONAL of a rectilinear 4:3 frame is 2*atan(tan(50)*4/5) = 87.3\u00b0 horizontal, 2*atan(tan(50)*3/5) = 71.1\u00b0 vertical. This is a hardware fact, not a fit: the fitted numbers this package shipped before are the alternatives beside it.",
+    "url": "user-confirmed hardware: JR DF200, 2026-09-15"
+   },
+   "alternatives": [
+    {
+     "hfov_deg": 60,
+     "label": "measured from the top feed",
+     "note": "A two-landmark (front omni-wheel tops) fit of one screenshot of the live top feed. It is under-determined - tilt and FOV trade against each other - and at the confirmed 87.3 the same screenshot no longer reproduces: its wheel spacing and its silhouette scale want 60-66. The screenshot is most likely a crop. Kept so the old coverage numbers can be reproduced.",
+     "url": "measured: fit of the live top-camera feed, 2026-09-12"
+    },
+    {
+     "hfov_deg": 81,
+     "label": "measured from the wrist feed",
+     "note": "A three-landmark (servo LED, gripper body top edge, fingertip) least-squares fit of the real wrist feed: 32.7\u00b0 half-vFOV, i.e. 65.4\u00b0 V = 81\u00b0 H at 4:3. The three landmarks solved separately give 74.6 / 83.3 / 90.8, mean 82.9 - the confirmed 87.3 is inside that spread.",
+     "url": "measured: least-squares fit of the real wrist image, 2026-09-13"
+    },
+    {
+     "hfov_deg": 90,
+     "label": "Arducam OV5648 (LeKiwi BOM)",
+     "note": "The camera the upstream LeKiwi BOM lists for base_camera_mount.stl: Arducam 5MP OV5648 wide-angle USB, \"Field of View (FOV): 90 degree (H)\", M12 lens. It is the camera the URDF models; it is not the one on this robot.",
+     "url": "https://www.uctronics.com/arducam-5mp-wide-angle-usb-camera-for-computer-1-4-cmos-ov5648-mini-uvc-usb.html"
+    },
+    {
+     "hfov_deg": 97.6,
+     "label": "110\u00b0 diagonal wide-angle",
+     "note": "Arducam B0454, \"5MP OV5648, 110 Degree DFOV Wide Angle\". 110\u00b0 on the diagonal of a rectilinear 4:3 frame is 97.6\u00b0 H / 81.2\u00b0 V.",
+     "url": "https://docs.arducam.com/UVC-Camera/USB2-UVC-Camera-Kit/Specs-and-Selection-Guide/"
+    },
+    {
+     "hfov_deg": 66,
+     "label": "conservative 90\u00b0 diagonal (2026-08)",
+     "note": "The 2026-08 coverage sweep assumed a 90\u00b0 diagonal lens as \u00b133\u00b0 horizontal and \u00b125\u00b0 vertical, i.e. 66\u00b0 H. That is conservative: a rectilinear 90\u00b0 diagonal at 4:3 is 77.3\u00b0 H. Kept so the old coverage numbers can be reproduced.",
+     "url": ""
+    }
+   ]
+  },
+  {
+   "id": "wrist",
+   "label": "Wrist",
+   "name": "Wrist (stock SO-101 mount)",
+   "group": "camera",
+   "mount_frame": "wrist_flange",
+   "hfov_range": [
+    40,
+    140
+   ],
+   "aspect": 1.3333333333333333,
+   "near": 14,
+   "far": 8000,
+   "posed_by": "slots.wrist_camera_mount",
+   "note": "DEVICE ONLY - this entry is the camera, not a mount. The fitted wrist camera mount publishes the pose. The URDF instances the same camera mesh here as on the front bracket, so it is the same module and the same lens. The LeKiwi + PincOpen package replaces this mount with the DF200 wrist arch on the PincOpen camera face.",
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "source": {
+    "value": 87.3,
+    "vfov_deg": 71.1,
+    "what": "user-confirmed DF200 100\u00b0 diagonal, 640 \u00d7 480 4:3, rectilinear.",
+    "derivation": "All three cameras on the robot are the JR DF200 \"100\u00b0 without distortion\" module, streamed MJPG at 640 \u00d7 480 (user-confirmed 2026-09-15). 100\u00b0 on the DIAGONAL of a rectilinear 4:3 frame is 2*atan(tan(50)*4/5) = 87.3\u00b0 horizontal, 2*atan(tan(50)*3/5) = 71.1\u00b0 vertical. This is a hardware fact, not a fit: the fitted numbers this package shipped before are the alternatives beside it.",
+    "url": "user-confirmed hardware: JR DF200, 2026-09-15"
+   },
+   "alternatives": [
+    {
+     "hfov_deg": 60,
+     "label": "measured from the top feed",
+     "note": "A two-landmark (front omni-wheel tops) fit of one screenshot of the live top feed. It is under-determined - tilt and FOV trade against each other - and at the confirmed 87.3 the same screenshot no longer reproduces: its wheel spacing and its silhouette scale want 60-66. The screenshot is most likely a crop. Kept so the old coverage numbers can be reproduced.",
+     "url": "measured: fit of the live top-camera feed, 2026-09-12"
+    },
+    {
+     "hfov_deg": 81,
+     "label": "measured from the wrist feed",
+     "note": "A three-landmark (servo LED, gripper body top edge, fingertip) least-squares fit of the real wrist feed: 32.7\u00b0 half-vFOV, i.e. 65.4\u00b0 V = 81\u00b0 H at 4:3. The three landmarks solved separately give 74.6 / 83.3 / 90.8, mean 82.9 - the confirmed 87.3 is inside that spread.",
+     "url": "measured: least-squares fit of the real wrist image, 2026-09-13"
+    },
+    {
+     "hfov_deg": 90,
+     "label": "Arducam OV5648 (LeKiwi BOM)",
+     "note": "The camera the upstream LeKiwi BOM lists for base_camera_mount.stl: Arducam 5MP OV5648 wide-angle USB, \"Field of View (FOV): 90 degree (H)\", M12 lens. It is the camera the URDF models; it is not the one on this robot.",
+     "url": "https://www.uctronics.com/arducam-5mp-wide-angle-usb-camera-for-computer-1-4-cmos-ov5648-mini-uvc-usb.html"
+    },
+    {
+     "hfov_deg": 97.6,
+     "label": "110\u00b0 diagonal wide-angle",
+     "note": "Arducam B0454, \"5MP OV5648, 110 Degree DFOV Wide Angle\". 110\u00b0 on the diagonal of a rectilinear 4:3 frame is 97.6\u00b0 H / 81.2\u00b0 V.",
+     "url": "https://docs.arducam.com/UVC-Camera/USB2-UVC-Camera-Kit/Specs-and-Selection-Guide/"
+    },
+    {
+     "hfov_deg": 66,
+     "label": "conservative 90\u00b0 diagonal (2026-08)",
+     "note": "The 2026-08 coverage sweep assumed a 90\u00b0 diagonal lens as \u00b133\u00b0 horizontal and \u00b125\u00b0 vertical, i.e. 66\u00b0 H. That is conservative: a rectilinear 90\u00b0 diagonal at 4:3 is 77.3\u00b0 H. Kept so the old coverage numbers can be reproduced.",
+     "url": ""
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "gripper": {
+   "label": "Gripper",
+   "hint": "What is bolted to the wrist-roll flange.",
+   "anchor": "wrist_flange",
+   "default": "stock_jaw",
+   "covers": [
+    "Wrist_Roll_08c-v1",
+    "Moving_Jaw_08d-v1",
+    "STS3215_03a-v1-4"
+   ],
+   "note": "This package attaches nothing, so it offers no PincOpen option - swapping in a whole gripper package is what the LeKiwi + PincOpen package is for.",
+   "options": [
+    {
+     "id": "stock_jaw",
+     "label": "Stock SO-101 jaw",
+     "kind": "components",
+     "show": [
+      "Wrist_Roll_08c-v1",
+      "Moving_Jaw_08d-v1",
+      "STS3215_03a-v1-4"
+     ],
+     "note": "The single-jaw gripper in the URDF, driven by arm_gripper: the fixed jaw it closes onto, the moving jaw and the servo that drives it."
+    },
+    {
+     "id": "none",
+     "label": "No gripper",
+     "kind": "none",
+     "hide": [
+      "Wrist_Roll_08c-v1",
+      "Moving_Jaw_08d-v1",
+      "STS3215_03a-v1-4"
+     ]
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "wrist_flange"
+    }
+   ]
+  },
+  "front_camera": {
+   "label": "Front camera",
+   "hint": "The forward-looking camera on the base bracket.",
+   "anchor": "Camera-Mount-v8",
+   "default": "stock",
+   "provides": [
+    "cameras.front"
+   ],
+   "covers": [
+    "Camera-Model-v3",
+    "Camera-Mount-v8"
+   ],
+   "options": [
+    {
+     "id": "stock",
+     "label": "Stock LeKiwi front camera",
+     "kind": "components",
+     "show": [
+      "Camera-Model-v3",
+      "Camera-Mount-v8"
+     ],
+     "cameras": {
+      "front": {
+       "carrier": "Camera-Model-v3",
+       "local": [
+        -0.173648177667,
+        -2.12657684958e-17,
+        -0.984807753012,
+        0,
+        0.969846310393,
+        -0.173648177667,
+        -0.171010071663,
+        0,
+        -0.171010071663,
+        -0.984807753012,
+        0.030153689607,
+        0,
+        -15.4958963875,
+        5.38549325584,
+        -11.483627943,
+        1
+       ],
+       "tilt_deg": 1.7279,
+       "tilt_robot_deg_at_zero": -10.0,
+       "source": "the stock LeKiwi front bracket, recovered from the URDF visual origin of Camera-Model-v3 (see the package note). `tilt_deg` is nose-down in the CARRIER frame (this camera link); in the ROBOT frame, at the URDF zero pose, the lens sits -10\u00b0 nose-down. Intrinsics from user-confirmed hardware: JR DF200, 2026-09-15."
+      }
+     }
+    },
+    {
+     "id": "none",
+     "label": "No front camera",
+     "kind": "none",
+     "hide": [
+      "Camera-Model-v3",
+      "Camera-Mount-v8"
+     ],
+     "cameras": {
+      "front": null
+     }
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "Camera-Mount-v8"
+    }
+   ]
+  },
+  "wrist_camera_mount": {
+   "label": "Wrist camera mount",
+   "hint": "The camera that looks down the fingers.",
+   "anchor": "wrist_flange",
+   "default": "stock_v11",
+   "provides": [
+    "cameras.wrist"
+   ],
+   "covers": [
+    "Wrist-Camera-Mount-v11",
+    "Camera-Model-v3-1"
+   ],
+   "options": [
+    {
+     "id": "stock_v11",
+     "label": "Stock SO-101 wrist camera",
+     "kind": "components",
+     "show": [
+      "Wrist-Camera-Mount-v11",
+      "Camera-Model-v3-1"
+     ],
+     "cameras": {
+      "wrist": {
+       "carrier": "Camera-Model-v3-1",
+       "local": [
+        -0.573576436,
+        -0.0,
+        0.819152044,
+        0.0,
+        0.14224426,
+        0.984807753,
+        0.099600503,
+        0.0,
+        -0.806707284,
+        0.173648178,
+        -0.564862521,
+        0.0,
+        8.458769771,
+        -14.30825337,
+        -11.167946599,
+        1.0
+       ],
+       "tilt_deg": -34.3927,
+       "tilt_robot_deg_at_zero": 80.0,
+       "source": "the stock SO-101 wrist bracket (Wrist-Camera-Mount-v11), recovered from the URDF: the camera-in-mesh transform of the front module Camera-Model-v3, re-applied to the Camera-Model-v3-1 instance the wrist carries - the two are the same mesh. `tilt_deg` is nose-down in the CARRIER frame (this camera link); in the ROBOT frame, at the URDF zero pose, the lens sits 80\u00b0 nose-down. Intrinsics from user-confirmed hardware: JR DF200, 2026-09-15."
+      }
+     }
+    },
+    {
+     "id": "none",
+     "label": "No wrist camera",
+     "kind": "none",
+     "hide": [
+      "Wrist-Camera-Mount-v11",
+      "Camera-Model-v3-1"
+     ],
+     "cameras": {
+      "wrist": null
+     }
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "wrist_flange"
+    }
+   ]
+  },
+  "pi_case": {
+   "label": "Raspberry Pi case",
+   "hint": "The Pi enclosure on the rear deck.",
+   "anchor": "deck_rear_pocket",
+   "default": "stock",
+   "covers": [
+    "Bottom-V2-v3",
+    "Top-V2-v2"
+   ],
+   "options": [
+    {
+     "id": "stock",
+     "label": "Stock LeKiwi case (Bottom-V2 + Top-V2)",
+     "kind": "components",
+     "show": [
+      "Bottom-V2-v3",
+      "Top-V2-v2"
+     ]
+    },
+    {
+     "id": "none",
+     "label": "No Pi case",
+     "kind": "none",
+     "hide": [
+      "Bottom-V2-v3",
+      "Top-V2-v2"
+     ]
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "deck_grid"
+    }
+   ]
+  }
+ },
+ "presets": [
+  {
+   "id": "stowed",
+   "label": "Stowed",
+   "q": {
+    "arm_shoulder_pan": 0.0,
+    "arm_shoulder_lift": 0.0,
+    "arm_elbow_flex": 0.0,
+    "arm_wrist_flex": 0.0,
+    "arm_wrist_roll": 0.0,
+    "arm_gripper": 0.0
+   },
+   "note": "Parked, folded over the deck - the URDF zero pose. Legal on every joint and clear of the robot."
+  },
+  {
+   "id": "reach_floor",
+   "label": "Reach floor",
+   "q": {
+    "arm_shoulder_pan": 0.0,
+    "arm_shoulder_lift": -163.0,
+    "arm_elbow_flex": 35.0,
+    "arm_wrist_flex": 170.5,
+    "arm_wrist_roll": 0.0,
+    "arm_gripper": -30.0
+   },
+   "note": "Gripper down at the floor, tip at about (-6.6, 322.9, -5.8) mm."
+  },
+  {
+   "id": "reach_table",
+   "label": "Reach table",
+   "q": {
+    "arm_shoulder_pan": 0.0,
+    "arm_shoulder_lift": -6.0,
+    "arm_elbow_flex": 47.0,
+    "arm_wrist_flex": 2.0,
+    "arm_wrist_roll": 0.0,
+    "arm_gripper": -30.0
+   },
+   "note": "Tip at about (-4.8, 237.9, 242.8) mm, roughly a 240 mm table top."
+  },
+  {
+   "id": "raised_max",
+   "label": "Raised max",
+   "q": {
+    "arm_shoulder_pan": 0.0,
+    "arm_shoulder_lift": -49.0,
+    "arm_elbow_flex": 99.0,
+    "arm_wrist_flex": 86.0,
+    "arm_wrist_roll": 0.0,
+    "arm_gripper": 0.0
+   },
+   "note": "Arm raised, tip at about (-4.8, 154.6, 566.2) mm."
+  }
+ ],
+ "presets_source": "Four arm poses, corrected against the joint limits. The set this studio shipped earlier was authored before any limit existed: three of those four broke a limit and were in hard collision with the robot, so these replacements hit the same tip positions from inside the limits. One example: Reach floor holds arm_wrist_flex at 170.5, not the 171 the earlier table printed, because 171 is 0.5\u00b0 past the -19.5..170.5 stop. Angles are degrees in the LeKiwi URDF convention; kinematics.joint_limits_map relates them to the SO-101 reference zero.",
+ "mass": {
+  "estimate_kg": 2.45,
+  "band_kg": [
+   2.1,
+   2.8
+  ],
+  "source": "Upstream publishes no weight. Seeed Studio LeKiwi Kit 12 V (base, printed parts, battery, no Pi, no cameras, no arm) is listed at 1.7 kg. Add the Raspberry Pi 5 with its cooler (0.06 kg), two USB cameras (0.02 kg), the six arm STS3215 servos at 55 g each (Feetech, 0.33 kg) and the printed SO-101 arm parts by the sim's volume rule (0.34 kg). The band is that 2.45 kg \u00b115 %."
+ },
+ "thumbnail": "thumb.png",
+ "generated_by": "tools/build/make_robots.py"
+}

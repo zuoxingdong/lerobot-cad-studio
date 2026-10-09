@@ -1,0 +1,395 @@
+{
+ "schema": "rps/print-match@2",
+ "links": {
+  "Wrist_Roll_08c-v1": {
+   "file": "webcam_mount/so100_gripper_cam_mount_insert.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.2242,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    2.600000381,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.037498,
+   "print_fit_rmse_mm": 0.004701815,
+   "print_bbox_mm": [
+    65.2,
+    48.0,
+    106.375
+   ]
+  },
+  "base_plate_layer1-v5": {
+   "file": "base_plate_layer1.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.054,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.467582703,
+    7.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    215.87,
+    212.935,
+    7.0
+   ]
+  },
+  "lipo_battery_mount-v3": {
+   "file": "battery_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0001,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    62.0,
+    79.0,
+    16.5
+   ]
+  },
+  "Camera-Mount-v8": {
+   "file": "base_camera_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -3.330536366,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    16.661,
+    48.0,
+    45.185
+   ]
+  },
+  "Bottom-V2-v3": {
+   "file": "pi_case_bottom.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0007,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -5.078968048,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.024395,
+   "print_fit_rmse_mm": 0.007559002,
+   "print_bbox_mm": [
+    93.1,
+    69.808,
+    13.284
+   ]
+  },
+  "Top-V2-v2": {
+   "file": "pi_case_top.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0005,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.024213,
+   "print_fit_rmse_mm": 0.006279552,
+   "print_bbox_mm": [
+    93.1,
+    59.65,
+    24.399
+   ]
+  },
+  "servo_controller_mount-v3": {
+   "file": "servo_controller_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    6.0,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    60.0,
+    45.0,
+    11.0
+   ]
+  },
+  "drive_motor_mount-v11": {
+   "file": "drive_motor_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  "drive_motor_mount-v11-1": {
+   "file": "drive_motor_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  "drive_motor_mount-v11-2": {
+   "file": "drive_motor_mount.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    3.5,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.0,
+   "print_fit_rmse_mm": 0.0,
+   "print_bbox_mm": [
+    34.0,
+    31.0,
+    11.16
+   ]
+  },
+  "omni_wheel_mount-v5": {
+   "file": "servo_wheel_hub.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0049,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  },
+  "omni_wheel_mount-v5-1": {
+   "file": "servo_wheel_hub.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0049,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  },
+  "omni_wheel_mount-v5-2": {
+   "file": "servo_wheel_hub.stl",
+   "extent_delta_mm": 0.0,
+   "volume_delta_pct": 0.0049,
+   "print_transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.597381592,
+    0.000207901,
+    5.587500095,
+    1.0
+   ],
+   "print_fit_worst_mm": 0.007671,
+   "print_fit_rmse_mm": 0.000723716,
+   "print_bbox_mm": [
+    54.65,
+    55.862,
+    14.0
+   ]
+  }
+ }
+}

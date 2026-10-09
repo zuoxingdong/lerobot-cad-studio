@@ -1,0 +1,23 @@
+{
+ "schema": "rps/part@1",
+ "id": "cam_retainer",
+ "label": "Camera retainer plate",
+ "robot": "lekiwi-pincopen",
+ "slot": null,
+ "frame": "robot",
+ "local": null,
+ "meshes": [
+  {
+   "id": "plate",
+   "label": "Camera retainer plate",
+   "print": "print/camera_retainer_PRINT.stl",
+   "color": "#7fb2e8",
+   "volume_cm3": 5.998,
+   "note": "The 58 \u00d7 26 retainer plate with its 24 \u00d7 14 cable window that clamps the DF200 into a camera head, print only. ONE plate serves every head this project builds: the corner mast and the DF200 wrist arch both draw their own retainer, and both name this one - the same solid to 0.005 mm, measured on the exported meshes. 2x M3 \u00d7 12 self-tapping into \u00d82.60 \u00d7 9.50 pilots, 8.0 mm of bite."
+  }
+ ],
+ "cameras": null,
+ "mount": null,
+ "params": null,
+ "source": "this project"
+}

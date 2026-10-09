@@ -1,0 +1,53 @@
+# Python side of LeRobot CAD Studio.  The web page needs none of this; the dev tools do.
+#   uv sync --extra sim        tools/sim/check.py (native MuJoCo), tools/render/, `npm run sim:test`
+#   uv sync --extra cad        the optional CadQuery generators in tools/cad, `npm run cad:test`
+# `npm run pack` (tools/build/pack_assets.py) and make_robots.py run on the system Python:
+# they need numpy, trimesh and vtk, and the packed meshes are only reproducible with the vtk
+# decimator that made the committed ones.
+[project]
+name = "lerobot-cad-studio"
+version = "7.1.0"
+description = "Interactive 3D-print design and MuJoCo evaluation for LeRobot robots."
+readme = "README.md"
+# 3.12 is the floor the sim pins set: numpy 2.5 ships no 3.11 wheel.
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [{ name = "Xingdong Zuo" }]
+
+# The studio is a browser page, so nothing Python is needed to run it.
+dependencies = []
+
+[project.optional-dependencies]
+# tools/sim/check.py — pinned: the native engine must be the WASM build's version.
+sim = [
+    "mujoco==3.14.0",
+    "numpy==2.5.3",
+    "trimesh==5.1.0",             # imported by the frozen armfk.py / fk.py oracle
+    "pytest==9.1.1",              # tools/tests/sim
+    "pillow==12.3.0",             # tools/render/film/video.py: captions
+    "imageio-ffmpeg==0.6.0",      # tools/render/film/video.py: the ffmpeg binary (H.264)
+]
+# tools/cad — exactly what tools/cad/** imports.
+cad = [
+    "cadquery==2.8.0",            # the ground-truth solids; pulls cadquery-ocp
+    "numpy>=2.0",
+    "trimesh>=5.0",
+    "shapely>=2.1",               # gen_pi_case.py and vendor/vent.py slot fields
+    "manifold3d>=3.0",            # trimesh's boolean engine — verify_pi.py
+    "rtree>=1.4",                 # its sampled fallback, and trimesh.contains
+    "networkx>=3.4",              # trimesh mesh-splitting and body counts
+    "pytest>=8",                  # tools/tests/cad
+]
+[tool.pytest.ini_options]
+# the tool directories the tests import from; a tool run as a script sets its own sys.path
+pythonpath = ["tools/render", "tools/render/film", "tools/render/blender", "tools/sim", "tools/cad"]
+# tools/tests/render: npm run render:test:fast is -m "not blender and not gl and not slow"
+markers = [
+    "blender: runs Blender (skipped without one)",
+    "gl: renders with MuJoCo's offscreen GL",
+    "slow: needs the lab export (about 30 s once) or runs for tens of seconds",
+]
+
+[tool.uv]
+# Nothing here is packaged or published, so uv installs the dependencies only.
+package = false

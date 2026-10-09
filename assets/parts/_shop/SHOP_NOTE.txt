@@ -1,0 +1,76 @@
+LeKiwi camera mounts (overhead mast + wrist arch) - print order
+===============================================================
+File: lekiwi_camera_mounts.3mf   (5 objects, millimetres, all pre-oriented on z=0)
+The same five plates are also single STLs, in ../corner_mast_printed/print/ and
+../df200_arch/print/, if you prefer them. Those files keep short names (spar_lower_PRINT.stl);
+the 3mf objects carry the longer names listed below, which is what the studio exports.
+
+MATERIAL
+  PLA. Any colour. 0.4 mm nozzle.
+  ~291 g of part, plus support and brim, so budget ~380 g.
+
+APPLIES TO EVERY PART
+  - Print in the orientation supplied. Please do NOT auto-orient or re-orient. Every object is
+    already sitting the correct way up on z=0, and the orientations were chosen by measuring
+    flat first-layer area, not by eye: one of these parts used to be supplied balanced on a
+    point with 0.00 mm2 of bed contact, which is exactly the mistake this pack avoids.
+  - Please do NOT run mesh repair / "fix errors" on any file. All five meshes are watertight,
+    manifold, winding-consistent and single-bodied as supplied.
+  - Supports, where asked for, are "TOUCHING BUILD PLATE ONLY", never "everywhere".
+
+PER PART - only the supports and the brim really matter
+
+  1-spar_lower ....... NO supports. NO brim (2098 mm2 of flat first layer, it is not going
+                       anywhere). 248.0 mm tall, so it needs 250 mm of Z or more - on a
+                       250 mm machine that is 2.0 mm to spare, so check the gantry.
+                       >>> This part is HOLLOW, with the camera cable duct running its full
+                       length. Support generated inside it cannot be removed and the part is
+                       scrap. If your slicer offers "support on build plate only", that is the
+                       setting; if it wants to support everywhere, turn supports OFF for this
+                       object - nothing on it needs them (1.0 % overhang).
+
+  2-spar_upper ....... Supports TOUCHING BUILD PLATE ONLY, plus a brim of about 8 mm.
+                       229.6 mm tall on 337 mm2 of first layer, so the brim is what keeps it
+                       on the plate. 2.7 % overhang, and all of it is in the last 60 mm: the
+                       two hinge cheeks and the index fan at the very top. Nothing lower down
+                       needs support. Also hollow - same rule as part 1.
+
+  3-head_MAST and
+  5-head_WRIST-ARCH .. THE SAME PART, printed twice - one goes on the overhead mast and one on
+                       the wrist arch. They are identical geometry; they are listed separately
+                       only so the quantity is unambiguous.
+                       Supports TOUCHING BUILD PLATE ONLY. The two hinge-lug ends are a 23.7 mm
+                       bridge 5-8 mm off the plate and they do need support under them. No brim
+                       (976 mm2 of first layer). 17.5 mm tall, quick prints.
+
+  4-arch ............. Supports TOUCHING BUILD PLATE ONLY, plus a brim of about 8 mm.
+                       88.3 mm tall on 398.5 mm2 of first layer. 12.5 % overhang: the two cheek
+                       undersides and the index fan around Z 30-60, the crown hump, and the
+                       stepped front pads near the plate. All of it is reachable from the
+                       plate, so "touching build plate only" is enough.
+
+NOT IMPORTANT - your defaults are fine
+  Layer height, infill density, infill pattern, wall count, speed. These parts carry almost no
+  load: the worst sustained stress anywhere is 0.16 MPa, about 0.3 % of PLA's yield. 3 walls
+  and 20 % infill is plenty. No need to quote anything special.
+
+QUANTITIES
+  One of each object. That is TWO heads (objects 3 and 5) and one of everything else.
+
+ONE FIT THAT MATTERS
+  Objects 1 and 2 plug into each other on a rectangular spigot at Z 285. The designed
+  clearance is 0.350 mm per side sideways and 0.180 mm per side fore-and-aft - deliberately
+  different, and deliberately tight in the fore-aft direction. If your machine runs generously
+  on outside dimensions the joint may need a scrape; please do not "help" by scaling anything.
+
+NOT IN THIS PACK - I already have them
+  The camera retainer and the pocket shims are the two SHARED plates
+  (../cam_retainer/print/camera_retainer_PRINT.stl and
+  ../camera_shims/print/camera_shims_PRINT.stl), which I have printed already. One of each
+  serves every camera head in the build, and they are not reprinted here: the retainer is the
+  same solid to 0.005 mm.
+
+WHAT THIS IS
+  An over-the-shoulder camera mast for the rear-left deck corner of a LeKiwi robot (objects 1,
+  2 and 3) and a forward camera arch for the PincOpen gripper's wrist (objects 4 and 5). All
+  five plates are all-PLA; no metal tube, no drilling and no machining anywhere in the build.

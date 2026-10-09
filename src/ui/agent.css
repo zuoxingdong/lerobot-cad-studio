@@ -1,0 +1,59 @@
+/* The Ask-an-agent view, the linked-folder chip, the toasts and the drop highlight. */
+
+.agent{display:flex;flex-direction:column;gap:var(--sp-4);padding:var(--sp-5)}
+.agent [hidden]{display:none!important}
+.agent-h{display:flex;align-items:center;gap:var(--sp-3);height:28px}
+.agent-h .n{font-weight:600;font-size:var(--fs-2)}
+.agent-k{font-size:var(--fs-1);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.agent-for{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3)}
+.agent-chip{height:22px;max-width:100%}
+.agent-chip .x{border:0;background:transparent;color:inherit;cursor:pointer;padding:0 0 0 2px;font-size:var(--fs-3);line-height:1}
+.agent-req{height:auto;min-height:60px;resize:vertical;padding:6px 8px;font:inherit;line-height:1.45;width:100%;box-sizing:border-box}
+.agent-cons summary{cursor:pointer;font-size:var(--fs-2);color:var(--ink-2);padding:2px 0}
+.agent-cons-b{display:flex;flex-direction:column;gap:var(--sp-3);padding:var(--sp-3) 0 0 var(--sp-4)}
+.agent-chk{display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-2)}
+.agent-num{display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-2)}
+.agent-num>span:first-child{width:92px;color:var(--ink-2)}
+.agent-num input{width:64px}
+.agent-num select{height:26px;width:auto}
+.agent-prompt{margin:0;height:calc(10 * 15px + 12px);overflow:auto;padding:6px 8px;white-space:pre;
+  background:var(--surface-3);border:1px solid var(--line-soft);border-radius:var(--r-1)}
+.agent-prompt.stale{opacity:.45}
+.agent-note{white-space:normal;word-break:break-word}
+.agent-acts{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.agent-sep{height:1px;background:var(--line-soft);margin:var(--sp-3) 0}
+.agent-res-h{display:flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap;min-height:26px}
+.agent-folder{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-2);max-width:180px}
+.agent-folder .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.agent-reconnect{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+.agent-list{display:flex;flex-direction:column;gap:2px}
+.agent-empty{font-size:var(--fs-2);padding:var(--sp-3) 0}
+.agent-row{padding:var(--sp-3) var(--sp-2);border-radius:var(--r-1)}
+.agent-row:hover{background:var(--surface-3)}
+.agent-row-t{display:flex;align-items:center;gap:var(--sp-3);min-height:24px}
+.agent-row-t .n{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.agent-row-t .when{font-size:var(--fs-1);white-space:nowrap}
+.agent-row .badge{position:static;height:16px;font-size:var(--fs-1)}
+.agent-row .badge.new{background:var(--accent);color:var(--accent-ink)}
+.agent-row .badge.miss{background:var(--warn-soft);color:var(--warn)}
+.agent-err{font-size:var(--fs-1);color:var(--err);padding-left:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.agent-why{margin:var(--sp-2) 0 0;padding-left:30px;font-size:var(--fs-1)}
+.agent-why li.err{color:var(--err)}
+.agent-why li.warn{color:var(--warn)}
+
+.folderslot[hidden]{display:none}
+.folderchip{height:28px;gap:5px;max-width:200px}
+.folderchip .tl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.folderchip.amber{color:var(--warn)}
+
+.toasts{position:absolute;right:var(--sp-5);bottom:64px;z-index:12;display:flex;flex-direction:column;
+  align-items:flex-end;gap:var(--sp-3);pointer-events:none;max-width:min(460px,calc(100% - 24px))}
+.toast{pointer-events:auto;display:flex;align-items:center;gap:var(--sp-3);padding:6px 6px 6px 12px;max-width:100%;box-sizing:border-box;
+  background:var(--surface-2);border:1px solid var(--pop-border);border-radius:var(--r-3);box-shadow:var(--e-2);font-size:var(--fs-2)}
+.toast .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}
+.toast .btn{flex:none}
+.toast.fail{border-color:var(--err)}
+.toast .btn.on{background:var(--accent-soft);color:var(--accent)}
+.toast .x{width:24px;padding:0;justify-content:center}
+
+.app.dropping .canvas{outline:2px dashed var(--accent);outline-offset:-6px}

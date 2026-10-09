@@ -1,0 +1,32 @@
+<!--
+  tools/build/templates/index.html - the shell for the built site/index.html.
+
+  tools/build/build.mjs replaces the two markers below with the bundled CSS and JS, and __PAGES_URL__
+  with the absolute Pages URL (link previews need one).  Everything is inlined: the page must work
+  from file:// (double-click) with no network.  The only external reference allowed is the Google Fonts link.
+-->
+<meta name="color-scheme" content="light dark">
+<title>LeRobot CAD Studio</title>
+<meta name="description" content="Change a 3D-printed part on a LeRobot robot, check that it prints, fits and still sees, export the plates, then drive it in MuJoCo. One browser page, no install.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="__PAGES_URL__">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LeRobot CAD Studio">
+<meta property="og:title" content="LeRobot CAD Studio">
+<meta property="og:description" content="Change a 3D-printed part on a LeRobot robot, check that it prints, fits and still sees, export the plates, then drive it in MuJoCo.">
+<meta property="og:url" content="__PAGES_URL__">
+<meta property="og:image" content="__PAGES_URL__media/hero-poster.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="LeKiwi + PincOpen carries a sample puck to the incubator in the photoreal lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/*__CSS__*/
+</style>
+<div id="app"></div>
+<script type="module">
+/*__JS__*/
+</script>

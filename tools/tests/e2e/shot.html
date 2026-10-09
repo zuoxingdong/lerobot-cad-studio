@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>LeRobot CAD Studio — screenshot harness</title>
+<style>html,body{margin:0;padding:0;overflow:hidden;background:#fff}
+#frame{width:1600px;height:1000px;border:0;display:block}</style>
+</head><body>
+<iframe id="frame" src="/lerobot-cad-studio/index.html?debug=1#/"></iframe>
+<script type="module">
+/* One named state per screenshot.  Chrome captures the page after
+   --virtual-time-budget expires, so everything here runs to completion first.
+   Behaviour tests never use virtual time (see run.mjs); a still frame may. */
+const frame = document.getElementById('frame');
+const state = new URLSearchParams(location.search).get('state') || 'design';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function waitFor(fn, ms = 40000) {
+  const t0 = Date.now();
+  for (;;) {
+    let v = null;
+    try { v = fn(); } catch (e) { v = null; }
+    if (v) return v;
+    if (Date.now() - t0 > ms) throw new Error('timeout');
+    await sleep(40);
+  }
+}
+const win = frame.contentWindow;
+
+async function toDesign() {
+  await waitFor(() => win.document.querySelector('.home .card1'));
+  win.document.querySelector('.home .card1').click();
+  await waitFor(() => win.__rps && win.__rps.page && win.__rps.readouts().treeRows > 0);
+  await sleep(500);
+  win.__rps.page.strip.forceTick();
+  await sleep(300);
+  return win.__rps;
+}
+
+const STATES = {
+  async home() {
+    await waitFor(() => win.document.querySelector('.home .card1'));
+    await sleep(600);
+  },
+  async design() { await toDesign(); },
+  /* the README picture: a part selected, the action bar up */
+  async selected() {
+    const rps = await toDesign();
+    rps.select('corner_mast_printed_spar_lower');
+    await sleep(900);
+  },
+  async check() {
+    const rps = await toDesign();
+    win.location.hash = '#/check/' + rps.readouts().robot;
+    await waitFor(() => win.document.querySelector('.app.check-on'));
+    await sleep(900);
+    rps.page.strip.forceTick();
+    await sleep(400);
+  },
+  async export() {
+    const rps = await toDesign();
+    rps.page.openExportSheet();
+    await sleep(700);
+  },
+  async dark() {
+    const rps = await toDesign();
+    while (rps.store.get('ui.theme', 'auto') !== 'dark') rps.page.cycleTheme();
+    rps.select('corner_mast_printed_spar_lower');
+    await sleep(900);
+  },
+};
+
+(async () => {
+  try {
+    await (STATES[state] || STATES.design)();
+    document.title = 'shot ' + state + ' OK';
+  } catch (e) {
+    document.title = 'shot ' + state + ' FAIL';
+    const pre = document.createElement('pre');
+    pre.id = 'shot-error';
+    pre.textContent = String(e && e.stack || e);
+    pre.style.cssText = 'position:fixed;left:0;bottom:0;background:#c00;color:#fff;margin:0;z-index:9';
+    document.body.appendChild(pre);
+  }
+  const errs = (win.__rps && win.__rps.errors) || [];
+  /* a one-line summary of what was actually on screen, so a state that silently produced the
+     WRONG picture (a swap that did not take, geometry that never arrived) says so in the table */
+  let saw = null;
+  try {
+    const r = win.__rps.readouts();
+    saw = { slots: r.slots, top: win.__rps.camPose('top'),
+      alt: (win.__rps.altComponents ? win.__rps.altComponents() : []).filter((c) => c.visible).length };
+  } catch (e) { saw = { error: String(e && e.message) }; }
+  try { await fetch('/shot-done?state=' + state, { method: 'POST', body: JSON.stringify({ state, errors: errs, saw, title: document.title }) }); } catch (e) { /* offline */ }
+})();
+</script>
+</body></html>

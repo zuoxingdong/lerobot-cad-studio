@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>LeRobot CAD Studio — e2e harness</title>
+<style>
+  html,body{margin:0;background:#111;color:#ddd;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace}
+  #frame{width:1600px;height:1000px;border:0;display:block;background:#fff}
+  #e2e-report{white-space:pre-wrap;padding:8px;max-width:1600px}
+</style>
+</head><body>
+<!-- The one harness for every suite.  The built page runs inside the iframe, same origin, so a case module can
+     drive `window.__rps` (the `?debug=1` hook) without a single line of test code in the
+     bundle.
+
+       ?suite=<name>   which module of ./cases/ to load (?case=<name> when two suites share one)
+       ?src=<url>      what goes in the iframe (default /lerobot-cad-studio/index.html; an
+                       absolute file:// URL for the file:// case)
+       ?post=<url>     where the report goes (default /e2e-report)
+       ?next=<url>     the next harness page — ONE Chrome walks the whole chain
+       ?watchdog=<s>   give up on this suite and move on (default 200 s)
+     Everything else (?dpr=, …) is read by the case module straight off
+     location.search, so no parameter needs a line here. -->
+<iframe id="frame"></iframe>
+<pre id="e2e-report" hidden></pre>
+<script>
+  const Q = new URLSearchParams(location.search);
+  const SUITE = Q.get('suite') || 'core';
+  const POST = Q.get('post') || '/e2e-report';
+  const NEXT = Q.get('next') || '';
+  window.__RPS_SUITE = SUITE;
+  window.__RPS_POST = POST;
+
+  /* EVERY SUITE STARTS FROM A CLEAN SLATE.  ONE Chrome walks every suite in ONE tab, so the
+     studio's `sessionStorage` autosave (`rps/session@1`), its `localStorage` rail widths and
+     its IndexedDB caches would carry the previous suite's design into the next one.  The
+     iframe is same-origin, so clearing here (BEFORE it loads) clears it for the page under
+     test too.  A suite that tests persistence on purpose writes its own state first. */
+  try { sessionStorage.clear(); } catch (e) { /* private window */ }
+  try { localStorage.clear(); } catch (e) { /* private window */ }
+  try {
+    if (indexedDB.databases) {
+      indexedDB.databases().then((dbs) => { for (const d of dbs) if (d.name) indexedDB.deleteDatabase(d.name); })
+        .catch(() => {});
+    } else { indexedDB.deleteDatabase('keyval-store'); }
+  } catch (e) { /* no IndexedDB */ }
+
+  /* `none` = the case module supplies its own src (or none at all) */
+  const src = Q.get('src') || '/lerobot-cad-studio/index.html';
+  if (src !== 'none') document.getElementById('frame').src = src + '?debug=1#/';
+
+  /* One chain step.  The case module publishes into #e2e-report (and posts its own
+     report); when that lands, or the watchdog fires, we move to the next suite.  A suite
+     that dies at import time therefore costs one watchdog, not the whole run. */
+  const out = document.getElementById('e2e-report');
+  const WATCHDOG = Number(Q.get('watchdog') || 200) * 1000;
+  let moved = false;
+  function go() {
+    if (moved) return;
+    moved = true;
+    if (NEXT) setTimeout(() => { location.href = NEXT; }, 150);
+    else setTimeout(() => { fetch(POST, { method: 'POST', body: JSON.stringify({ done: true }) }); }, 150);
+  }
+  new MutationObserver(() => { if (!out.hidden) go(); })
+    .observe(out, { attributes: true, attributeFilter: ['hidden'] });
+  setTimeout(() => {
+    if (moved) return;
+    const body = { suite: SUITE, ok: false, passed: 0, total: 1, timedOut: true,
+      results: [{ name: SUITE + ' · the suite never published', ok: false, ms: WATCHDOG,
+                  detail: 'watchdog: no report after ' + (WATCHDOG / 1000) + ' s — open the URL with --keep' }] };
+    try { fetch(POST, { method: 'POST', body: JSON.stringify(body) }); } catch (e) { /* offline */ }
+    go();
+  }, WATCHDOG);
+</script>
+<script type="module">
+  const SUITE = new URLSearchParams(location.search).get('suite') || 'core';
+  const CASE = new URLSearchParams(location.search).get('case') || SUITE;
+  import('./cases/' + CASE + '.js').catch((e) => {
+    const body = { suite: SUITE, ok: false, passed: 0, total: 1,
+      results: [{ name: SUITE + ' · the module did not load', ok: false, ms: 0, detail: String((e && e.stack) || e) }] };
+    const out = document.getElementById('e2e-report');
+    out.textContent = JSON.stringify(body, null, 1);
+    try { fetch(window.__RPS_POST, { method: 'POST', body: JSON.stringify(body) }); } catch (x) { /* offline */ }
+    out.hidden = false;
+  });
+</script>
+</body></html>

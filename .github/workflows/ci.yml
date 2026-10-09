@@ -1,0 +1,117 @@
+# The tests, then the Pages deploy: `npm run build` writes site/ (the pages, site/vendor/, the
+# site/lab/*.js wrappers) next to the committed bake and media, and main deploys it as is.
+# One-time setting: repo Settings -> Pages -> Source: GitHub Actions.
+# Every action is on its current major (Node 24 runtime); setup-uv publishes no major tag, so it is pinned.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# a new push to a pull request cancels its older run; main runs queue
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    # units 60 s on a fast desktop
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run test:unit
+
+  e2e:
+    name: e2e (shard ${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    # each shard measured 280-300 s of suites on 4 desktop cores; a runner is slower, and CI doubles the watchdogs
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.5'
+      - run: npm ci
+      # the MJCF zips the page downloads go through tools/sim/check.py
+      - run: uv sync --locked --extra sim
+      # ubuntu-latest ships google-chrome; tools/tests/_root.mjs also reads $CHROME.  $CI relaxes the two timing checks
+      - run: npm run test:e2e -- --shard ${{ matrix.shard }} --timeout 1200
+
+  sim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.5'
+      - run: npm ci
+      - run: uv sync --locked --extra sim
+      # export -> lab on MuJoCo WASM -> tools/sim/check.py in native mujoco==3.14.0 (the node sim units run in `unit`)
+      - run: npm run sim:check
+      - run: uv run --extra sim python -m pytest tools/tests/sim tools/tests/build -q
+      # the photoreal maths without Blender, a GPU or the lab export (under a second)
+      - run: npm run render:test:fast
+      # the film replay: --visual changes no physics, the liquid and wheels match the page (the clip skips without GL)
+      - run: uv run --extra sim python -m pytest tools/tests/render/test_video.py -q
+
+  pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # size budgets, and the committed site/lab/ files match their manifest
+      - run: node tools/build/build.mjs --check
+      - name: the build rewrites no committed file and leaves nothing untracked
+        run: git diff --exit-code && test -z "$(git status --porcelain)"
+      # every URL the pages load exists in site/ and carries its current hash; every doc link resolves
+      - run: node --test tools/tests/site.test.mjs
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [unit, e2e, sim, pages]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

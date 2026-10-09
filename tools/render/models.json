@@ -1,0 +1,298 @@
+{
+  "schema": "rps/models@1",
+  "doc": "Each entry: model (blender/models/<model>.py), anchor, match, optional follow {part: regex}, optional hide {mat, body, box, not_box (mm, in the instance frame), force (regex for named moving geoms)}; a follow part takes its whole rigid body.",
+  "models": [
+    {
+      "model": "lh",
+      "anchor": "^decor_lh_white$",
+      "match": "^decor_lh_(white|glass|grey|alu|labware|tips|wells|gantry|head)$|^anim_lh_(gantry_[01]|led_0)$",
+      "follow": {
+        "gantry": "^anim_lh_gantry_0$",
+        "head": "^anim_lh_gantry_1$",
+        "led": "^anim_lh_led_0$"
+      },
+      "hide": {
+        "mat": "^dm_(accent|inst_white|screen|led_green|ui_text)$",
+        "box": [
+          -440,
+          440,
+          100,
+          600,
+          0,
+          800
+        ]
+      }
+    },
+    {
+      "model": "inc",
+      "anchor": "^decor_inc_body$",
+      "match": "^decor_inc_(body|knuckle|lid|ring|temp)$|^anim_inc_(lid|led|ring)_0$",
+      "follow": {
+        "lid": "^anim_inc_lid_0$",
+        "led": "^anim_inc_led_0$",
+        "ring": "^anim_inc_ring_0$"
+      },
+      "hide": {
+        "mat": "^dm_(screen|accent)$",
+        "box": [
+          -160,
+          160,
+          100,
+          420,
+          0,
+          260
+        ]
+      }
+    },
+    {
+      "model": "reader",
+      "anchor": "^decor_reader_body$",
+      "match": "^decor_reader_(body|knuckle|optics|hood|glow|labels)$|^anim_reader_(lid|glow|led)_0$",
+      "follow": {
+        "lid": "^anim_reader_lid_0$",
+        "glow": "^anim_reader_glow_0$",
+        "led": "^anim_reader_led_0$"
+      },
+      "hide": {
+        "mat": "^dm_(screen|accent)$",
+        "box": [
+          -190,
+          190,
+          100,
+          430,
+          0,
+          260
+        ]
+      }
+    },
+    {
+      "model": "nest",
+      "anchor": "^nest_(lh|inc|reader)$",
+      "match": "^nest_(lh|inc|reader)$"
+    },
+    {
+      "model": "plinth",
+      "anchor": "^decor_tag_(lh|inc|reader)$",
+      "match": "^decor_tag_(lh|inc|reader)$|^anim_(lh|inc|reader)_strip_0$",
+      "follow": {
+        "led": "^anim_(lh|inc|reader)_strip_0$"
+      },
+      "hide": {
+        "mat": "^dm_(frame_dark|kick_dark|slab_white|hazard_yellow|tag_white|tag_black)$",
+        "box": [
+          -460,
+          460,
+          -10,
+          570,
+          0,
+          290
+        ]
+      }
+    },
+    {
+      "model": "puck",
+      "anchor": "^nest_lh$",
+      "match": "^decor_tube_(label|band)$",
+      "follow": {
+        "puck": "^puck_1_liquid_1$"
+      },
+      "hide": {
+        "body": "^puck_1$",
+        "mat": "^dm_"
+      }
+    },
+    {
+      "model": "room",
+      "anchor": "^decor_dash_text$",
+      "match": "(?!)",
+      "hide": {
+        "mat": "^dm_(wall|skirting|glass|frosted|alu|light|steel)$",
+        "box": [
+          -2300,
+          2400,
+          -1700,
+          2100,
+          0,
+          2800
+        ],
+        "not_box": [
+          -1500,
+          1500,
+          -500,
+          1400,
+          0,
+          2340
+        ]
+      }
+    },
+    {
+      "model": "floor",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_(keepout|stripes|label)_(lh|inc|reader)$",
+      "hide": {
+        "mat": "^dm_(hazard_yellow|paint_white)$",
+        "box": [
+          -2100,
+          2300,
+          -1500,
+          1950,
+          0,
+          3
+        ],
+        "force": "^floor$"
+      }
+    },
+    {
+      "model": "dock",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_estop_(red|ring)$",
+      "hide": {
+        "mat": "^dm_(dock_dark|copper|inst_white|frame_dark|led_green|hazard_yellow)$",
+        "box": [
+          -400,
+          250,
+          -420,
+          60,
+          0,
+          900
+        ]
+      }
+    },
+    {
+      "model": "services",
+      "anchor": "^decor_dash_text$",
+      "match": "(?!)",
+      "hide": {
+        "mat": "^dm_(steel|steel_brushed)$",
+        "box": [
+          -1600,
+          1600,
+          400,
+          1400,
+          280,
+          2700
+        ]
+      }
+    },
+    {
+      "model": "bench",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_stool_(black|steel|seat)$",
+      "hide": {
+        "mat": "^dm_(epoxy|lab_white|kick_dark|drawer|steel)$",
+        "box": [
+          -2100,
+          -600,
+          1250,
+          1950,
+          0,
+          1000
+        ]
+      }
+    },
+    {
+      "model": "benchtop",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_(microscope|centrifuge|laptop|pipette|beaker|flask|bottle)(_[a-z0-9]+)*$|^decor_pipettes$"
+    },
+    {
+      "model": "workspot",
+      "anchor": "^decor_dash_text$",
+      "match": "(?!)"
+    },
+    {
+      "model": "appliances",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_freezer_text$",
+      "hide": {
+        "mat": "^dm_(inst_white|fridge_white|steel|steel_brushed|screen|led_green|kick_dark|glass|frame_dark)$",
+        "box": [
+          700,
+          2250,
+          1100,
+          1950,
+          0,
+          2000
+        ]
+      }
+    },
+    {
+      "model": "storage",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_carousel_(rack|plates)$",
+      "hide": {
+        "mat": "^dm_(steel|kick_dark|polymer_white|polymer_blue|polymer_yellow|plate_clear|cardboard|frame_dark|glass|inst_white|led_blue)$",
+        "box": [
+          -2100,
+          -1300,
+          -700,
+          700,
+          0,
+          2000
+        ]
+      }
+    },
+    {
+      "model": "dashboard",
+      "anchor": "^decor_dash_text$",
+      "match": "^decor_dash_text$|^anim_wall_loop_[1-4]$",
+      "follow": {
+        "loop_1": "^anim_wall_loop_1$",
+        "loop_2": "^anim_wall_loop_2$",
+        "loop_3": "^anim_wall_loop_3$",
+        "loop_4": "^anim_wall_loop_4$"
+      },
+      "hide": {
+        "mat": "^dm_(frame_dark|screen)$",
+        "box": [
+          -1950,
+          -650,
+          1900,
+          1960,
+          1200,
+          2000
+        ]
+      }
+    },
+    {
+      "model": "walls",
+      "anchor": "^decor_dash_text$",
+      "match": "(?!)"
+    },
+    {
+      "model": "omniwheel",
+      "anchor": "^decor_dash_text$",
+      "match": "^vis_4-Omni-Directional-Wheel_Single_Body-v1(-[12])?$",
+      "follow": {
+        "wheel_0": "^vis_4-Omni-Directional-Wheel_Single_Body-v1$",
+        "wheel_1": "^vis_4-Omni-Directional-Wheel_Single_Body-v1-1$",
+        "wheel_2": "^vis_4-Omni-Directional-Wheel_Single_Body-v1-2$"
+      }
+    },
+    {
+      "model": "robot_dress",
+      "anchor": "^decor_dash_text$",
+      "match": "^vis_(corner_mast_printed|df200_arch)_df200$",
+      "follow": {
+        "base": "^vis_base_plate_layer1-v5$",
+        "pan": "^vis_Rotation_Pitch_08i-v1$",
+        "lift": "^vis_SO_ARM100_08k_116_Square-v1$",
+        "elbow": "^vis_SO_ARM100_08k_Mirror-v1$",
+        "wflex": "^vis_Wrist_Roll_Pitch_08i-v1$",
+        "wroll": "^vis_df200_arch_arch$",
+        "pinc": "^vis_pincopen_top_plate$"
+      }
+    },
+    {
+      "model": "robot_kit",
+      "anchor": "^decor_dash_text$",
+      "match": "^vis_(Battery---Battery-5.2-Ah-DC5521-Plug-v2|lipo_battery_mount-v3)$",
+      "follow": {
+        "base": "^vis_base_plate_layer1-v5$",
+        "lift": "^vis_SO_ARM100_08k_116_Square-v1$",
+        "finger_L": "^vis_pincopen_removable_tip$",
+        "finger_R": "^vis_pincopen_removable_tip_2$"
+      }
+    }
+  ]
+}

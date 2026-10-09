@@ -1,0 +1,395 @@
+{
+ "root_link": "base_plate_layer1-v5",
+ "ground_z": -32.9,
+ "bed": [
+  256,
+  256,
+  256
+ ],
+ "arm_joint_order": [
+  "arm_shoulder_pan",
+  "arm_shoulder_lift",
+  "arm_elbow_flex",
+  "arm_wrist_flex",
+  "arm_wrist_roll",
+  "arm_gripper"
+ ],
+ "frames": {
+  "cam_top_rev8": {
+   "origin": [
+    0,
+    25,
+    387.1
+   ],
+   "tilt_deg": 65
+  },
+  "wrist_mount": {
+   "derive": "so101_wrist_flange",
+   "roll_joint": "arm_wrist_roll",
+   "gripper_joint": "arm_gripper",
+   "camera_link": "Wrist-Camera-Mount-v11",
+   "parent_link": "Wrist_Roll_08c-v1",
+   "back_x_mm": -53.49,
+   "note": "PincOpen assembly frame -> robot frame at the arm ZERO pose. APPROXIMATE, derived from the stock gripper: +X = the arm_wrist_roll axis (0,0.42262,-0.90631) = the stock finger direction; +Z = -arm_gripper hinge axis (0,0.90631,0.42262) so the PincOpen camera stack points the same way as the stock Wrist-Camera-Mount-v11; +Y = Z x X = robot -X = the stock jaw opening direction. Origin: the PincOpen back face (full-gripper X_min = -53.49 mm) is put on the wrist-roll output flange (the stock Wrist_Roll_08c-v1 bracket starts 1.0 mm behind it) and the PincOpen mirror plane Y=0 and finger mid-plane Z=0 are put on the stock gripper centreline. Assumed: PincOpen bolts straight onto the wrist-roll flange with no adapter plate; no CAD of the real adapter was available. Expect a few mm of error along +X.",
+   "matrix": [
+    8.133030057583163e-47,
+    0.4226179651788165,
+    -0.906307925325668,
+    0,
+    -0.9999999999999999,
+    2.5276683720604654e-47,
+    -7.795134298309805e-47,
+    0,
+    -1.0035179172538607e-47,
+    0.9063079253256681,
+    0.42261796517881633,
+    0,
+    -4.800000000000041,
+    164.52606495741495,
+    114.54826907432997,
+    1
+   ],
+   "local": [
+    0,
+    0.4226179651788168,
+    -0.9063079253256678,
+    0,
+    -0.9999999999999999,
+    5.502311409442623e-48,
+    9.629811037203008e-48,
+    0,
+    2.2786090111262734e-47,
+    0.906307925325668,
+    0.4226179651788166,
+    0,
+    0,
+    22.605834957414913,
+    -48.47841092566998,
+    1
+   ]
+  },
+  "deck_grid": {
+   "pitch": 20,
+   "z": 57,
+   "radius": 107,
+   "hole_d": 3.25
+  },
+  "pan_axis": [
+   0,
+   67.15
+  ],
+  "reach_disc": {
+   "centre": [
+    0,
+    67.15
+   ],
+   "radius": 304,
+   "y_min": 100
+  }
+ },
+ "removed_stock_links": [
+  "Bottom-V2-v3",
+  "Top-V2-v2"
+ ],
+ "arm_links": [
+  "Base_08q-v1",
+  "Camera-Model-v3",
+  "Camera-Model-v3-1",
+  "Camera-Mount-v8",
+  "Moving_Jaw_08d-v1",
+  "Rotation_Pitch_08i-v1",
+  "SO_ARM100_08k_116_Square-v1",
+  "SO_ARM100_08k_Asym_Mirror_Clip-v1",
+  "SO_ARM100_08k_Mirror-v1",
+  "STS3215_03a-v1",
+  "STS3215_03a-v1-1",
+  "STS3215_03a-v1-2",
+  "STS3215_03a-v1-3",
+  "STS3215_03a-v1-4",
+  "STS3215_03a_Wrist_Roll-v1",
+  "WaveShare_Mounting_Plate_01d-v1",
+  "Wrist-Camera-Mount-v11",
+  "Wrist_Roll_08c-v1",
+  "Wrist_Roll_Pitch_08i-v1"
+ ],
+ "colors": {
+  "default": "#8d949e",
+  "arm": "#c3c8cf",
+  "removed_stock": "#b5714c",
+  "by_prefix": [
+   [
+    "4-Omni-Directional-Wheel",
+    "#3a3f45"
+   ],
+   [
+    "Camera-Model",
+    "#2b3138"
+   ],
+   [
+    "Camera-Mount",
+    "#2b3138"
+   ],
+   [
+    "Battery",
+    "#4d5f72"
+   ],
+   [
+    "ST3215",
+    "#242a30"
+   ],
+   [
+    "STS3215",
+    "#242a30"
+   ]
+  ]
+ },
+ "cameras": {
+  "order": [
+   "front",
+   "wrist",
+   "top"
+  ],
+  "aspect": 1.3333333333333333,
+  "id_pass": {
+   "width": 160,
+   "height": 120
+  },
+  "robot_classes": [
+   "robot",
+   "arm",
+   "gripper",
+   "mast"
+  ],
+  "warn": {
+   "robot_pct": 35
+  },
+  "front": {
+   "label": "Front",
+   "name": "Front (base)",
+   "pose": {
+    "kind": "link",
+    "link": "Camera-Model-v3",
+    "local": [
+     -0.173648177667,
+     -2.12657684958e-17,
+     -0.984807753012,
+     0,
+     0.969846310393,
+     -0.173648177667,
+     -0.171010071663,
+     0,
+     -0.171010071663,
+     -0.984807753012,
+     0.030153689607,
+     0,
+     -15.4958963875,
+     5.38549325584,
+     -11.483627943,
+     1
+    ],
+    "robot_matrix": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     -0.173648177667,
+     0.984807753012,
+     0,
+     0,
+     -0.984807753012,
+     -0.173648177667,
+     0,
+     0,
+     111.752153256,
+     25.0531121631,
+     1
+    ],
+    "note": "camera <- Camera-Model-v3 link frame (mm), column-major: col0 = image right, col1 = image up, col2 = -optical axis, col3 = sensor point. Derived from the URDF visual origin of the link (xyz -0.01601 0.00243 -0.01139, rpy 1.74533 1.39626 -pi) plus meshes/Camera-Model-v3.stl: a 38x38x3 mm board at mesh z 0..3 with an M12 lens barrel (r 6.1..6.8) from z 3 to 21.5, so the optical axis is mesh +Z and the sensor is the board front face, mesh (0,0,3). At the base pose that is robot (0, 111.75, 25.05) aiming (0, 0.98481, 0.17365) = +Y, 10.000 deg ABOVE horizontal (verified: the axis ray clears Camera-Mount-v8 and every stock mesh, never meets the ground, and matches docs/analysis/real_front.png). robot_matrix is the same pose already multiplied through FK, used when ctx.fk cannot resolve the link."
+   },
+   "hfov_deg": 90,
+   "hfov_range": [
+    40,
+    140
+   ],
+   "near": 22,
+   "far": 8000,
+   "hfov_source": {
+    "value": 90,
+    "what": "Arducam 5MP OV5648 wide-angle USB camera (B0972/UB0233), the LeKiwi BOM's camera option: 'Field of View (FOV): 90 degree (H)', M12 lens. external/LeKiwi/BOM.md footnote 2 + 3DPrinting.md name this camera for base_camera_mount.stl, and the URDF's Camera-Model-v3 is that 38 mm board camera (not the clip-on Vinmooog webcam listed on the same BOM line).",
+    "url": "https://www.uctronics.com/arducam-5mp-wide-angle-usb-camera-for-computer-1-4-cmos-ov5648-mini-uvc-usb.html",
+    "bom_url": "https://www.amazon.com/Arducam-Camera-Computer-Without-Microphone/dp/B0972KK7BC"
+   },
+   "hfov_alternatives": [
+    {
+     "hfov_deg": 97.7,
+     "label": "110 deg DFOV variant",
+     "note": "Arducam B0454 '5MP OV5648, 110 Degree DFOV Wide Angle' - 110 deg diagonal on a rectilinear 4:3 frame = 97.7 deg H / 81.3 deg V.",
+     "url": "https://docs.arducam.com/UVC-Camera/USB2-UVC-Camera-Kit/Specs-and-Selection-Guide/"
+    },
+    {
+     "hfov_deg": 66,
+     "label": "cover.py assumption",
+     "note": "This repo's scripts/cover.py (2026-08) assumed a '90 deg diagonal lens = +/-33 h, +/-25 v'. Conservative; kept so the old coverage numbers can be reproduced.",
+     "url": ""
+    }
+   ]
+  },
+  "wrist": {
+   "label": "Wrist",
+   "name": "Wrist (PincOpen + NormaCam)",
+   "pose": {
+    "kind": "frame_in_link",
+    "frame": "cam_wrist",
+    "link": "Wrist_Roll_08c-v1",
+    "mount_frame": "wrist_mount",
+    "fallback": {
+     "origin": [
+      -36.2,
+      0,
+      94.758
+     ],
+     "dir": [
+      0.681998,
+      0,
+      -0.731354
+     ],
+     "up": [
+      0.731354,
+      0,
+      0.681998
+     ],
+     "tilt_deg": 47
+    },
+    "note": "world = FK(Wrist_Roll_08c-v1) . frames.wrist_mount.local . frameToMatrix(frames.cam_wrist). frames.cam_wrist comes from wrist_cam_mount.build() in the PincOpen assembly frame (+X fingertip direction, Y=0 mirror plane); at the default +22 variant the head is 25+22 = 47 deg nose-down. The fallback is that same shipped NormaCam +22 datum, used when the part is not built."
+   },
+   "hfov_deg": 81,
+   "hfov_range": [
+    40,
+    140
+   ],
+   "near": 14,
+   "far": 8000,
+   "hfov_source": {
+    "value": 81,
+    "what": "Fitted, not a datasheet: studio/docs/analysis/wrist.py least-squares three landmarks in the REAL wrist feed (servo LED, gripper body top edge, fingertip) for tilt + half-vertical FOV and gets 32.7 deg half-vFOV, i.e. 65.4 deg V = 81 deg H at 4:3. wrist_cam_mount.build() publishes the same 81 in frames.cam_wrist.hfov_deg, which wins over this default until the user edits it.",
+    "url": "studio/docs/analysis/wrist.py"
+   },
+   "hfov_alternatives": []
+  },
+  "top": {
+   "label": "Top",
+   "name": "Top (mast rev 8)",
+   "pose": {
+    "kind": "frame",
+    "frame": "cam_top",
+    "fallback_frame": "cam_top_rev8",
+    "fallback": {
+     "origin": [
+      0,
+      25,
+      387.1
+     ],
+     "tilt_deg": 65
+    },
+    "note": "mast_upper.build().frames.cam_top, already in the robot frame: {origin, tilt_deg, dir = (0, cos t, -sin t)} with tilt_deg the nose-down angle. Falls back to profile frames.cam_top_rev8 (0, 25, 387.1) tilt 65 = the head as printed."
+   },
+   "hfov_deg": 60,
+   "hfov_range": [
+    30,
+    120
+   ],
+   "near": 26,
+   "far": 9000,
+   "hfov_source": {
+    "value": 60,
+    "what": "Fitted, not a datasheet: studio/docs/analysis/README.md + fit.py fit the two front omni wheels in a screenshot of the live top feed and get hFOV 58-62 deg (4:3 -> ~46 deg V). The same fit says the INSTALLED head aims ~71 deg down against a 65 deg design, i.e. ~6 deg of droop. mast_upper.build() publishes 60 in frames.cam_top.hfov_deg.",
+    "url": "studio/docs/analysis/README.md"
+   },
+   "hfov_alternatives": []
+  }
+ },
+ "joint_limits_deg": {
+  "arm_shoulder_pan": [
+   -110.0,
+   110.0
+  ],
+  "arm_shoulder_lift": [
+   -194.8,
+   5.2
+  ],
+  "arm_elbow_flex": [
+   -12.03,
+   181.63
+  ],
+  "arm_wrist_flex": [
+   -19.5,
+   170.5
+  ],
+  "arm_wrist_roll": [
+   -69.29,
+   250.71
+  ],
+  "arm_gripper": [
+   -100.0,
+   10.0
+  ]
+ },
+ "joint_limits_map": {
+  "arm_shoulder_pan": {
+   "ref_joint": "shoulder_pan",
+   "sign": 1,
+   "offset_deg": 0.0,
+   "ref_limits_deg": [
+    -110.0,
+    110.0
+   ]
+  },
+  "arm_shoulder_lift": {
+   "ref_joint": "shoulder_lift",
+   "sign": -1,
+   "offset_deg": -94.8,
+   "ref_limits_deg": [
+    -100.0,
+    100.0
+   ]
+  },
+  "arm_elbow_flex": {
+   "ref_joint": "elbow_flex",
+   "sign": -1,
+   "offset_deg": 84.8,
+   "ref_limits_deg": [
+    -96.8274,
+    96.8274
+   ]
+  },
+  "arm_wrist_flex": {
+   "ref_joint": "wrist_flex",
+   "sign": -1,
+   "offset_deg": 75.5,
+   "ref_limits_deg": [
+    -95.0,
+    95.0
+   ]
+  },
+  "arm_wrist_roll": {
+   "ref_joint": "wrist_roll",
+   "sign": -1,
+   "offset_deg": 93.5,
+   "ref_limits_deg": [
+    -157.2101,
+    162.7887
+   ]
+  },
+  "arm_gripper": {
+   "ref_joint": "gripper",
+   "sign": -1,
+   "offset_deg": 0.0,
+   "ref_limits_deg": [
+    -10.0,
+    100.0
+   ]
+  }
+ },
+ "joint_limits_note": "Source: TheRobotStudio/SO-ARM100, Simulation/SO101/so101_new_calib.urdf (https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/Simulation/SO101/so101_new_calib.urdf, fetched 2026-09-12) -- the only SO-101 description that carries <limit> tags. Its <limit> values, in degrees: shoulder_pan +-110, shoulder_lift +-100, elbow_flex +-96.83, wrist_flex +-95, wrist_roll -157.21..+162.79, gripper -10..+100. The LeKiwi URDF (external/LeKiwi/URDF/LeKiwi.urdf) has NO <limit> tags and, more importantly, a DIFFERENT joint zero: its zero pose is the folded/parked CAD configuration (upper arm horizontal backwards, forearm folded forward again) while the reference zero has the upper arm up and the forearm forward. The mapping q_lekiwi = sign * q_ref + offset_deg was solved geometrically, not guessed: both URDFs describe the same physical arm, so for each joint the axis LINE (point + direction) of every downstream joint must coincide once the two chains are aligned by one rigid transform. Fitting sign+offset per joint over 6-8 random configurations leaves max axis-line offset 5.1 mm and max axis-angle 0.87 deg (identity mapping: 254 mm / 180 deg; the best wrong sign combination: 145x worse cost), the residual being the genuine CAD difference between the two exports (forearm 136.0 vs 135.0 mm, two DH offsets 1.5 and 3.5 mm apart). Signs: pan +1, lift/elbow/wrist_flex/wrist_roll/gripper -1 -- i.e. every LeKiwi arm axis except the shoulder pan points the opposite way to the SO-101 reference axis. The pan offset is not observable from geometry (a base rotation absorbs it) and is taken as 0, which is correct by inspection: at pan 0 the arm points robot +Y in both models, and the limit is symmetric anyway. The gripper offset is likewise not observable from the axis lines (nothing is downstream of it), and a mesh test cannot find it either: the stock jaw pivots INSIDE its own bracket, so Moving_Jaw_08d-v1 intersects Wrist_Roll_08c-v1 at every angle from -120 to +103 deg in the decimated meshes. It is taken as 0 on the finger-tip measurement instead: tip separation (moving-jaw tip to fixed-finger tip, collide.js gripOpening) falls monotonically 142.2 mm at -100, 62.7 at -30, 41.6 at -15, 20.1 at 0, 7.1 at +10, with its minimum 6.2 mm at +15 -- so LeKiwi arm_gripper 0 is the near-closed jaw exactly as the reference's 0 is, +10 is the closed stop (matching the reference's 10 deg of over-close) and NEGATIVE arm_gripper OPENS. This also agrees with the app's own presets, which use arm_gripper -30 for the two reaching poses. SANITY: the LeKiwi URDF zero pose (all six joints 0) lands inside every one of these ranges, 3.8..69.3 deg from the nearest stop -- as a parked CAD pose should. CAVEAT for the app: three of the four presets shipped in docs/VERIFY.md were authored before any limit existed and fall OUTSIDE this range -- stowed (lift +40, wrist_flex -54), reach floor (lift +20, elbow -76), reach table (lift +9). Only 'raised max' is legal. Independently of the limits, collide.js finds those same three presets to be in HARD COLLISION with the robot (upper arm through Base_08q / the WaveShare plate / the deck plate), so they are not merely out of travel, they are impossible. See studio/docs/MOTION.md for IK-corrected replacements that hit the same tip positions. arm_joint_range_deg above is the OLD UI travel hint and is kept only so that nothing that reads it breaks; joint_limits_deg is the physical one."
+}

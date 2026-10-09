@@ -1,0 +1,45 @@
+{
+  "name": "lerobot-cad-studio",
+  "version": "7.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuoxingdong/lerobot-cad-studio.git"
+  },
+  "description": "Interactive 3D-print design and MuJoCo evaluation for LeRobot robots. Builds a static site (site/) for GitHub Pages.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build/build.mjs",
+    "serve": "node tools/build/serve.mjs",
+    "pack": "nice -n 10 python3 tools/build/pack_assets.py",
+    "fetch": "bash tools/build/fetch_sources.sh",
+    "test:unit": "node tools/build/build.mjs >/dev/null && for f in $(find tools/tests -name '*.test.mjs' | sort); do echo \"== $f\"; node --test \"$f\" || exit 1; done",
+    "test:e2e": "node tools/build/build.mjs >/dev/null && node tools/tests/e2e/run.mjs",
+    "cad:test": "uv run --extra cad python -m pytest tools/tests/cad -q",
+    "cad:selftest": "uv run --extra cad python tools/cad/selftest.py",
+    "sim:test": "node tools/build/build.mjs >/dev/null && node --test --test-concurrency=1 tools/tests/features/sim-*.test.mjs tools/tests/sim/*.test.mjs && uv run --extra sim python -m pytest tools/tests/sim tools/tests/build -q",
+    "sim:export": "node tools/sim/export.mjs --robot lekiwi-pincopen --out out/work/sim/lab",
+    "sim:lab": "node tools/sim/run-lab.mjs out/work/sim/lab",
+    "sim:check": "npm run sim:export && npm run sim:lab && uv run --extra sim python tools/sim/check.py out/work/sim/lab",
+    "sim:video": "node tools/sim/export.mjs --robot lekiwi-pincopen --visual --lab --out out/work/sim/lab && uv run --extra sim python tools/render/film/video.py out/work/sim/lab",
+    "sim:video:teleop": "node tools/sim/export.mjs --robot lekiwi-pincopen --visual --out out/work/sim/lab && node tools/sim/run-teleop.mjs out/work/sim/lab --script tools/sim/lab-tour.json && uv run --extra sim python tools/render/film/video.py out/work/sim/lab --ctrl out/work/sim/lab/teleop/ctrl.f32",
+    "render": "python3 tools/render/fetch_assets.py && node tools/sim/export.mjs --robot lekiwi-pincopen --visual --lab --out out/work/render/hero/lab && nice -n 5 uv run --extra sim python tools/render/hero.py",
+    "render:draft": "node tools/sim/export.mjs --robot lekiwi-pincopen --visual --lab --out out/work/render/hero/lab && uv run --extra sim python tools/render/film/video.py out/work/render/hero/lab --campath tools/render/shots.json",
+    "render:thumbs": "node tools/render/thumbs.mjs && python3 tools/render/blender.py thumb --in out/work/render/thumbs",
+    "render:test": "uv run --extra sim python -m pytest tools/tests/render -q",
+    "render:test:fast": "uv run --extra sim python -m pytest tools/tests/render -q -m \"not blender and not gl and not slow\""
+  },
+  "dependencies": {
+    "@mujoco/mujoco": "3.14.0",
+    "fflate": "0.8.3",
+    "idb-keyval": "6.2.1",
+    "three": "0.170.0",
+    "three-mesh-bvh": "0.8.3",
+    "urdf-loader": "0.12.6"
+  },
+  "devDependencies": {
+    "@xmldom/xmldom": "0.9.12",
+    "esbuild": "0.24.2"
+  }
+}

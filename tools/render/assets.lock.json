@@ -1,0 +1,222 @@
+{
+ "schema": "rps/assets@1",
+ "doc": "CC0 assets for the offline renders, fetched by fetch_assets.py into _cache/<id>/ (gitignored). maps: role -> file; var = a greyscale roughness variation, mask = where a smudge/print/scratch is.",
+ "assets": [
+  {
+   "id": "small_empty_room_3",
+   "source": "Poly Haven",
+   "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/small_empty_room_3_2k.hdr",
+   "page": "https://polyhaven.com/a/small_empty_room_3",
+   "res": "2K",
+   "sha256": "a3e9a896471c74bd8008203f4ca917b584c1cf79bafaadd88fd0236a6f7f4357",
+   "license": "CC0-1.0",
+   "author": "Sergej Majboroda",
+   "used_by": [
+    "world (reflections only, desaturated)"
+   ],
+   "maps": {
+    "hdr": "small_empty_room_3_2k.hdr"
+   }
+  },
+  {
+   "id": "SurfaceImperfections003",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=SurfaceImperfections003_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/SurfaceImperfections003",
+   "res": "1K",
+   "sha256": "9b3e0a617c6514da0bb3fd41e3be0a46a4261badad1d5b6d66e8a8594777df5d",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "floor roughness"
+   ],
+   "maps": {
+    "var": "SurfaceImperfections003_1K-JPG_Color.jpg"
+   }
+  },
+  {
+   "id": "SurfaceImperfections015",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=SurfaceImperfections015_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/SurfaceImperfections015",
+   "res": "1K",
+   "sha256": "c5e80884a2dbfa155b86aded24444dac186215f477161d1fde1ca305308f6a74",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "plinth top",
+    "inst_white"
+   ],
+   "maps": {
+    "var": "SurfaceImperfections015_1K-JPG_Roughness.jpg"
+   }
+  },
+  {
+   "id": "Fingerprints002",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Fingerprints002_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Fingerprints002",
+   "res": "1K",
+   "sha256": "7fe5718d9cf635479e3220aed0bcedc2c1cbd71a40f20ae0c206b24d8b081497",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "glass",
+    "touchscreen",
+    "inst_white"
+   ],
+   "maps": {
+    "mask": "Fingerprints002_1K-JPG_Opacity.jpg"
+   }
+  },
+  {
+   "id": "Fingerprints005",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Fingerprints005_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Fingerprints005",
+   "res": "1K",
+   "sha256": "505fadea837fd7b0b828663ee84f454d8a0b608571f96b428a87bd243901b455",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "steel_brushed handles"
+   ],
+   "maps": {
+    "mask": "Fingerprints005_1K-JPG_Opacity.jpg"
+   }
+  },
+  {
+   "id": "Smear002",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Smear002_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Smear002",
+   "res": "1K",
+   "sha256": "03f791ea5c510bfe77e4d409dfe14f61c011cb541e08d772ecab24a73288a370",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "glass",
+    "smoked_glass"
+   ],
+   "maps": {
+    "var": "Smear002_1K-JPG_Roughness.jpg"
+   }
+  },
+  {
+   "id": "Scratches005",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Scratches005_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Scratches005",
+   "res": "1K",
+   "sha256": "22dee57dad7d7658bf7b0073d8da2948df8bd47da594c78a89ed14d6432a3c2c",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "epoxy"
+   ],
+   "maps": {
+    "mask": "Scratches005_1K-JPG_Opacity.jpg"
+   }
+  },
+  {
+   "id": "OfficeCeiling002",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=OfficeCeiling002_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/OfficeCeiling002",
+   "res": "1K",
+   "sha256": "dc7121864e195ea1a0ec4011f82d0b22d2a8d3e97aeaf26aa83d7e1997e9b548",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "ceiling tiles"
+   ],
+   "maps": {
+    "var": "OfficeCeiling002_1K-JPG_Roughness.jpg",
+    "height": "OfficeCeiling002_1K-JPG_Displacement.jpg"
+   }
+  },
+  {
+   "id": "PaintedPlaster017",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=PaintedPlaster017_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/PaintedPlaster017",
+   "res": "1K",
+   "sha256": "bae0380d82b6ccac8943b4980417cb3c9de5c896218339c108056f1dfb8e886c",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "wall"
+   ],
+   "maps": {
+    "height": "PaintedPlaster017_1K-JPG_Displacement.jpg"
+   }
+  },
+  {
+   "id": "Plastic013A",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Plastic013A_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Plastic013A",
+   "res": "1K",
+   "sha256": "2bf612fa6fe5556930196865beb55cefb833b83bd0bc3db1db7188074fb41260",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "lab_white"
+   ],
+   "maps": {
+    "height": "Plastic013A_1K-JPG_Displacement.jpg"
+   }
+  },
+  {
+   "id": "Metal009",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Metal009_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Metal009",
+   "res": "1K",
+   "sha256": "1b1970219b40fe707e7194b28702f1a65b0d227bbea56da69dfbc8d8b5cfcb5e",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "alu",
+    "brushed alu"
+   ],
+   "maps": {
+    "var": "Metal009_1K-JPG_Roughness.jpg"
+   }
+  },
+  {
+   "id": "Metal011",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Metal011_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Metal011",
+   "res": "1K",
+   "sha256": "d366e840e8361182fc69a5657e71bee762646ec54c2473abf921ecae57fa4b8c",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "steel",
+    "steel_brushed"
+   ],
+   "maps": {
+    "var": "Metal011_1K-JPG_Roughness.jpg"
+   }
+  },
+  {
+   "id": "Rubber004",
+   "source": "ambientCG",
+   "url": "https://ambientcg.com/get?file=Rubber004_1K-JPG.zip",
+   "page": "https://ambientcg.com/a/Rubber004",
+   "res": "1K",
+   "sha256": "d8933e73c3b983892209bb143ca4bc13a48e4d55720ab12f6e6a303c96c84a31",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "used_by": [
+    "rubber rollers",
+    "feet"
+   ],
+   "maps": {
+    "height": "Rubber004_1K-JPG_Displacement.jpg"
+   }
+  }
+ ]
+}

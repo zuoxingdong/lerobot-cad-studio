@@ -1,0 +1,612 @@
+{
+ "schema": "rps/part-record@1",
+ "id": "df200_arch",
+ "slot": "wrist_camera_mount",
+ "label": "DF200 arch \u00b7 35\u00b0",
+ "frame": "attachment",
+ "local": null,
+ "printable": true,
+ "print_orientation": null,
+ "print_files": [
+  "print/arch_PRINT.stl",
+  "print/head_PRINT.stl"
+ ],
+ "cameras": {
+  "wrist": {
+   "local": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.573576436351046,
+    0.0,
+    0.8191520442889918,
+    0.0,
+    -0.8191520442889918,
+    -0.0,
+    0.573576436351046,
+    0.0,
+    -19.958320327161772,
+    0.0,
+    99.23161506172266,
+    1.0
+   ],
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "aspect": 1.3333333333333333,
+   "source": "user-confirmed JR DF200 \"100\u00b0 without distortion\", 640 \u00d7 480 MJPG 4:3, rectilinear -> 87.3\u00b0 H / 71.1\u00b0 V (2026-09-15)"
+  }
+ },
+ "params": {
+  "generator": "tools/cad/gen_wristcam_arch.py",
+  "concept": "C3 (forward clamp arch), the concept chosen in the wrist-camera study; DESIGN.md beside this file says why",
+  "tilt_deg": 35.0,
+  "sensor_pincopen_mm": [
+   -19.9583,
+   0.0,
+   99.2316
+  ],
+  "hfov_deg": 87.3,
+  "hinge_pincopen_mm": [
+   -42.163,
+   0.0,
+   74.4939
+  ],
+  "seat_z": 19.5,
+  "seat_holes": [
+   [
+    -41.27,
+    18.91
+   ],
+   [
+    -41.27,
+    -18.91
+   ],
+   [
+    -26.27,
+    18.91
+   ],
+   [
+    -26.27,
+    -18.91
+   ]
+  ],
+  "detents_deg": [
+   30.0,
+   35.0,
+   40.0,
+   45.0,
+   50.0,
+   55.0,
+   60.0
+  ],
+  "detent_step_deg": 5.0,
+  "framing": {
+   "30": {
+    "tilt_deg": 30.0,
+    "sensor": [
+     -22.1988,
+     0.0,
+     101.0727
+    ],
+    "pupil": [
+     -15.2706,
+     0.0,
+     97.0727
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": null,
+    "v_led": 3.94,
+    "led_margin_deg": 13.95,
+    "led_margin_deg_bracket": [
+     15.76,
+     12.1
+    ],
+    "v_servo_nose": 1.833,
+    "servo_margin_deg": 17.09,
+    "v_grasp": 0.842,
+    "uv_pad_closed": [
+     0.0,
+     0.504
+    ],
+    "uv_pad_open40": [
+     -0.169,
+     0.455
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.49999999999999994,
+     0.0,
+     0.8660254037844387,
+     0.0,
+     -0.8660254037844387,
+     -0.0,
+     0.49999999999999994,
+     0.0,
+     -22.198849288764507,
+     0.0,
+     101.0727416704766,
+     1.0
+    ]
+   },
+   "35": {
+    "tilt_deg": 35.0,
+    "sensor": [
+     -19.9583,
+     0.0,
+     99.2316
+    ],
+    "pupil": [
+     -13.4051,
+     0.0,
+     94.643
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": null,
+    "v_led": 3.417,
+    "led_margin_deg": 6.66,
+    "led_margin_deg_bracket": [
+     8.5,
+     4.78
+    ],
+    "v_servo_nose": 1.622,
+    "servo_margin_deg": 13.67,
+    "v_grasp": 0.689,
+    "uv_pad_closed": [
+     0.0,
+     0.368
+    ],
+    "uv_pad_open40": [
+     -0.169,
+     0.321
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.573576436351046,
+     0.0,
+     0.8191520442889918,
+     0.0,
+     -0.8191520442889918,
+     -0.0,
+     0.573576436351046,
+     0.0,
+     -19.958320327161772,
+     0.0,
+     99.23161506172266,
+     1.0
+    ]
+   },
+   "40": {
+    "tilt_deg": 40.0,
+    "sensor": [
+     -17.8868,
+     0.0,
+     97.2022
+    ],
+    "pupil": [
+     -11.7584,
+     0.0,
+     92.0599
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": 1580.0,
+    "v_led": 3.001,
+    "led_margin_deg": -0.61,
+    "led_margin_deg_bracket": [
+     1.25,
+     -2.53
+    ],
+    "v_servo_nose": 1.434,
+    "servo_margin_deg": 10.15,
+    "v_grasp": 0.546,
+    "uv_pad_closed": [
+     0.0,
+     0.235
+    ],
+    "uv_pad_open40": [
+     -0.17,
+     0.189
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.6427876096865393,
+     0.0,
+     0.766044443118978,
+     0.0,
+     -0.766044443118978,
+     -0.0,
+     0.6427876096865393,
+     0.0,
+     -17.886782011770553,
+     0.0,
+     97.20221952977023,
+     1.0
+    ]
+   },
+   "45": {
+    "tilt_deg": 45.0,
+    "sensor": [
+     -16.0,
+     0.0,
+     95.0
+    ],
+    "pupil": [
+     -10.3431,
+     0.0,
+     89.3431
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": 719.5,
+    "v_led": 2.659,
+    "led_margin_deg": -7.86,
+    "led_margin_deg_bracket": [
+     -5.97,
+     -9.82
+    ],
+    "v_servo_nose": 1.263,
+    "servo_margin_deg": 6.53,
+    "v_grasp": 0.409,
+    "uv_pad_closed": [
+     0.0,
+     0.103
+    ],
+    "uv_pad_open40": [
+     -0.173,
+     0.056
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.7071067811865475,
+     0.0,
+     0.7071067811865476,
+     0.0,
+     -0.7071067811865476,
+     -0.0,
+     0.7071067811865475,
+     0.0,
+     -16.0,
+     0.0,
+     95.0,
+     1.0
+    ]
+   },
+   "50": {
+    "tilt_deg": 50.0,
+    "sensor": [
+     -14.3123,
+     0.0,
+     92.6417
+    ],
+    "pupil": [
+     -9.17,
+     0.0,
+     86.5134
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": 453.2,
+    "v_led": 2.373,
+    "led_margin_deg": -15.09,
+    "led_margin_deg_bracket": [
+     -13.17,
+     -17.09
+    ],
+    "v_servo_nose": 1.106,
+    "servo_margin_deg": 2.77,
+    "v_grasp": 0.276,
+    "uv_pad_closed": [
+     0.0,
+     -0.03
+    ],
+    "uv_pad_open40": [
+     -0.177,
+     -0.078
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.766044443118978,
+     0.0,
+     0.6427876096865394,
+     0.0,
+     -0.6427876096865394,
+     -0.0,
+     0.766044443118978,
+     0.0,
+     -14.312333842229823,
+     0.0,
+     92.64171669277,
+     1.0
+    ]
+   },
+   "55": {
+    "tilt_deg": 55.0,
+    "sensor": [
+     -12.8366,
+     0.0,
+     90.1453
+    ],
+    "pupil": [
+     -8.248,
+     0.0,
+     83.5921
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": 322.2,
+    "v_led": 2.128,
+    "led_margin_deg": -22.29,
+    "led_margin_deg_bracket": [
+     -20.34,
+     -24.33
+    ],
+    "v_servo_nose": 0.958,
+    "servo_margin_deg": -1.16,
+    "v_grasp": 0.144,
+    "uv_pad_closed": [
+     0.0,
+     -0.169
+    ],
+    "uv_pad_open40": [
+     -0.183,
+     -0.218
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.8191520442889917,
+     0.0,
+     0.5735764363510462,
+     0.0,
+     -0.5735764363510462,
+     -0.0,
+     0.8191520442889917,
+     0.0,
+     -12.836627696961344,
+     0.0,
+     90.14531756801867,
+     1.0
+    ]
+   },
+   "60": {
+    "tilt_deg": 60.0,
+    "sensor": [
+     -11.5841,
+     0.0,
+     87.5298
+    ],
+    "pupil": [
+     -7.5841,
+     0.0,
+     80.6016
+    ],
+    "pupil_fwd_mm": 8.0,
+    "reach_mm": 243.6,
+    "v_led": 1.915,
+    "led_margin_deg": -29.46,
+    "led_margin_deg_bracket": [
+     -27.48,
+     -31.55
+    ],
+    "v_servo_nose": 0.817,
+    "servo_margin_deg": -5.88,
+    "v_grasp": 0.012,
+    "uv_pad_closed": [
+     0.0,
+     -0.314
+    ],
+    "uv_pad_open40": [
+     -0.191,
+     -0.366
+    ],
+    "camera_matrix16": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0,
+     0.8660254037844386,
+     0.0,
+     0.5000000000000001,
+     0.0,
+     -0.5000000000000001,
+     -0.0,
+     0.8660254037844386,
+     0.0,
+     -11.584112579015784,
+     0.0,
+     87.52980173045238,
+     1.0
+    ]
+   }
+  },
+  "mass_g_solid_pla": 49.4,
+  "generator_design_tilt_deg": 45.0,
+  "shipped_detent_note": "35\u00b0 is one of the 7 holes on the index fan the head was printed with (30..60\u00b0 in 5\u00b0 steps). It is shipped because the framing model measures from the lens ENTRANCE PUPIL, 8.0 mm in front of the sensor, at which 40\u00b0 puts the drive servo LED 0.61\u00b0 INSIDE the frame. Moving the pin is not a reprint: only head.stl and retainer.stl turn about the hinge, and arch.stl and every print/*.stl are untouched.",
+  "vfov_deg": 71.1,
+  "framing_source": "gen_wristcam_arch.framing_table() and its landmark table, at hFOV 87.3\u00b0 (half-vFOV 35.582\u00b0)",
+  "camera_module": {
+   "part": "df200.stl",
+   "printable": false,
+   "conn_axis": "image-up",
+   "preload_mm": 0.4,
+   "module_int_head_mm3": 0.0,
+   "module_int_retainer_mm3": 206.0,
+   "conn_int_retainer_mm3": 0.0,
+   "note": "The DF200 module and its retainer are part of the SET. `df200.stl` is the volumetric stand-in (36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 connector, sensor 4 mm behind the front face), seated in the pocket with its front face on the 3 mm lip. The connector is on the image-UP axis, so it passes the retainer's 24 \u00d7 14 window. The retainer boss presses the module's back face by 0.4 mm - the clamp preload; use a 0.5 mm pocket shim behind a thinner module. Measured on the exported meshes: module \u2229 head 0.001 mm\u00b3, connector \u2229 retainer 0.000 mm\u00b3."
+  },
+  "connector_corridor": {
+   "x": [
+    -54.2,
+    -6.8
+   ],
+   "y_half": 13.0,
+   "z_top": 57.4,
+   "socket_face_z": 39.3,
+   "clear_mm": 18.1,
+   "note": "kept empty by an unconditional cut in Arch.arch(); the crossbar humps over it"
+  },
+  "driver_relief": {
+   "seat_m25": "\u00d86.4 \u00d7 16 mm bored up from each M2.5 counterbore. The legs' inboard faces are at |Y| 19.5, only 0.59 mm outboard of the seat axis, so in rev 1 they roofed all four \u00d85.4 counterbores: the head could not be put in and no key could reach it (0.37 mm of clear \u00d83.6). It is now 50 mm front / 17 mm rear straight, and 60 mm with a ball-end key.",
+   "tool_note": "a \u00d87 socket never fits an M2.5 head here - the counterbore is \u00d85.4. The \u00d87 row of the audit records the LeKiwi wrist-roll bracket sitting 1.0 mm over the rear pair, which is inside the stated uncertainty of the PincOpen to wrist-flange registration."
+  },
+  "cable_management": {
+   "tie_lug": "a 4 mm tab on the front face of the crown, X -33..-29, |Y| <= 7, Z 57.5..62.5, with a 9 \u00d7 2.2 mm slot for a 2.5 mm zip tie",
+   "servo_lead": "\u00d85 route: pin headers, up past a 10 mm housing, rearward along the corridor at Z 53.5, out of the arch at X -57. 0.000 mm\u00b3 against the arch, the servo, the top plate, the motor flange, the bottom plate and the arm interface. Min bend radius 4.9 mm - the 18.1 mm ceiling over a 10 mm plug is what limits it.",
+   "df200_pigtail": "\u00d85 route: retainer window, outboard loop at |Y| 35, down past the -Y cheek, into the corridor, out at X -57. Min bend radius 12.0 mm, 0.54 mm\u00b3 (a 0.05 mm brush of the index fan rim). Tie it to a leg - each leg is a free web - and leave a 40 mm service loop for the detent."
+  },
+  "bom": {
+   "seat_front": "2x M2.5 \u00d7 10, the FRONT seat pair at X -26.27. Head bears at Z 24.20, so 4.70 mm of stack - a 2.20 mm rise from the seat plane to the pad underside (the flange foot stands 1.86 to 2.18 mm proud of the seat and the remaining 0.02 to 0.34 mm is air) plus the 2.50 mm pad - leaves 5.30 mm in a 6.61 mm blind hole, 1.31 mm spare.",
+   "seat_rear": "2x M2.5 \u00d7 8, the REAR seat pair at X -41.27. Head bears at Z 22.00, 2.50 mm of stack, 5.50 mm of thread in a 6.61 mm blind hole - 1.11 mm spare. (The rev-1 M2.5 \u00d7 8 over a 0.48 mm pad bottomed 0.88 mm before the head touched and never clamped.)",
+   "seat_note": "Hand torque, no washer needed: the \u00d85.4 \u00d7 1.5 counterbore leaves 2.50 mm of pad under each head. Bolt the arch on BEFORE the gripper goes back on the wrist - the wrist-roll bracket sits 1.0 mm over the rear pair, and a ball-end key is the only tool that reaches the rear -Y screw with the arm assembled.",
+   "hinge": "1x M3 \u00d7 60 + nyloc, the head hinge (54.2 mm across both cheeks)",
+   "index": "1x M3 \u00d7 8, the tilt index pin. The seat in the head is BLIND, 3.0 mm deep: 5.00 cheek + 0.40 gap + 2.60 of seat, and it cannot reach the camera module (0.00 mm\u00b3, measured).",
+   "retainer": "2x M3 \u00d7 12 self-tapping, the camera retainer",
+   "retainer_plate": "PRINT the shared \"Camera retainer plate\" upgrade - it is this set's retainer, the same solid to 0.005 mm.",
+   "shims": "PRINT the shared \"Camera pocket shims\" upgrade if the module is under 11 mm deep (36 \u00d7 36 mm, 0.4 / 0.8 / 1.6 mm).",
+   "ties": "2 \u00d7 2.5 mm zip tie: one through the crown lug for the servo harness, one round a leg for the DF200 pigtail (leave a 40 mm service loop)"
+  },
+  "plates": [
+   "arch",
+   "head"
+  ],
+  "plate_stats": {
+   "arch": {
+    "bed_mm": [
+     49.3,
+     54.2,
+     88.3
+    ],
+    "volume_cm3": 20.18,
+    "mass_g_pla": 25.0
+   },
+   "head": {
+    "bed_mm": [
+     43.4,
+     68.5,
+     17.5
+    ],
+    "volume_cm3": 13.68,
+    "mass_g_pla": 17.0
+   }
+  },
+  "shipped_detent_deg": 35.0,
+  "pupil_model": "margins are measured from the lens ENTRANCE PUPIL, 8.0 mm in front of the sensor point (bracketed at 6 and 10 mm), not from the sensor: the module's own barrel and hood stand 4-16 mm proud of it. At the rev-1 40\u00b0 detent the servo LED's margin is -0.61\u00b0 (+1.25 at +6 mm, -2.53 at +10), i.e. the LED is in the frame; at 35\u00b0 it is +6.66 (+8.50 / +4.78).",
+  "access_audit": {
+   "method": "\u00d87 \u00d7 60 driver cast, \u00d83.6 \u00d7 60 straight key, and a \u00d83.6 cone to 25\u00b0 for a ball-end key, from each bearing face against the assembled robot at the parked pose; mm of clear tube",
+   "clear_mm": {
+    "seat_front_+Y": {
+     "O7": 0.4,
+     "O3.6": 50.0,
+     "ball": 60.0
+    },
+    "seat_front_-Y": {
+     "O7": 0.4,
+     "O3.6": 50.0,
+     "ball": 60.0
+    },
+    "seat_rear_+Y": {
+     "O7": 0.0,
+     "O3.6": 17.0,
+     "ball": 60.0
+    },
+    "seat_rear_-Y": {
+     "O7": 0.0,
+     "O3.6": 0.03,
+     "ball": 60.0
+    },
+    "hinge_head": {
+     "O7": 60.0
+    },
+    "hinge_nut": {
+     "O7": "14.0 (full cast)"
+    },
+    "index_pin": {
+     "O7": 60.0
+    },
+    "retainer_up": {
+     "O7": 60.0
+    },
+    "retainer_down": {
+     "O7": 60.0
+    }
+   },
+   "before": {
+    "seat_all_four_O3.6": 0.37
+   },
+   "sequence": "take the PincOpen stock camera stack off -> plug the servo lead in -> bolt the arch to the seat (before the gripper goes back on the wrist) -> hang the head on the M3 \u00d7 60 hinge -> index pin -> module -> retainer last"
+  },
+  "shared_plates": {
+   "retainer": "The shared \"Camera retainer plate\" print-only upgrade - the same solid as this set's own retainer mesh to 0.005 mm (measured on the exported meshes). Printed once, it serves every camera head this project builds: the corner mast and the wrist arch.",
+   "pocket_shims": "The shared \"Camera pocket shims\" print-only upgrade - 36 \u00d7 36 mm at 0.4 / 0.8 / 1.6 mm, with the same 24 \u00d7 14 window. Stack them for 0.4 to 2.8 mm in 0.4 mm steps."
+  },
+  "tilt_index": {
+   "kind": "hinge detent fan",
+   "hinge": "M3 \u00d7 60 through both cheeks (54.2 mm of stack)",
+   "pin": "M3 \u00d7 8 into a BLIND 3.0 mm seat",
+   "rings_mm": [
+    25.0,
+    33.0
+   ],
+   "hole_d_mm": 3.2,
+   "step_deg": 5.0,
+   "holes_deg": [
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+   ],
+   "min_hole_pitch_mm": 4.363
+  },
+  "framing_gates": {
+   "led_margin_deg_min": 4.7,
+   "servo_margin_deg_min": 4.7,
+   "v_grasp_abs_max": 1.0,
+   "pad_uv_abs_max": 1.0,
+   "note": "the drive servo LED and the servo's forward-top corner out of frame with at least 4.7\u00b0 of margin at EVERY pupil offset in the bracket, the grasp point inside the frame, and both pads inside it closed and at 40 mm open"
+  },
+  "usable_detents_df200_87deg": [
+   30.0,
+   35.0
+  ],
+  "gates_note": "Gates: the servo LED and the servo nose out of frame by at least 4.7\u00b0 at every pupil offset in the bracket, |v_grasp| <= 1, and both pads in frame closed and at 40 mm open. At hFOV 87.3\u00b0 only 30\u00b0 and 35\u00b0 pass, by 9.25 and 1.96\u00b0 of LED margin over the gate. The rest fail the LED gate: 40\u00b0 by 5.31\u00b0, 45\u00b0 by 12.56\u00b0, 50\u00b0 by 19.79\u00b0, 55\u00b0 by 26.99\u00b0, 60\u00b0 by 34.16\u00b0. 35\u00b0 is shipped as the steeper of the two that pass, so it keeps the most gripper-relative resolution.",
+  "volume_cm3": {
+   "arch": 20.179,
+   "head": 13.678,
+   "retainer": 5.998
+  }
+ },
+ "source": "inbox 2026-09-15",
+ "notes": "DF200 arch \u00b7 35\u00b0. Sensor (-19.9583, 0.0000, 99.2316) at the shipped 35\u00b0 detent, optical axis (0.819152, 0.000000, -0.573576); hFOV 87.3 / vFOV 71.1 (JR DF200). 2 plates, 42.0 g of PLA, tallest 88.3 mm in Z: `arch` 49.3 \u00d7 54.2 \u00d7 88.3 mm, 25.0 g; `head` 43.4 \u00d7 68.5 \u00d7 17.5 mm, 17.0 g. Robot-frame meshes drawn by the studio: arch.stl, df200.stl, head.stl, retainer.stl.\n\nThe plate count is down to the parts that carry load: the list above IS the set. The retainer plate and the pocket shims are the two SHARED print-only upgrades, \"Camera retainer plate\" and \"Camera pocket shims\", which this set references instead of shipping a second copy. The retainer is the same solid as this set's own retainer mesh to 0.005 mm, measured on the exported meshes. The tilt index seat in the head is BLIND at 3.0 mm and its pin is M3 \u00d7 8, so the pin cannot enter the camera module, and the head's cable duct is vertical and inside the wall.\n\nThis is the WRIST mount: a two-plate forward clamp arch on the PincOpen camera face, carrying the same head, retainer and module as the corner mast. The legs are TRUE 4 mm plates (rev 1's measured 0.54-0.84 mm perpendicular); the front pads sit ON the Motor_Flange feet instead of 1.1 mm above them; the seat screws are sized to the measured stacks; and it prints UPRIGHT, 398.5 mm\u00b2 of flat bed contact against 0.0 in rev 1. The crossbar HUMPS over the STS3215 connector band (Z 57.5..62.5 over |Y| <= 13) so the servo can still be plugged in with the arch on - 18.1 mm of clear air over the socket face, and the corridor stays open to the rear - and a zip-tie lug on the crown anchors the harness. The shipped detent is 35\u00b0 rather than the design 40 because the framing model measures from the lens ENTRANCE PUPIL, 8.0 mm in front of the sensor. At 40\u00b0 the drive servo's LED is 0.61\u00b0 INSIDE the frame; at 35\u00b0 it clears by 6.66\u00b0. The `pupil_model` and `framing` blocks of this file carry that table.\n\nHardware beyond the printed plates - the 9 lines of `params.bom`, which the generator builds for THIS variant: `seat_front`, `seat_rear`, `seat_note`, `hinge`, `index`, `retainer`, `retainer_plate`, `shims`, `ties`.\n\nDesign tilt 45\u00b0, shipped detent 35\u00b0. The index fan was printed with 7 holes (30, 35, 40, 45, 50, 55, 60\u00b0) and the head and the retainer are those same meshes rotated about the hinge, so moving the index pin is NOT a reprint and every `print/*.stl` is unchanged by it - `params.shipped_detent_note` records why the shipped hole moved. `df200.stl` is the camera-module stand-in (36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 connector, sensor 4 mm behind the front face) seated in the head pocket at that detent with its front face on the 3 mm lip, connector along the image-UP axis so it passes the retainer's 24 \u00d7 14 window. Measured on the meshes this run exported: module \u2229 head 0.000 mm\u00b3, module \u2229 retainer 206.000 mm\u00b3, connector \u2229 retainer 0.000 mm\u00b3.\n\nAssembly order, the fastener-by-fastener driver-access cast and the cable routes are in `ASSEMBLY.md` beside this file; `DESIGN.md` is the design record and the alternatives this one was chosen against. Every measured number behind them is in this set's own `params` block.",
+ "summary": "Research concept C3: a gusseted forward arch off the PincOpen camera seat (Z 19.50, 4x M2.5 at X -41.27/-26.27, Y \u00b118.91) that STRADDLES the STS3215 drive servo and carries the same insertable 36.4 \u00d7 36.4 clamp pocket, module and retainer the corner mast uses. TWO printed plates - arch, head. Sensor (-19.96, 0, 99.23) PincOpen mm, 35\u00b0 below the finger direction, DF200 hFOV 87.3 / vFOV 71.1.",
+ "hinge": {
+  "frame": "attachment",
+  "origin": [
+   -42.16295090390226,
+   0.0,
+   74.49390334559011
+  ],
+  "axis": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "positive": "a right-hand turn about the axis raises the tilt"
+ }
+}

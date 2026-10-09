@@ -1,0 +1,1664 @@
+{
+ "sources": {
+  "Bottom_Plate": {
+   "faces": 59008,
+   "volume_mm3": 26403.631,
+   "watertight": true,
+   "extents": [
+    57.4924,
+    95.9987,
+    24.2
+   ],
+   "bounds": [
+    [
+     -53.4924,
+     -47.9994,
+     -13.0
+    ],
+    [
+     4.0,
+     47.9994,
+     11.2
+    ]
+   ]
+  },
+  "Cam": {
+   "faces": 10444,
+   "volume_mm3": 4575.4503,
+   "watertight": true,
+   "extents": [
+    32.0,
+    32.0,
+    6.85
+   ],
+   "bounds": [
+    [
+     -34.0424,
+     -16.0,
+     -2.7
+    ],
+    [
+     -2.0424,
+     16.0,
+     4.15
+    ]
+   ]
+  },
+  "Camera_basement": {
+   "faces": 11766,
+   "volume_mm3": 10341.9414,
+   "watertight": true,
+   "extents": [
+    55.0137,
+    42.82,
+    51.1999
+   ],
+   "bounds": [
+    [
+     -78.3561,
+     -21.41,
+     19.5
+    ],
+    [
+     -23.3424,
+     21.41,
+     70.6999
+    ]
+   ]
+  },
+  "Camera_mobile_sup": {
+   "faces": 3284,
+   "volume_mm3": 4655.7909,
+   "watertight": true,
+   "extents": [
+    23.3451,
+    26.5,
+    44.2002
+   ],
+   "bounds": [
+    [
+     -76.4975,
+     -13.25,
+     60.7
+    ],
+    [
+     -53.1524,
+     13.25,
+     104.9002
+    ]
+   ]
+  },
+  "Distal_Rod": {
+   "faces": 3756,
+   "volume_mm3": 2800.188,
+   "watertight": true,
+   "extents": [
+    17.0,
+    20.9997,
+    16.4
+   ],
+   "bounds": [
+    [
+     29.891,
+     -28.7497,
+     -8.2
+    ],
+    [
+     46.891,
+     -7.75,
+     8.2
+    ]
+   ]
+  },
+  "Distal_Shell": {
+   "faces": 29658,
+   "volume_mm3": 3105.1979,
+   "watertight": true,
+   "extents": [
+    30.7205,
+    18.1853,
+    25.7151
+   ],
+   "bounds": [
+    [
+     39.9205,
+     -25.9353,
+     -12.8576
+    ],
+    [
+     70.641,
+     -7.75,
+     12.8576
+    ]
+   ]
+  },
+  "Driving_Rod": {
+   "faces": 4276,
+   "volume_mm3": 1651.6222,
+   "watertight": true,
+   "extents": [
+    16.1171,
+    42.5048,
+    5.3
+   ],
+   "bounds": [
+    [
+     -29.6539,
+     -47.9191,
+     -8.2
+    ],
+    [
+     -13.5368,
+     -5.4143,
+     -2.9
+    ]
+   ]
+  },
+  "External_Rod": {
+   "faces": 2332,
+   "volume_mm3": 3246.4017,
+   "watertight": true,
+   "extents": [
+    43.6406,
+    28.9999,
+    8.0
+   ],
+   "bounds": [
+    [
+     -4.4995,
+     -48.4999,
+     -4.0
+    ],
+    [
+     39.141,
+     -19.5,
+     4.0
+    ]
+   ]
+  },
+  "Interface_ARM100": {
+   "faces": 12752,
+   "volume_mm3": 4507.6083,
+   "watertight": true,
+   "extents": [
+    8.1166,
+    51.0,
+    24.0
+   ],
+   "bounds": [
+    [
+     -61.609,
+     -25.5,
+     -12.0
+    ],
+    [
+     -53.4924,
+     25.5,
+     12.0
+    ]
+   ]
+  },
+  "Internal_Rod": {
+   "faces": 15796,
+   "volume_mm3": 5560.2514,
+   "watertight": true,
+   "extents": [
+    62.9214,
+    40.1641,
+    24.0
+   ],
+   "bounds": [
+    [
+     -23.5309,
+     -47.9143,
+     -12.0
+    ],
+    [
+     39.3905,
+     -7.7501,
+     12.0
+    ]
+   ]
+  },
+  "Motor_Flange": {
+   "faces": 3236,
+   "volume_mm3": 924.1824,
+   "watertight": true,
+   "extents": [
+    5.85,
+    42.82,
+    21.7
+   ],
+   "bounds": [
+    [
+     -29.1924,
+     -21.41,
+     19.5
+    ],
+    [
+     -23.3424,
+     21.41,
+     41.2
+    ]
+   ]
+  },
+  "Removable_Tip": {
+   "faces": 6220,
+   "volume_mm3": 2277.4846,
+   "watertight": true,
+   "extents": [
+    28.75,
+    18.7037,
+    16.4
+   ],
+   "bounds": [
+    [
+     39.891,
+     -26.4537,
+     -8.2
+    ],
+    [
+     68.641,
+     -7.75,
+     8.2
+    ]
+   ]
+  },
+  "Tip_Support": {
+   "faces": 43214,
+   "volume_mm3": 4009.7624,
+   "watertight": true,
+   "extents": [
+    30.75,
+    7.75,
+    25.7151
+   ],
+   "bounds": [
+    [
+     39.891,
+     -7.75,
+     -12.8575
+    ],
+    [
+     70.641,
+     0.0,
+     12.8575
+    ]
+   ]
+  },
+  "Top_Plate": {
+   "faces": 54158,
+   "volume_mm3": 41726.9621,
+   "watertight": true,
+   "extents": [
+    57.4924,
+    96.0,
+    19.5
+   ],
+   "bounds": [
+    [
+     -53.4924,
+     -48.0,
+     0.0
+    ],
+    [
+     4.0,
+     48.0,
+     19.5
+    ]
+   ]
+  }
+ },
+ "instances": [
+  {
+   "part": "Top_Plate",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 0,
+   "mirrored": false,
+   "matrix": [
+    0.999999996,
+    9.136e-06,
+    -8.7484e-05,
+    0.0,
+    -9.137e-06,
+    1.0,
+    -1.8899e-05,
+    0.0,
+    8.7484e-05,
+    1.8899e-05,
+    0.999999996,
+    0.0,
+    0.00301438,
+    0.001284555,
+    -0.001624742,
+    1.0
+   ],
+   "residual_rms_mm": 0.02324,
+   "residual_max_mm": 0.74479,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 41726.962,
+   "body_faces": 53990,
+   "body_centroid": [
+    -24.9696,
+    -0.323,
+    10.6884
+   ],
+   "body_bounds": [
+    [
+     -53.4924,
+     -48.0,
+     0.0
+    ],
+    [
+     4.0,
+     48.0,
+     19.5
+    ]
+   ],
+   "also_in": [
+    "camera_stack",
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Bottom_Plate",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 1,
+   "mirrored": false,
+   "matrix": [
+    0.999999995,
+    -7.7097e-05,
+    6.5631e-05,
+    0.0,
+    7.7098e-05,
+    0.999999997,
+    -1.167e-05,
+    0.0,
+    -6.563e-05,
+    1.1675e-05,
+    0.999999998,
+    0.0,
+    0.003890411,
+    0.00876718,
+    0.001469264,
+    1.0
+   ],
+   "residual_rms_mm": 0.02282,
+   "residual_max_mm": 0.70054,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 26403.631,
+   "body_faces": 58840,
+   "body_centroid": [
+    -22.5664,
+    0.1859,
+    -7.9557
+   ],
+   "body_bounds": [
+    [
+     -53.4924,
+     -47.9994,
+     -13.0
+    ],
+    [
+     4.0,
+     47.9994,
+     11.2
+    ]
+   ]
+  },
+  {
+   "part": "Internal_Rod",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 2,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -2e-09,
+    4.4e-08,
+    0.0,
+    -2e-09,
+    -1.0,
+    -9.2e-08,
+    0.0,
+    4.4e-08,
+    9.2e-08,
+    -1.0,
+    0.0,
+    -8.39e-07,
+    -1.38e-07,
+    -2.446e-06,
+    1.0
+   ],
+   "residual_rms_mm": 2e-05,
+   "residual_max_mm": 0.00114,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 5560.251,
+   "body_faces": 15796,
+   "body_centroid": [
+    12.0103,
+    24.8163,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     -23.5309,
+     7.7501,
+     -12.0
+    ],
+    [
+     39.3905,
+     47.9143,
+     12.0
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Internal_Rod",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 3,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 5560.251,
+   "body_faces": 15796,
+   "body_centroid": [
+    12.0103,
+    -24.8163,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     -23.5309,
+     -47.9143,
+     -12.0
+    ],
+    [
+     39.3905,
+     -7.7501,
+     12.0
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Cam",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 4,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 4575.45,
+   "body_faces": 10444,
+   "body_centroid": [
+    -18.0077,
+    0.0024,
+    0.9026
+   ],
+   "body_bounds": [
+    [
+     -34.0424,
+     -16.0,
+     -2.7
+    ],
+    [
+     -2.0424,
+     16.0,
+     4.15
+    ]
+   ]
+  },
+  {
+   "part": "Tip_Support",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 5,
+   "mirrored": false,
+   "matrix": [
+    0.999997608,
+    -0.000199478,
+    0.002178099,
+    0.0,
+    0.000198555,
+    0.99999989,
+    0.0004243,
+    0.0,
+    -0.002178184,
+    -0.000423867,
+    0.999997538,
+    0.0,
+    0.004054287,
+    0.01105488,
+    -0.112141359,
+    1.0
+   ],
+   "residual_rms_mm": 0.16936,
+   "residual_max_mm": 2.28222,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 4009.762,
+   "body_faces": 43178,
+   "body_centroid": [
+    54.7723,
+    -4.7231,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     39.891,
+     -7.75,
+     -12.8575
+    ],
+    [
+     70.641,
+     0.0,
+     12.8575
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Tip_Support",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 6,
+   "mirrored": false,
+   "matrix": [
+    0.999987148,
+    -0.000368346,
+    -0.005056431,
+    0.0,
+    -0.000372918,
+    -0.999999522,
+    -0.000903362,
+    0.0,
+    -0.005056095,
+    0.000905236,
+    -0.999986808,
+    0.0,
+    -0.016350749,
+    0.021865668,
+    0.253792704,
+    1.0
+   ],
+   "residual_rms_mm": 0.19523,
+   "residual_max_mm": 2.15801,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 4009.762,
+   "body_faces": 43178,
+   "body_centroid": [
+    54.7723,
+    4.7231,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     39.891,
+     -0.0,
+     -12.8575
+    ],
+    [
+     70.641,
+     7.75,
+     12.8575
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "External_Rod",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 7,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -1.0,
+    0.0,
+    7e-09,
+    -6e-09,
+    7e-09,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 3246.402,
+   "body_faces": 2332,
+   "body_centroid": [
+    17.3205,
+    34.0,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     -4.4995,
+     19.5,
+     -4.0
+    ],
+    [
+     39.141,
+     48.4999,
+     4.0
+    ]
+   ]
+  },
+  {
+   "part": "External_Rod",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 8,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 3246.402,
+   "body_faces": 2332,
+   "body_centroid": [
+    17.3205,
+    -34.0,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     -4.4995,
+     -48.4999,
+     -4.0
+    ],
+    [
+     39.141,
+     -19.5,
+     4.0
+    ]
+   ]
+  },
+  {
+   "part": "Distal_Shell",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 9,
+   "mirrored": true,
+   "matrix": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 3105.198,
+   "body_faces": 29658,
+   "body_centroid": [
+    54.4453,
+    16.0405,
+    0.0021
+   ],
+   "body_bounds": [
+    [
+     39.9205,
+     7.75,
+     -12.8576
+    ],
+    [
+     70.641,
+     25.9353,
+     12.8576
+    ]
+   ]
+  },
+  {
+   "part": "Distal_Shell",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 10,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 3105.198,
+   "body_faces": 29658,
+   "body_centroid": [
+    54.4453,
+    -16.0405,
+    0.0021
+   ],
+   "body_bounds": [
+    [
+     39.9205,
+     -25.9353,
+     -12.8576
+    ],
+    [
+     70.641,
+     -7.75,
+     12.8576
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Distal_Rod",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 11,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    0.0,
+    1e-09,
+    0.0,
+    0.0,
+    -1.0,
+    2e-09,
+    0.0,
+    1e-09,
+    -2e-09,
+    -1.0,
+    0.0,
+    2e-09,
+    -4e-09,
+    2.4e-08,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 2800.188,
+   "body_faces": 3756,
+   "body_centroid": [
+    37.0022,
+    16.7369,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     29.891,
+     7.75,
+     -8.2
+    ],
+    [
+     46.891,
+     28.7497,
+     8.2
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Distal_Rod",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 12,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    -0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 2800.188,
+   "body_faces": 3756,
+   "body_centroid": [
+    37.0022,
+    -16.7369,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     29.891,
+     -28.7497,
+     -8.2
+    ],
+    [
+     46.891,
+     -7.75,
+     8.2
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Removable_Tip",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 13,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 2277.485,
+   "body_faces": 6220,
+   "body_centroid": [
+    50.5966,
+    -12.9327,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     39.891,
+     -26.4537,
+     -8.2
+    ],
+    [
+     68.641,
+     -7.75,
+     8.2
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Removable_Tip",
+   "instance": 1,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 14,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    1e-07,
+    -4.03e-07,
+    0.0,
+    1e-07,
+    -1.0,
+    4.75e-07,
+    0.0,
+    -4.03e-07,
+    -4.75e-07,
+    -1.0,
+    0.0,
+    -1.135e-06,
+    -5.617e-06,
+    2.5184e-05,
+    1.0
+   ],
+   "residual_rms_mm": 3e-05,
+   "residual_max_mm": 0.00039,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 2277.485,
+   "body_faces": 6220,
+   "body_centroid": [
+    50.5966,
+    12.9327,
+    -0.0
+   ],
+   "body_bounds": [
+    [
+     39.891,
+     7.75,
+     -8.2
+    ],
+    [
+     68.641,
+     26.4537,
+     8.2
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Driving_Rod",
+   "instance": 0,
+   "assembly": "full_gripper",
+   "assembly_quality": "full",
+   "body": 15,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 1651.622,
+   "body_faces": 4276,
+   "body_centroid": [
+    -22.4881,
+    -27.0934,
+    -5.6921
+   ],
+   "body_bounds": [
+    [
+     -29.6539,
+     -47.9191,
+     -8.2
+    ],
+    [
+     -13.5368,
+     -5.4143,
+     -2.9
+    ]
+   ],
+   "also_in": [
+    "normacam_reference"
+   ]
+  },
+  {
+   "part": "Camera_basement",
+   "instance": 0,
+   "assembly": "camera_stack",
+   "assembly_quality": "full",
+   "body": 1,
+   "mirrored": false,
+   "matrix": [
+    0.999999609,
+    0.0006459,
+    -0.000604185,
+    0.0,
+    -0.000646227,
+    0.999999644,
+    -0.000541904,
+    0.0,
+    0.000603835,
+    0.000542294,
+    0.999999671,
+    0.0,
+    -0.084045872,
+    0.004956823,
+    -0.018213084,
+    1.0
+   ],
+   "residual_rms_mm": 0.16068,
+   "residual_max_mm": 2.90233,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 11708.567,
+   "body_faces": 10589,
+   "body_centroid": [
+    -45.8651,
+    -0.0392,
+    43.6409
+   ],
+   "body_bounds": [
+    [
+     -78.3561,
+     -21.41,
+     19.5
+    ],
+    [
+     -23.3424,
+     21.41,
+     70.6999
+    ]
+   ]
+  },
+  {
+   "part": "Camera_mobile_sup",
+   "instance": 0,
+   "assembly": "camera_stack",
+   "assembly_quality": "full",
+   "body": 2,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "residual_rms_mm": 0.0,
+   "residual_max_mm": 0.0,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 4655.791,
+   "body_faces": 3284,
+   "body_centroid": [
+    -65.571,
+    -0.0,
+    79.8744
+   ],
+   "body_bounds": [
+    [
+     -76.4975,
+     -13.25,
+     60.7
+    ],
+    [
+     -53.1524,
+     13.25,
+     104.9002
+    ]
+   ]
+  },
+  {
+   "part": "Motor_Flange",
+   "instance": 0,
+   "assembly": "camera_stack",
+   "assembly_quality": "full",
+   "body": 3,
+   "mirrored": false,
+   "matrix": [
+    0.999589531,
+    0.003840947,
+    -0.028390443,
+    0.0,
+    -0.003975129,
+    0.999981188,
+    -0.004671365,
+    0.0,
+    0.028371967,
+    0.004782303,
+    0.999585995,
+    0.0,
+    -1.072490829,
+    -0.079948497,
+    -0.716702564,
+    1.0
+   ],
+   "residual_rms_mm": 0.34148,
+   "residual_max_mm": 2.60903,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 2290.808,
+   "body_faces": 2059,
+   "body_centroid": [
+    -26.4859,
+    -0.2673,
+    32.7837
+   ],
+   "body_bounds": [
+    [
+     -29.1924,
+     -21.41,
+     19.5
+    ],
+    [
+     -23.3424,
+     21.41,
+     41.2
+    ]
+   ]
+  },
+  {
+   "part": "Interface_ARM100",
+   "instance": 0,
+   "assembly": "normacam_reference",
+   "assembly_quality": "decimated",
+   "body": 5,
+   "mirrored": false,
+   "matrix": [
+    1.0,
+    -7.225e-06,
+    9.886e-06,
+    0.0,
+    -7.225e-06,
+    -1.0,
+    -1.213e-06,
+    0.0,
+    9.886e-06,
+    1.213e-06,
+    -1.0,
+    0.0,
+    0.000250809,
+    0.000247018,
+    0.000937418,
+    1.0
+   ],
+   "residual_rms_mm": 0.00973,
+   "residual_max_mm": 0.06327,
+   "extent_delta_mm": 0.0,
+   "body_volume_mm3": 4503.737,
+   "body_faces": 3222,
+   "body_centroid": [
+    -56.571,
+    -0.0,
+    -0.0001
+   ],
+   "body_bounds": [
+    [
+     -61.609,
+     -25.5,
+     -12.0
+    ],
+    [
+     -53.4924,
+     25.5,
+     12.0
+    ]
+   ]
+  },
+  {
+   "part": "External_Rod",
+   "instance": 2,
+   "assembly": "normacam_reference",
+   "assembly_quality": "decimated",
+   "body": 8,
+   "mirrored": false,
+   "matrix": [
+    -1.0,
+    -9.491e-06,
+    1.3169e-05,
+    0.0,
+    9.491e-06,
+    -1.0,
+    -2.0269e-05,
+    0.0,
+    1.317e-05,
+    -2.0269e-05,
+    1.0,
+    0.0,
+    34.641234711,
+    -68.000234928,
+    -0.00089231,
+    1.0
+   ],
+   "residual_rms_mm": 0.00431,
+   "residual_max_mm": 0.01764,
+   "extent_delta_mm": 0.0005,
+   "body_volume_mm3": 3244.623,
+   "body_faces": 596,
+   "body_centroid": [
+    17.3205,
+    -34.0,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     -4.5,
+     -48.5,
+     -4.0
+    ],
+    [
+     39.141,
+     -19.5,
+     4.0
+    ]
+   ]
+  },
+  {
+   "part": "External_Rod",
+   "instance": 3,
+   "assembly": "normacam_reference",
+   "assembly_quality": "decimated",
+   "body": 9,
+   "mirrored": false,
+   "matrix": [
+    -1.0,
+    -1.719e-05,
+    -1.9313e-05,
+    0.0,
+    -1.7191e-05,
+    1.0,
+    2.2089e-05,
+    0.0,
+    1.9312e-05,
+    2.2089e-05,
+    -1.0,
+    0.0,
+    34.640553898,
+    68.000184537,
+    0.001127959,
+    1.0
+   ],
+   "residual_rms_mm": 0.00429,
+   "residual_max_mm": 0.01725,
+   "extent_delta_mm": 0.0005,
+   "body_volume_mm3": 3244.623,
+   "body_faces": 596,
+   "body_centroid": [
+    17.3205,
+    34.0,
+    0.0
+   ],
+   "body_bounds": [
+    [
+     -4.5,
+     19.5,
+     -4.0
+    ],
+    [
+     39.141,
+     48.5,
+     4.0
+    ]
+   ]
+  },
+  {
+   "part": "Distal_Shell",
+   "instance": 2,
+   "assembly": "normacam_reference",
+   "assembly_quality": "decimated",
+   "body": 11,
+   "mirrored": false,
+   "matrix": [
+    0.999999019,
+    8.2464e-05,
+    0.001398479,
+    0.0,
+    8.2847e-05,
+    -0.999999959,
+    -0.000274156,
+    0.0,
+    0.001398457,
+    0.000274272,
+    -0.999998985,
+    0.0,
+    -0.027400742,
+    -0.027787816,
+    -0.074157244,
+    1.0
+   ],
+   "residual_rms_mm": 0.04596,
+   "residual_max_mm": 0.26441,
+   "extent_delta_mm": 0.0013,
+   "body_volume_mm3": 3067.108,
+   "body_faces": 3267,
+   "body_centroid": [
+    54.4349,
+    16.0256,
+    0.0012
+   ],
+   "body_bounds": [
+    [
+     39.9205,
+     7.75,
+     -12.8569
+    ],
+    [
+     70.641,
+     25.9358,
+     12.8569
+    ]
+   ]
+  },
+  {
+   "part": "Driving_Rod",
+   "instance": 1,
+   "assembly": "normacam_reference",
+   "assembly_quality": "decimated",
+   "body": 16,
+   "mirrored": true,
+   "matrix": [
+    0.999999999,
+    -3.842e-06,
+    4.944e-05,
+    0.0,
+    -3.842e-06,
+    -1.0,
+    -5.962e-06,
+    0.0,
+    -4.944e-05,
+    -5.962e-06,
+    0.999999999,
+    0.0,
+    0.033500839,
+    -0.004240933,
+    0.001536712,
+    1.0
+   ],
+   "residual_rms_mm": 0.02518,
+   "residual_max_mm": 0.0763,
+   "extent_delta_mm": 0.0142,
+   "body_volume_mm3": 1643.049,
+   "body_faces": 1100,
+   "body_centroid": [
+    -22.4548,
+    27.0888,
+    -5.6921
+   ],
+   "body_bounds": [
+    [
+     -29.652,
+     5.4189,
+     -8.2
+    ],
+    [
+     -13.5368,
+     47.9095,
+     -2.9
+    ]
+   ]
+  }
+ ],
+ "unmatched_bodies": [
+  {
+   "assembly": "normacam_reference",
+   "index": 1,
+   "volume_mm3": 26012.418,
+   "faces": 6694,
+   "best_guess": "Bottom_Plate",
+   "best_rms_mm": 0.8086,
+   "centroid": [
+    -20.983,
+    0.543,
+    -8.388
+   ],
+   "extents": [
+    57.492,
+    95.978,
+    24.2
+   ]
+  },
+  {
+   "assembly": "normacam_reference",
+   "index": 2,
+   "volume_mm3": 12122.83,
+   "faces": 12124,
+   "centroid": [
+    -39.313,
+    -0.002,
+    54.367
+   ],
+   "extents": [
+    31.174,
+    42.82,
+    88.881
+   ]
+  },
+  {
+   "assembly": "normacam_reference",
+   "index": 18,
+   "volume_mm3": 220.964,
+   "faces": 180,
+   "centroid": [
+    -49.139,
+    22.0,
+    5.6
+   ],
+   "extents": [
+    8.751,
+    2.5,
+    2.5
+   ]
+  },
+  {
+   "assembly": "normacam_reference",
+   "index": 19,
+   "volume_mm3": 220.964,
+   "faces": 180,
+   "centroid": [
+    -49.139,
+    -22.0,
+    5.6
+   ],
+   "extents": [
+    8.751,
+    2.5,
+    2.5
+   ]
+  },
+  {
+   "assembly": "normacam_reference",
+   "index": 20,
+   "volume_mm3": 220.964,
+   "faces": 180,
+   "centroid": [
+    -49.139,
+    -22.0,
+    -5.6
+   ],
+   "extents": [
+    8.751,
+    2.5,
+    2.5
+   ]
+  },
+  {
+   "assembly": "normacam_reference",
+   "index": 21,
+   "volume_mm3": 220.964,
+   "faces": 180,
+   "centroid": [
+    -49.139,
+    22.0,
+    -5.6
+   ],
+   "extents": [
+    8.751,
+    2.5,
+    2.5
+   ]
+  }
+ ],
+ "assemblies": {
+  "full_gripper": {
+   "file": "ORIGINAL_INPLACE_full-gripper.stl",
+   "quality": "full",
+   "bodies": 16,
+   "faces": 329838,
+   "bounds": [
+    [
+     -53.4924,
+     -48.4999,
+     -13.0
+    ],
+    [
+     70.641,
+     48.4999,
+     19.5
+    ]
+   ]
+  },
+  "camera_stack": {
+   "file": "ORIGINAL_INPLACE_camera-stack.stl",
+   "quality": "full",
+   "bodies": 4,
+   "faces": 72444,
+   "bounds": [
+    [
+     -78.3561,
+     -48.0,
+     0.0
+    ],
+    [
+     4.0,
+     48.0,
+     104.9002
+    ]
+   ]
+  },
+  "normacam_reference": {
+   "file": "PincOpen_assembly_with_NormaCam.stl",
+   "quality": "decimated",
+   "bodies": 22,
+   "faces": 57803,
+   "bounds": [
+    [
+     -61.609,
+     -48.5,
+     -13.0
+    ],
+    [
+     70.641,
+     48.5,
+     108.3811
+    ]
+   ]
+  }
+ },
+ "method": {
+  "match": "sorted bbox extents to 0.6 mm (volume only as a watertight tie-break)",
+  "solve": "all 48 signed principal-axis permutations as ICP seeds, best 6 refined",
+  "residual": "point-to-surface distance of 4000 surface samples",
+  "reject_rms_mm": 0.6,
+  "dedup_mm": 0.5
+ },
+ "not_placed": []
+}

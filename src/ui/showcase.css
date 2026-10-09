@@ -1,0 +1,89 @@
+/* showcase.html: a full-bleed player; the controls fade while it plays */
+:root {
+  --sc-bg: #0b0c0e;
+  --sc-ink: #eef0f2;
+  --sc-dim: #a4abb3;
+  --sc-glass: rgba(16, 18, 21, 0.62);
+  --sc-line: rgba(255, 255, 255, 0.14);
+  --sc-accent: #58c38a;
+  --sc-cap-bar: #78d6aa;
+  --sc-cap-kick: #c8ecdc;
+  --sc-font: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+html, body { margin: 0; height: 100%; background: var(--sc-bg); color: var(--sc-ink); overflow: hidden; }
+body { font: 14px/1.4 var(--sc-font); -webkit-font-smoothing: antialiased; }
+.sc { position: fixed; inset: 0; }
+.sc-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.sc-fade { position: absolute; inset: 0; background: #000; opacity: 1; pointer-events: none; }
+.sc-labels { position: absolute; inset: 0; pointer-events: none; }
+.sc-inset { position: absolute; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 3px;
+  font: 600 11px/1 var(--sc-font); letter-spacing: 0.12em; padding: 7px 8px; color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); }
+
+.sc-top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 18px;
+  padding: 16px 22px; background: linear-gradient(rgba(0, 0, 0, 0.45), transparent); transition: opacity 0.6s; }
+.sc-back { color: var(--sc-ink); text-decoration: none; font-weight: 500; padding: 6px 10px; border-radius: 6px;
+  border: 1px solid var(--sc-line); background: var(--sc-glass); backdrop-filter: blur(8px); }
+.sc-back:hover { border-color: rgba(255, 255, 255, 0.4); }
+.sc-title { display: flex; flex-direction: column; line-height: 1.15; }
+.sc-title b { font-weight: 600; font-size: 15px; }
+.sc-title span { color: var(--sc-dim); font-size: 12px; }
+.sc-clock { margin-left: auto; font: 400 13px/1 'IBM Plex Mono', ui-monospace, monospace; color: var(--sc-dim);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); }
+
+.sc-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; opacity: 0; pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.000) 0%, rgba(0, 0, 0, 0.065) 20%, rgba(0, 0, 0, 0.172) 40%, rgba(0, 0, 0, 0.303) 60%, rgba(0, 0, 0, 0.454) 80%, rgba(0, 0, 0, 0.620) 100%); }
+.sc-cap { position: absolute; left: 5.5%; bottom: 120px; max-width: min(70%, 980px); opacity: 0; pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 0 18px rgba(0, 0, 0, 0.45); padding-left: 16px; border-left: 4px solid var(--sc-cap-bar); }
+.sc-cap-k { font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sc-cap-kick); }
+.sc-cap-t { font-weight: 500; font-size: clamp(18px, 2.3vw, 34px); line-height: 1.2; margin-top: 4px; }
+.sc-cap-l { color: var(--sc-dim); font-size: clamp(12px, 1.2vw, 17px); margin-top: 4px; }
+
+.sc-bar { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; border-radius: 12px; background: var(--sc-glass); border: 1px solid var(--sc-line);
+  backdrop-filter: blur(12px); transition: opacity 0.6s; }
+.sc-btn { font: 500 13px/1 var(--sc-font); color: var(--sc-ink); background: transparent; border: 1px solid var(--sc-line);
+  border-radius: 7px; padding: 8px 11px; cursor: pointer; white-space: nowrap; }
+.sc-btn:hover { border-color: rgba(255, 255, 255, 0.45); }
+.sc-btn.on { background: rgba(88, 195, 138, 0.18); border-color: var(--sc-accent); }
+.sc-play { width: 38px; padding: 8px 0; font-size: 12px; }
+.sc-time { font: 12px/1 'IBM Plex Mono', ui-monospace, monospace; color: var(--sc-dim); min-width: 108px; }
+.sc-chap { font-weight: 500; min-width: 88px; color: var(--sc-ink); }
+.sc-q { font: 13px var(--sc-font); color: var(--sc-ink); background: transparent; border: 1px solid var(--sc-line);
+  border-radius: 7px; padding: 6px 8px; }
+.sc-q option { color: #111; }
+.sc-scrub { position: relative; flex: 1; height: 38px; cursor: pointer; touch-action: none; }
+.sc-rail { position: absolute; left: 0; right: 0; top: 10px; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.18); }
+.sc-fill { height: 100%; width: 0; border-radius: 2px; background: var(--sc-ink); }
+.sc-knob { position: absolute; top: 6px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18); pointer-events: none; }
+.sc-phase { position: absolute; top: 9px; width: 1px; height: 6px; background: rgba(255, 255, 255, 0.28); pointer-events: none; }
+.sc-mark { position: absolute; top: 4px; transform: translateX(-1px); width: 2px; height: 16px; padding: 0; border: 0;
+  background: rgba(255, 255, 255, 0.7); cursor: pointer; }
+.sc-mark span { position: absolute; top: 19px; left: 0; font: 500 10.5px/1 var(--sc-font); color: var(--sc-dim);
+  white-space: nowrap; pointer-events: none; }
+.sc-mark.on { background: var(--sc-accent); }
+.sc-mark.on span { color: var(--sc-ink); }
+
+.sc-card { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; background: radial-gradient(ellipse at 50% 45%, #15181c, #050607 75%); transition: opacity 0.9s; text-align: center; padding: 16px; }
+.sc-card.gone { opacity: 0; pointer-events: none; }
+.sc-card.end { background: rgba(5, 6, 7, 0.82); }
+.sc-card-t { font-weight: 600; font-size: clamp(28px, 4.4vw, 64px); letter-spacing: -0.01em; }
+.sc-card-s { color: var(--sc-dim); font-size: clamp(15px, 1.8vw, 26px); }
+.sc-card-n { color: var(--sc-dim); font-size: 14px; display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+.sc-prog { width: min(360px, 70vw); height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.12); margin-top: 26px; overflow: hidden; }
+.sc-prog-f { height: 100%; width: 0; background: var(--sc-accent); transition: width 0.2s; }
+.sc-prog-l { color: var(--sc-dim); font-size: 12px; }
+.sc-prog-l.err { color: #ff8a7a; }
+.sc-go { margin-top: 18px; padding: 10px 22px; font-size: 14px; }
+
+.sc.idle .sc-bar, .sc.idle .sc-top { opacity: 0; }
+.sc.idle { cursor: none; }
+@media (max-width: 760px) {
+  .sc-mark span, .sc-chap, .sc-time, .sc-title span { display: none; }
+  .sc-bar { flex-wrap: wrap; gap: 8px; left: 8px; right: 8px; bottom: 8px; }
+  .sc-scrub { flex-basis: 100%; order: -1; }
+  .sc-cap { bottom: 150px; left: 16px; max-width: calc(100% - 32px); }
+  .sc-top { padding: 10px 16px; }
+}

@@ -1,0 +1,161 @@
+{
+ "schema": "rps/part@1",
+ "id": "corner_mast_printed",
+ "label": "Corner mast, printed \u00b7 45\u00b0",
+ "robot": "lekiwi-pincopen",
+ "slot": "top_camera_mount",
+ "frame": "robot",
+ "local": null,
+ "meshes": [
+  {
+   "id": "spar_lower",
+   "label": "Corner mast (printed) \u00b7 lower spar + deck base",
+   "file": "mesh/spar_lower.stl",
+   "print": "print/spar_lower_PRINT.stl",
+   "print_name": "corner_mast_printed_spar_lower_PRINT.stl",
+   "color": "#5b8fd6",
+   "volume_cm3": 114.719,
+   "note": "The deck plate and the tapered hollow spar in one part, Z 57 to the Z 285 spigot, with 3.5 mm walls. 4x M3 \u00d7 8 into M3 heat-set inserts in the deck grid, a \u00d87.5 \u00d7 26 driver relief above every bolt, and two gusset fins fore and aft where the plate has room for them. 248.0 mm on the bed, so it needs 250 mm of Z: an MK4 (220 mm) will not take it, an Ender 3 (250 mm) has 2.0 mm to spare."
+  },
+  {
+   "id": "spar_upper",
+   "label": "Corner mast (printed) \u00b7 upper spar + yoke",
+   "file": "mesh/spar_upper.stl",
+   "print": "print/spar_upper_PRINT.stl",
+   "print_name": "corner_mast_printed_spar_upper_PRINT.stl",
+   "color": "#5b8fd6",
+   "volume_cm3": 72.563,
+   "note": "Z 285 to the top of the index fan: the spar AND the yoke in one part. The tapered section grows the two hinge cheeks, the M3 \u00d7 60 hinge (54.2 mm of stack) and the 40..70\u00b0 index fan directly - no collar, no seat disc, no clamp and no joint under the cheeks. 229.6 mm on the bed, 90.0 g, 337 mm\u00b2 of bed contact."
+  },
+  {
+   "id": "head",
+   "label": "Corner mast \u00b7 camera head",
+   "file": "mesh/head.stl",
+   "print": "print/head_PRINT.stl",
+   "print_name": "corner_mast_printed_head_PRINT.stl",
+   "color": "#5b8fd6",
+   "volume_cm3": 13.678,
+   "note": "The clamp block alone: 36.4 \u00d7 36.4 pocket, 3 mm lip, OPEN REAR, two ears. The tilt index seats are BLIND, 3.0 mm deep, and cut in BOTH side walls, which is what makes this ONE STL for the corner mast and the wrist arch. Prints lens face down on 975.8 mm\u00b2 of bed contact, 5.5 % overhang. Support the two hinge-lug ends - a 23.7 mm bridge."
+  },
+  {
+   "id": "retainer",
+   "label": "Corner mast \u00b7 camera retainer",
+   "file": "mesh/retainer.stl",
+   "print": "part:cam_retainer",
+   "color": "#7fb2e8",
+   "volume_cm3": 5.998,
+   "note": "The 58 \u00d7 26 retainer plate with its 24 \u00d7 14 cable window, at its seated pose on the head's ears. NOT a plate of this set: print the shared \"Camera retainer plate\" upgrade instead. It is the same solid to 0.005 mm, measured on the exported meshes, and one of them serves every camera head this project builds. 2x M3 \u00d7 12 self-tapping into \u00d82.60 \u00d7 9.50 pilots, 8.0 mm of bite."
+  },
+  {
+   "id": "df200",
+   "label": "Corner mast \u00b7 DF200 module (stand-in)",
+   "file": "mesh/df200.stl",
+   "hardware": true,
+   "color": "#2b3138",
+   "volume_cm3": 17.641,
+   "note": "The JR DF200 module itself, as a volumetric stand-in: 36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 lens barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 rear connector, sensor 4 mm behind the front face. Seated in the pocket at the shipped detent, front face on the 3 mm lip, barrel through the 30 \u00d7 30 aperture. The connector is on the image-UP axis, so it passes the retainer's 24 \u00d7 14 window. Measured on the exported meshes: module n head 0.001 mm\u00b3, connector n retainer 0.000 mm\u00b3. The retainer boss presses the back face by 0.40 mm (206 mm\u00b3 - the clamp preload; a 0.5 mm pocket shim goes behind a thinner module). NOT a printable part: it is what you buy."
+  }
+ ],
+ "cameras": {
+  "top": {
+   "local": [
+    0.984807753,
+    -0.1736481777,
+    0.0,
+    0.0,
+    0.122787804,
+    0.6963642403,
+    0.7071067812,
+    0.0,
+    -0.122787804,
+    -0.6963642403,
+    0.7071067812,
+    0.0,
+    -75.3398685057,
+    -18.5710809793,
+    504.854682432,
+    1.0
+   ],
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "aspect": 1.3333333333333333,
+   "source": "user-confirmed JR DF200 \"100\u00b0 without distortion\", 640 \u00d7 480 MJPG 4:3, rectilinear -> 87.3\u00b0 H / 71.1\u00b0 V (2026-09-15)",
+   "tilt_deg": 45.0
+  }
+ },
+ "mount": {
+  "interface": "deck_grid",
+  "bolts_mm": [
+   [
+    -60,
+    -60
+   ],
+   [
+    -60,
+    -40
+   ],
+   [
+    -60,
+    -20
+   ],
+   [
+    -80,
+    -20
+   ]
+  ],
+  "face": {
+   "point": [
+    -63.1473,
+    -33.4511,
+    57.0
+   ],
+   "normal": [
+    0,
+    0,
+    -1
+   ]
+  }
+ },
+ "params": {
+  "tilt_deg": {
+   "kind": "hinge",
+   "value": 45.0,
+   "values": [
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+   ],
+   "usable": [
+    40.0,
+    65.0
+   ],
+   "origin": [
+    -79.88301725254878,
+    -44.33655787117101,
+    484.3485857775715
+   ],
+   "axis": [
+    -0.9848077530122081,
+    0.17364817766693036,
+    0.0
+   ],
+   "design": 45.0,
+   "moves": [
+    "head",
+    "retainer",
+    "df200"
+   ],
+   "camera": "top"
+  }
+ },
+ "source": "this project",
+ "notes": "Sensor 538 mm above ground on the rear-left corner, 45\u00b0 nose-down and panned 10\u00b0, so the arm crosses the view instead of running down it. At the DF200's real 87.3\u00b0 the whole reachable floor and table are in frame at every detent, so the detent is picked to keep the ROBOT out of frame. 45\u00b0 puts 4.6 % of the frame on the robot, against 8.6 % at 55\u00b0. Its near edge lands on the front wheels (Y 69 mm) and it still carries 3.2 m of context. No hardware store: a tapered PLA spar in two halves, pinned by 3x M3 \u00d7 8 at the Z 285 spigot, with no collar, no seat disc and no pinch clamp. 187 cm\u00b3 of spar. Tip deflection at 1 g is 0.298 mm fore-aft and 0.259 mm lateral, first mode 34.4 Hz. The taller half is 248.0 mm tall, so it needs 250 mm of Z.",
+ "docs": [
+  "ASSEMBLY.md",
+  "DESIGN.md"
+ ]
+}

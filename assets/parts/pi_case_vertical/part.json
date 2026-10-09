@@ -1,0 +1,50 @@
+{
+ "schema": "rps/part@1",
+ "id": "pi_case_vertical",
+ "label": "Vertical rev I (as printed)",
+ "robot": "lekiwi-pincopen",
+ "slot": "pi_case",
+ "frame": "robot",
+ "local": null,
+ "meshes": [
+  {
+   "id": "cradle",
+   "component": "pi_case_cradle",
+   "label": "Vertical Pi case - cradle",
+   "file": "mesh/pi_case_cradle.stl",
+   "print": "print/pi_case_cradle_PRINT.stl",
+   "color": "#5b8fd6",
+   "volume_cm3": 38.146,
+   "note": "Rev-I vertical Raspberry Pi 5 case, cradle body, in the rear deck pocket."
+  },
+  {
+   "id": "panel",
+   "component": "pi_case_panel",
+   "label": "Vertical Pi case - front panel",
+   "file": "mesh/pi_case_panel.stl",
+   "print": "print/pi_case_panel_PRINT.stl",
+   "color": "#5b8fd6",
+   "volume_cm3": 14.259,
+   "note": "Rev-I vertical Pi case, drop-in front panel."
+  }
+ ],
+ "cameras": null,
+ "mount": {
+  "interface": "deck_grid",
+  "face": {
+   "point": [
+    -0.0085,
+    -69.9404,
+    57.0
+   ],
+   "normal": [
+    0,
+    0,
+    -1
+   ]
+  }
+ },
+ "params": null,
+ "source": "this project",
+ "notes": "The case on the robot today: dual-fan ARMOUR cooler, 97 mm tall, drop-in rear panel."
+}

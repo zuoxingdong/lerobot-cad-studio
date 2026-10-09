@@ -1,0 +1,1798 @@
+{
+ "schema": "rps/robot@1",
+ "id": "pincopen",
+ "name": "PincOpen",
+ "description": "Pollen Robotics PincOpen - a printable parallel gripper for the SO-101 wrist, with a camera seat on the top plate.",
+ "version": "1b5a3dc",
+ "source": {
+  "repo": "https://github.com/pollen-robotics/PincOpen",
+  "commit": "1b5a3dc83cb4eae042d535bda3765b9e12a9b8a7",
+  "license": "CC-BY-SA-4.0",
+  "fetched": "2026-09-13",
+  "files": "meshes/ = cad/stl, all 14 originals, copied verbatim - see SOURCE.md"
+ },
+ "units": "mm",
+ "up": "z",
+ "kind": "attachment",
+ "frame": {
+  "notes": "PincOpen assembly frame, mm: Y = 0 is the jaw mirror plane, +X is the fingertip direction (nose at X = 70.64), Z is the finger width axis (\u00b112.86). Mounts on a host robot at its wrist flange; the host supplies the placement.",
+  "mount_face_x": -53.492,
+  "mount_note": "the back face of the assembly (X min) seats on the wrist-roll output flange"
+ },
+ "derivation": {
+  "method": "registration",
+  "what": "PincOpen ships 14 loose STLs and no assembly information, so each original was registered against the connected bodies of the in-place assemblies below. Those assemblies are built from these same files by mesh CSG in the assembly frame. Parts are matched by sorted bounding-box extents, not by volume: several upstream STLs report a wrong mesh volume. The pose is then solved by ICP - iterative closest point, the standard rigid fit of one point set onto another - seeded from all 48 signed principal-axis permutations, and a rigid fit is preferred over a reflected one. The residual is the point-to-surface distance of 4000 surface samples.",
+  "raw": "tools/build/inputs/pincopen_registration.json",
+  "assemblies": {
+   "full_gripper": {
+    "file": "ORIGINAL_INPLACE_full-gripper.stl",
+    "quality": "full",
+    "bodies": 16,
+    "faces": 329838,
+    "bounds": [
+     [
+      -53.4924,
+      -48.4999,
+      -13.0
+     ],
+     [
+      70.641,
+      48.4999,
+      19.5
+     ]
+    ]
+   },
+   "camera_stack": {
+    "file": "ORIGINAL_INPLACE_camera-stack.stl",
+    "quality": "full",
+    "bodies": 4,
+    "faces": 72444,
+    "bounds": [
+     [
+      -78.3561,
+      -48.0,
+      0.0
+     ],
+     [
+      4.0,
+      48.0,
+      104.9002
+     ]
+    ]
+   },
+   "normacam_reference": {
+    "file": "PincOpen_assembly_with_NormaCam.stl",
+    "quality": "decimated",
+    "bodies": 22,
+    "faces": 57803,
+    "bounds": [
+     [
+      -61.609,
+      -48.5,
+      -13.0
+     ],
+     [
+      70.641,
+      48.5,
+      108.3811
+     ]
+    ]
+   }
+  },
+  "unmatched_bodies": [
+   {
+    "assembly": "normacam_reference",
+    "index": 1,
+    "volume_mm3": 26012.418,
+    "faces": 6694,
+    "best_guess": "Bottom_Plate",
+    "best_rms_mm": 0.8086,
+    "centroid": [
+     -20.983,
+     0.543,
+     -8.388
+    ],
+    "extents": [
+     57.492,
+     95.978,
+     24.2
+    ]
+   },
+   {
+    "assembly": "normacam_reference",
+    "index": 2,
+    "volume_mm3": 12122.83,
+    "faces": 12124,
+    "centroid": [
+     -39.313,
+     -0.002,
+     54.367
+    ],
+    "extents": [
+     31.174,
+     42.82,
+     88.881
+    ]
+   },
+   {
+    "assembly": "normacam_reference",
+    "index": 18,
+    "volume_mm3": 220.964,
+    "faces": 180,
+    "centroid": [
+     -49.139,
+     22.0,
+     5.6
+    ],
+    "extents": [
+     8.751,
+     2.5,
+     2.5
+    ]
+   },
+   {
+    "assembly": "normacam_reference",
+    "index": 19,
+    "volume_mm3": 220.964,
+    "faces": 180,
+    "centroid": [
+     -49.139,
+     -22.0,
+     5.6
+    ],
+    "extents": [
+     8.751,
+     2.5,
+     2.5
+    ]
+   },
+   {
+    "assembly": "normacam_reference",
+    "index": 20,
+    "volume_mm3": 220.964,
+    "faces": 180,
+    "centroid": [
+     -49.139,
+     -22.0,
+     -5.6
+    ],
+    "extents": [
+     8.751,
+     2.5,
+     2.5
+    ]
+   },
+   {
+    "assembly": "normacam_reference",
+    "index": 21,
+    "volume_mm3": 220.964,
+    "faces": 180,
+    "centroid": [
+     -49.139,
+     22.0,
+     -5.6
+    ],
+    "extents": [
+     8.751,
+     2.5,
+     2.5
+    ]
+   }
+  ],
+  "residual_rms_mm_max": 0.34148,
+  "residual_max_mm_max": 2.90233,
+  "exact_instances": 14,
+  "uncertain_instances": [
+   "tip_support",
+   "tip_support_2",
+   "camera_basement",
+   "motor_flange"
+  ],
+  "residual_note": "A residual is the distance from the ORIGINAL mesh, placed by the solved transform, to the surface of the assembled body. Zero means the body is that part, exactly, there. The non-zero ones are local surface differences introduced by the CSG rebuild that produced the in-place assembly, not pose error: every one of them has a bounding box that matches the original to 0.000 mm.",
+  "not_placed": [],
+  "not_placed_note": "These parts do not appear in either in-place assembly, so no placement could be derived; they are listed under `spares` with their own CAD frame."
+ },
+ "components": [
+  {
+   "id": "top_plate",
+   "label": "Top Plate",
+   "part": "Top_Plate",
+   "instance": 0,
+   "mesh": "meshes/Top_Plate.stl",
+   "group": "body",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    0.999999996,
+    9.136e-06,
+    -8.7484e-05,
+    0.0,
+    -9.137e-06,
+    1.0,
+    -1.8899e-05,
+    0.0,
+    8.7484e-05,
+    1.8899e-05,
+    0.999999996,
+    0.0,
+    0.00301438,
+    0.001284555,
+    -0.001624742,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#8a949f",
+   "printable": true,
+   "print_file": "meshes/Top_Plate.stl",
+   "moves_with": null,
+   "linkage_role": "ground",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 0,
+    "rms_mm": 0.02324,
+    "max_mm": 0.74479,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": false,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 0.74 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "bottom_plate",
+   "label": "Bottom Plate",
+   "part": "Bottom_Plate",
+   "instance": 0,
+   "mesh": "meshes/Bottom_Plate.stl",
+   "group": "body",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    0.999999995,
+    -7.7097e-05,
+    6.5631e-05,
+    0.0,
+    7.7098e-05,
+    0.999999997,
+    -1.167e-05,
+    0.0,
+    -6.563e-05,
+    1.1675e-05,
+    0.999999998,
+    0.0,
+    0.003890411,
+    0.00876718,
+    0.001469264,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#8a949f",
+   "printable": true,
+   "print_file": "meshes/Bottom_Plate.stl",
+   "moves_with": null,
+   "linkage_role": "ground",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 1,
+    "rms_mm": 0.02282,
+    "max_mm": 0.70054,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": false,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 0.70 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "internal_rod",
+   "label": "Internal Rod",
+   "part": "Internal_Rod",
+   "instance": 0,
+   "mesh": "meshes/Internal_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "rod_R",
+   "local": [
+    1.0,
+    -2e-09,
+    4.4e-08,
+    0.0,
+    -2e-09,
+    -1.0,
+    -9.2e-08,
+    0.0,
+    4.4e-08,
+    9.2e-08,
+    -1.0,
+    0.0,
+    -8.39e-07,
+    -32.500000138,
+    -2.446e-06,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_pos",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Internal_Rod.stl",
+   "moves_with": "jaw_rod_R",
+   "linkage_role": "rotating_link",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 2,
+    "rms_mm": 2e-05,
+    "max_mm": 0.00114,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "internal_rod_2",
+   "label": "Internal Rod (second)",
+   "part": "Internal_Rod",
+   "instance": 1,
+   "mesh": "meshes/Internal_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "rod_L",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    32.5,
+    0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Internal_Rod.stl",
+   "moves_with": "jaw_rod_L",
+   "linkage_role": "rotating_link",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 3,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "cam",
+   "label": "Cam",
+   "part": "Cam",
+   "instance": 0,
+   "mesh": "meshes/Cam.stl",
+   "group": "gripper",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    1.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#8a949f",
+   "printable": true,
+   "print_file": "meshes/Cam.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 4,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "tip_support",
+   "label": "Tip Support",
+   "part": "Tip_Support",
+   "instance": 0,
+   "mesh": "meshes/Tip_Support.stl",
+   "group": "fingertip",
+   "frame": "link",
+   "link": "finger_L",
+   "local": [
+    0.999997608,
+    -0.000199478,
+    0.002178099,
+    0.0,
+    0.000198555,
+    0.99999989,
+    0.0004243,
+    0.0,
+    -0.002178184,
+    -0.000423867,
+    0.999997538,
+    0.0,
+    -34.635945713,
+    12.51105488,
+    -0.112141359,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#d08a3c",
+   "printable": true,
+   "print_file": "meshes/Tip_Support.stl",
+   "moves_with": "jaw_finger_L",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 5,
+    "rms_mm": 0.16936,
+    "max_mm": 2.28222,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": true,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 2.28 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "tip_support_2",
+   "label": "Tip Support (mirrored)",
+   "part": "Tip_Support",
+   "instance": 1,
+   "mesh": "meshes/Tip_Support.stl",
+   "group": "fingertip",
+   "frame": "link",
+   "link": "finger_R",
+   "local": [
+    0.999987148,
+    -0.000368346,
+    -0.005056431,
+    0.0,
+    -0.000372918,
+    -0.999999522,
+    -0.000903362,
+    0.0,
+    -0.005056095,
+    0.000905236,
+    -0.999986808,
+    0.0,
+    -34.656350749,
+    -12.478134332,
+    0.253792704,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_pos",
+   "color": "#d08a3c",
+   "printable": true,
+   "print_file": "meshes/Tip_Support.stl",
+   "moves_with": "jaw_finger_R",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 6,
+    "rms_mm": 0.19523,
+    "max_mm": 2.15801,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": true,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 2.16 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "external_rod",
+   "label": "External Rod",
+   "part": "External_Rod",
+   "instance": 0,
+   "mesh": "meshes/External_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "rod2_R",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    7e-09,
+    -44.000000006,
+    7e-09,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_pos",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/External_Rod.stl",
+   "moves_with": "jaw_rod2_R",
+   "linkage_role": "rotating_link",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 7,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "external_rod_2",
+   "label": "External Rod (second)",
+   "part": "External_Rod",
+   "instance": 1,
+   "mesh": "meshes/External_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "rod2_L",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    44.0,
+    0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/External_Rod.stl",
+   "moves_with": "jaw_rod2_L",
+   "linkage_role": "rotating_link",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 8,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "distal_shell",
+   "label": "Distal Shell",
+   "part": "Distal_Shell",
+   "instance": 0,
+   "mesh": "meshes/Distal_Shell.stl",
+   "group": "finger",
+   "frame": "link",
+   "link": "finger_R",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -34.64,
+    -12.5,
+    0.0,
+    1.0
+   ],
+   "mirrored": true,
+   "side": "y_pos",
+   "color": "#9aa4af",
+   "printable": true,
+   "print_file": "meshes/Distal_Shell.stl",
+   "moves_with": "jaw_finger_R",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 9,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "distal_shell_2",
+   "label": "Distal Shell (second)",
+   "part": "Distal_Shell",
+   "instance": 1,
+   "mesh": "meshes/Distal_Shell.stl",
+   "group": "finger",
+   "frame": "link",
+   "link": "finger_L",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -34.64,
+    12.5,
+    0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#9aa4af",
+   "printable": true,
+   "print_file": "meshes/Distal_Shell.stl",
+   "moves_with": "jaw_finger_L",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 10,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "distal_rod",
+   "label": "Distal Rod",
+   "part": "Distal_Rod",
+   "instance": 0,
+   "mesh": "meshes/Distal_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "finger_R",
+   "local": [
+    1.0,
+    0.0,
+    1e-09,
+    0.0,
+    0.0,
+    -1.0,
+    2e-09,
+    0.0,
+    1e-09,
+    -2e-09,
+    -1.0,
+    0.0,
+    -34.639999998,
+    -12.500000004,
+    2.4e-08,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_pos",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Distal_Rod.stl",
+   "moves_with": "jaw_finger_R",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 11,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "distal_rod_2",
+   "label": "Distal Rod (second)",
+   "part": "Distal_Rod",
+   "instance": 1,
+   "mesh": "meshes/Distal_Rod.stl",
+   "group": "linkage",
+   "frame": "link",
+   "link": "finger_L",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -34.64,
+    12.5,
+    0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Distal_Rod.stl",
+   "moves_with": "jaw_finger_L",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 12,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "removable_tip",
+   "label": "Removable Tip",
+   "part": "Removable_Tip",
+   "instance": 0,
+   "mesh": "meshes/Removable_Tip.stl",
+   "group": "fingertip",
+   "frame": "link",
+   "link": "finger_L",
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -34.64,
+    12.5,
+    0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#d08a3c",
+   "printable": true,
+   "print_file": "meshes/Removable_Tip.stl",
+   "moves_with": "jaw_finger_L",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 13,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "removable_tip_2",
+   "label": "Removable Tip (mirrored)",
+   "part": "Removable_Tip",
+   "instance": 1,
+   "mesh": "meshes/Removable_Tip.stl",
+   "group": "fingertip",
+   "frame": "link",
+   "link": "finger_R",
+   "local": [
+    1.0,
+    1e-07,
+    -4.03e-07,
+    0.0,
+    1e-07,
+    -1.0,
+    4.75e-07,
+    0.0,
+    -4.03e-07,
+    -4.75e-07,
+    -1.0,
+    0.0,
+    -34.640001135,
+    -12.500005617,
+    2.5184e-05,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_pos",
+   "color": "#d08a3c",
+   "printable": true,
+   "print_file": "meshes/Removable_Tip.stl",
+   "moves_with": "jaw_finger_R",
+   "linkage_role": "coupler",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 14,
+    "rms_mm": 3e-05,
+    "max_mm": 0.00039,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "driving_rod",
+   "label": "Driving Rod",
+   "part": "Driving_Rod",
+   "instance": 0,
+   "mesh": "meshes/Driving_Rod.stl",
+   "group": "linkage",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": "y_neg",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Driving_Rod.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "full_gripper",
+    "quality": "full",
+    "body": 15,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "camera_basement",
+   "label": "Camera basement",
+   "part": "Camera_basement",
+   "instance": 0,
+   "mesh": "meshes/Camera_basement.stl",
+   "group": "camera",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    0.999999609,
+    0.0006459,
+    -0.000604185,
+    0.0,
+    -0.000646227,
+    0.999999644,
+    -0.000541904,
+    0.0,
+    0.000603835,
+    0.000542294,
+    0.999999671,
+    0.0,
+    -0.084045872,
+    0.004956823,
+    -0.018213084,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#2b3138",
+   "printable": true,
+   "print_file": "meshes/Camera_basement.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "camera_stack",
+    "quality": "full",
+    "body": 1,
+    "rms_mm": 0.16068,
+    "max_mm": 2.90233,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": true,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 2.90 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "camera_mobile_sup",
+   "label": "Camera mobile sup",
+   "part": "Camera_mobile_sup",
+   "instance": 0,
+   "mesh": "meshes/Camera_mobile_sup.stl",
+   "group": "camera",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    1.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#2b3138",
+   "printable": true,
+   "print_file": "meshes/Camera_mobile_sup.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "camera_stack",
+    "quality": "full",
+    "body": 2,
+    "rms_mm": 0.0,
+    "max_mm": 0.0,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "motor_flange",
+   "label": "Motor Flange",
+   "part": "Motor_Flange",
+   "instance": 0,
+   "mesh": "meshes/Motor_Flange.stl",
+   "group": "body",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    0.999589531,
+    0.003840947,
+    -0.028390443,
+    0.0,
+    -0.003975129,
+    0.999981188,
+    -0.004671365,
+    0.0,
+    0.028371967,
+    0.004782303,
+    0.999585995,
+    0.0,
+    -1.072490829,
+    -0.079948497,
+    -0.716702564,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#8a949f",
+   "printable": true,
+   "print_file": "meshes/Motor_Flange.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "camera_stack",
+    "quality": "full",
+    "body": 3,
+    "rms_mm": 0.34148,
+    "max_mm": 2.60903,
+    "extent_delta_mm": 0.0,
+    "exact": false,
+    "uncertain": true,
+    "note": "bounding box matches to 0.000 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 2.61 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "interface_arm100",
+   "label": "Interface ARM100",
+   "part": "Interface_ARM100",
+   "instance": 0,
+   "mesh": "meshes/Interface_ARM100.stl",
+   "group": "body",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    1.0,
+    -7.225e-06,
+    9.886e-06,
+    0.0,
+    -7.225e-06,
+    -1.0,
+    -1.213e-06,
+    0.0,
+    9.886e-06,
+    1.213e-06,
+    -1.0,
+    0.0,
+    0.000250809,
+    0.000247018,
+    0.000937418,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#8a949f",
+   "printable": true,
+   "print_file": "meshes/Interface_ARM100.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "normacam_reference",
+    "quality": "decimated",
+    "body": 5,
+    "rms_mm": 0.00973,
+    "max_mm": 0.06327,
+    "extent_delta_mm": 0.0,
+    "exact": true,
+    "uncertain": false,
+    "note": null
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "driving_rod_2",
+   "label": "Driving Rod (mirrored)",
+   "part": "Driving_Rod",
+   "instance": 1,
+   "mesh": "meshes/Driving_Rod.stl",
+   "group": "linkage",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    0.999999999,
+    -3.842e-06,
+    4.944e-05,
+    0.0,
+    -3.842e-06,
+    -1.0,
+    -5.962e-06,
+    0.0,
+    -4.944e-05,
+    -5.962e-06,
+    0.999999999,
+    0.0,
+    0.033500839,
+    -0.004240933,
+    0.001536712,
+    1.0
+   ],
+   "mirrored": true,
+   "side": "y_pos",
+   "color": "#6f7a86",
+   "printable": true,
+   "print_file": "meshes/Driving_Rod.stl",
+   "moves_with": null,
+   "linkage_role": "mounted",
+   "registration": {
+    "assembly": "normacam_reference",
+    "quality": "decimated",
+    "body": 16,
+    "rms_mm": 0.02518,
+    "max_mm": 0.0763,
+    "extent_delta_mm": 0.0142,
+    "exact": false,
+    "uncertain": false,
+    "note": "bounding box matches to 0.014 mm and the placement is right, but the in-place body is not byte-identical to the original: the CSG rebuild that produced the assembly changed the surface locally (worst 0.08 mm). Treat the pose as sound and the surface as the original STL, which is what is actually shipped."
+   },
+   "print_fit_note": "this file IS the display mesh - the package names the bytes to print and no bed pose for them"
+  },
+  {
+   "id": "sts3215_drive",
+   "label": "STS3215 drive servo",
+   "part": "STS3215_03a-v1",
+   "instance": 0,
+   "mesh": "meshes/STS3215_03a-v1.stl",
+   "group": "hardware",
+   "frame": "robot",
+   "link": null,
+   "local": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -30.5,
+    0.0,
+    23.1025,
+    1.0
+   ],
+   "mirrored": false,
+   "side": null,
+   "color": "#23262b",
+   "printable": false,
+   "print_file": null,
+   "moves_with": null,
+   "linkage_role": "ground",
+   "hardware": true,
+   "source": {
+    "repo": "https://github.com/SIGRobotics-UIUC/LeKiwi",
+    "commit": "efa608d7ee5a495a4803b1d28cd0c955b4f1e033",
+    "license": "Apache-2.0",
+    "file": "URDF/meshes/STS3215_03a-v1.stl",
+    "note": "the SO-101 gripper motor, which PincOpen reuses; mesh copied from the LeKiwi package into meshes/ so this package stays self-contained"
+   },
+   "note": "Feetech STS3215 (30 kg.cm), horn DOWN on the vertical axis X -18.0, Y 0. Bought, not printed. Assembly steps 30-32: the flange screws onto the motor, the motor drops into the Top_Plate slot, the Cam bolts to its spreader-bar horn.",
+   "placement": {
+    "method": "seated on three measured interfaces (no registration target exists - upstream ships no motor mesh)",
+    "seats": [
+     {
+      "what": "horn-side shoulder face on the Top_Plate motor-slot rails",
+      "axis": "Z",
+      "part_mm": 7.2025,
+      "servo_mm": 7.2025,
+      "residual_mm": 0.0
+     },
+     {
+      "what": "back mounting-hole pair on the Motor_Flange M2.5 holes",
+      "axis": "X",
+      "part_mm": -26.27,
+      "servo_mm": -26.295,
+      "residual_mm": 0.025
+     },
+     {
+      "what": "back mounting-hole pair on the Motor_Flange M2.5 holes",
+      "axis": "Y",
+      "part_mm": 10.245,
+      "servo_mm": 10.25,
+      "residual_mm": 0.005
+     },
+     {
+      "what": "nose face on the Top_Plate inner wall",
+      "axis": "X",
+      "part_mm": -7.83,
+      "servo_mm": -7.8,
+      "residual_mm": 0.03
+     }
+    ],
+    "checks": [
+     {
+      "what": "horn face vs the Cam top face",
+      "part_mm": 4.15,
+      "servo_mm": 4.4025,
+      "residual_mm": 0.2525
+     },
+     {
+      "what": "back face vs the Motor_Flange strap underside",
+      "part_mm": 39.13,
+      "servo_mm": 39.0025,
+      "residual_mm": 0.1275
+     },
+     {
+      "what": "horn axis vs the Cam disc centre",
+      "part_mm": -18.04,
+      "servo_mm": -18.0,
+      "residual_mm": 0.04
+     }
+    ],
+    "envelope_mm": [
+     [
+      -53.2,
+      -12.4,
+      2.902
+     ],
+     [
+      -7.8,
+      12.4,
+      42.502
+     ]
+    ],
+    "interference_mm3": {
+     "top_plate": 4.18,
+     "bottom_plate": 0.0,
+     "motor_flange": 89.96,
+     "camera_basement": 83.12,
+     "camera_mobile_sup": 0.0,
+     "interface_arm100": 0.0,
+     "driving_rod": 0.0,
+     "driving_rod_2": 0.0,
+     "cam": 16.67
+    },
+    "interference_below_back_face_mm3": {
+     "top_plate": 4.18,
+     "motor_flange": 3.73,
+     "camera_basement": 0.02
+    },
+    "interference_depth_mm": {
+     "motor_flange": 1.0,
+     "camera_basement": 1.609,
+     "cam": 0.992,
+     "top_plate": 0.028
+    },
+    "interference_audit": {
+     "mesh": "measured on meshes/STS3215_03a-v1.stl at 6506 faces, watertight - NOT on the decimated copy in src/data/assets.js (FACE_CAPS caps STS3215* at 6000), which will read slightly differently",
+     "top_plate": "a 0.028 mm skin where the motor's nose face (X -7.800) meets the Top_Plate's inner wall (X -7.83). Same order as the 0.025 mm tab-hole residual: registration noise, and it CONFIRMS the X placement rather than contradicting it.",
+     "motor_flange": "86 of the 90 mm\u00b3 sit at Z 39.1..40.8, i.e. ABOVE the motor's own back face: the mesh's PASSIVE REAR HORN, a d20 \u00d7 1.8 mm disc PincOpen does not fit (its flange straps straight onto the back). Cut the mesh at the back face and 90 -> 3.7 mm\u00b3, which is the 0.04 mm skin on one fork leg - the registered flange is 12.46 / 12.36 about Y = 0 against the motor's \u00b112.40.",
+     "camera_basement": "the same rear horn. 83 -> 0.02 mm\u00b3 below the back face. The basement is also the UPSTREAM camera mount, an alternative to whatever sits on the seat.",
+     "cam": "the drawn splined shaft (d5.4, on X -18) inside the Cam's central bore, 1.25 mm deep - the DRIVE COUPLING. PincOpen puts a Feetech spreader-bar horn on that shaft and screws the Cam to the bar with 5 screws (assembly guide steps 18 and 32); the URDF draws an integrated disc horn with the shaft 1.5 mm proud of it instead.",
+     "is_it_a_placement_error": "No. Sweeping Z by \u00b10.60 mm trades the two: flange 58 -> 121 mm\u00b3 while cam 116 -> 7 mm\u00b3, and neither reaches zero. The overlaps are 1.0-1.6 mm DEEP - 40 to 60 times the 0.025 mm tab-hole residual - so they are geometry, not placement. Z stays where the motor's shoulder seats on the Top_Plate slot rails (residual 0.0000 mm), which is PincOpen's own assembly datum (step 31)."
+    },
+    "interference_note": "Every number above the back face (Z 39.0025) is the mesh's PASSIVE REAR HORN (d20 \u00d7 1.8 mm) and its 6-pin plug stub, which PincOpen does not fit; cut the mesh at the back face and the flange falls to 3.7 mm\u00b3 and the basement to 0.02. The 16.7 mm\u00b3 at the Cam is the drawn splined shaft inside the Cam's central bore - the drive coupling, not a clash. For scale, the URDF's own servo/bracket pairs interpenetrate 375-399 mm\u00b3 at the wrist."
+   }
+  }
+ ],
+ "cameras": [],
+ "cameras_note": "The upstream Cam.stl is placed by this package, but PincOpen publishes no sensor or lens for it, so no hFOV is claimed here. The camera a host robot actually mounts on frames.camera_plate is declared by that host - see the lekiwi-pincopen package, cameras.wrist.",
+ "spares": [],
+ "kinematics": {
+  "urdf": null,
+  "units": "mm",
+  "root_link": "body",
+  "links": [
+   "body",
+   "jaw_ref",
+   "rod_L",
+   "rod2_L",
+   "finger_L",
+   "rod_R",
+   "rod2_R",
+   "finger_R"
+  ],
+  "links_note": "body = the fixed plates and everything bolted to them; rod_* / rod2_* = the two bars of each four-bar (Internal_Rod and External_Rod); finger_* = the couplers (-Y = L, +Y = R) that carry Distal_Rod, Distal_Shell, Tip_Support and Removable_Tip; jaw_ref carries no geometry and exists only as the control joint's child.",
+  "joints": [
+   {
+    "name": "jaw",
+    "type": "revolute",
+    "parent": "body",
+    "child": "jaw_ref",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "lower": 0.0,
+    "upper": 30.0007,
+    "limit_deg": [
+     0.0,
+     30.0007
+    ],
+    "zero": "fully closed - the exported state of every STL in this package",
+    "control": true,
+    "drives": [
+     "jaw_rod_L",
+     "jaw_rod2_L",
+     "jaw_finger_L",
+     "jaw_rod_R",
+     "jaw_rod2_R",
+     "jaw_finger_R"
+    ],
+    "gap_mm": "gap = 2 * 39.9991 * (sin(30.0007\u00b0) - sin(30.0007\u00b0 - jaw))",
+    "note": "DEGREES, and an OPENING ANGLE, not a distance: q = 30.0007\u00b0 - theta, where theta is the crank angle of either bar measured from +X. 0 = fully closed (the exported state of every STL here), 30.0007 = wide open (a 40.0 mm gap). `jaw_ref` carries no geometry; the six joints below mimic this one and carry the two bars and the coupler of each side. The finger does NOT slide: it travels on the four-bar arc, so it also moves +5.359 mm along +X between closed and wide open. See kinematics.control_display.jaw for the millimetre gap a slider should show."
+   },
+   {
+    "name": "jaw_rod_L",
+    "type": "revolute",
+    "parent": "body",
+    "child": "rod_L",
+    "xyz": [
+     0.0,
+     -32.5,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw",
+     "multiplier": -1.0,
+     "offset": 0.0
+    },
+    "note": "the -Y Internal_Rod: the first bar, turning about the ground pivot (0.00, -32.50). It mimics `jaw` with multiplier -1, which is the only place the mirror sign is written down."
+   },
+   {
+    "name": "jaw_rod2_L",
+    "type": "revolute",
+    "parent": "body",
+    "child": "rod2_L",
+    "xyz": [
+     0.0,
+     -44.0,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw_rod_L",
+     "multiplier": 1.0,
+     "offset": 0.0
+    },
+    "note": "the -Y External_Rod: the second bar, about the ground pivot (0.00, -44.00). A parallelogram keeps the two bars parallel, so it turns by exactly the same angle as jaw_rod_L."
+   },
+   {
+    "name": "jaw_finger_L",
+    "type": "revolute",
+    "parent": "rod_L",
+    "child": "finger_L",
+    "xyz": [
+     34.64,
+     20.0,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw_rod_L",
+     "multiplier": -1.0,
+     "offset": 0.0
+    },
+    "note": "the -Y COUPLER (Distal_Rod + Distal_Shell + Tip_Support + Removable_Tip), hinged on the distal end of rod_L at the coupler pivot (34.64, -12.50). It mimics that bar with multiplier -1, so the finger keeps a constant orientation however far the jaw opens - which is what makes this a PARALLEL gripper."
+   },
+   {
+    "name": "jaw_rod_R",
+    "type": "revolute",
+    "parent": "body",
+    "child": "rod_R",
+    "xyz": [
+     0.0,
+     32.5,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw",
+     "multiplier": 1.0,
+     "offset": 0.0
+    },
+    "note": "the +Y Internal_Rod: the first bar, turning about the ground pivot (0.00, 32.50). It mimics `jaw` with multiplier +1, which is the only place the mirror sign is written down."
+   },
+   {
+    "name": "jaw_rod2_R",
+    "type": "revolute",
+    "parent": "body",
+    "child": "rod2_R",
+    "xyz": [
+     0.0,
+     44.0,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw_rod_R",
+     "multiplier": 1.0,
+     "offset": 0.0
+    },
+    "note": "the +Y External_Rod: the second bar, about the ground pivot (0.00, 44.00). A parallelogram keeps the two bars parallel, so it turns by exactly the same angle as jaw_rod_R."
+   },
+   {
+    "name": "jaw_finger_R",
+    "type": "revolute",
+    "parent": "rod_R",
+    "child": "finger_R",
+    "xyz": [
+     34.64,
+     -20.0,
+     0.0
+    ],
+    "rpy": [
+     0,
+     0,
+     0
+    ],
+    "axis": [
+     0,
+     0,
+     1
+    ],
+    "units": "deg",
+    "mimic": {
+     "joint": "jaw_rod_R",
+     "multiplier": -1.0,
+     "offset": 0.0
+    },
+    "note": "the +Y COUPLER (Distal_Rod + Distal_Shell + Tip_Support + Removable_Tip), hinged on the distal end of rod_R at the coupler pivot (34.64, 12.50). It mimics that bar with multiplier -1, so the finger keeps a constant orientation however far the jaw opens - which is what makes this a PARALLEL gripper."
+   }
+  ],
+  "hinges_xy": [
+   [
+    34.64,
+    -12.5
+   ],
+   [
+    34.64,
+    -24.0
+   ],
+   [
+    0.0,
+    -32.5
+   ],
+   [
+    0.0,
+    -44.0
+   ]
+  ],
+  "hinges_note": "all hinge axes are parallel to Z; quoted for the -Y finger and mirrored in Y for the +Y one. Upstream uses M3 self-tapping screws, d3.00 anchor holes and d3.25 running holes (pincopen_mods/README.md)",
+  "linkage": {
+   "type": "parallelogram four-bar",
+   "ground_pivots_xy": [
+    [
+     0.0,
+     -32.5
+    ],
+    [
+     0.0,
+     -44.0
+    ]
+   ],
+   "coupler_pivots_xy": [
+    [
+     34.64,
+     -12.5
+    ],
+    [
+     34.64,
+     -24.0
+    ]
+   ],
+   "link_length_mm": 39.9991,
+   "link_spacing_mm": 11.5,
+   "closed_crank_deg": 30.0007,
+   "coupler_motion": "pure translation on an arc (the finger does not rotate, but it does move in X as well as Y)",
+   "open_axis": [
+    0,
+    1,
+    0
+   ],
+   "gap_formula": "gap_mm(q_deg) = 2 * 39.9991 * (sin(30.0007\u00b0) - sin(30.0007\u00b0 - q_deg))",
+   "gap_from_joint": "gap_mm = 2 * 39.9991 * (sin(30.0007\u00b0) - sin(30.0007\u00b0 - jaw))   (jaw in DEGREES, 0..30.0007)",
+   "joint_from_gap": "jaw_deg = 30.0007 - degrees(asin(sin(30.0007\u00b0) - gap_mm / 79.9982))",
+   "finger_travel_mm": [
+    5.3591,
+    -20.0
+   ],
+   "finger_travel_note": "the -Y finger's displacement from closed to wide open, [dX, dY]. dX is the part a prismatic model throws away.",
+   "bars": [
+    {
+     "part": "Internal_Rod",
+     "link_L": "rod_L",
+     "link_R": "rod_R",
+     "joint_L": "jaw_rod_L",
+     "joint_R": "jaw_rod_R",
+     "ground_xy": [
+      0.0,
+      -32.5
+     ],
+     "coupler_xy": [
+      34.64,
+      -12.5
+     ],
+     "length_mm": 39.9991
+    },
+    {
+     "part": "External_Rod",
+     "link_L": "rod2_L",
+     "link_R": "rod2_R",
+     "joint_L": "jaw_rod2_L",
+     "joint_R": "jaw_rod2_R",
+     "ground_xy": [
+      0.0,
+      -44.0
+     ],
+     "coupler_xy": [
+      34.64,
+      -24.0
+     ],
+     "length_mm": 39.9991
+    }
+   ],
+   "bars_note": "Reference data for the two bars of the -Y side (mirror Y for +Y). The bars are REAL LINKS on real revolute joints now, so nothing has to animate them: FK moves them, the collision world poses them, and their distal pivots stay on the finger pivots at every jaw angle.",
+   "derived_from": "the four hinge coordinates in the PincOpen mods README (off-repo), reverse-engineered there from the meshes and verified by point containment"
+  },
+  "control_display": {
+   "jaw": {
+    "unit": "mm",
+    "label": "opening gap",
+    "kind": "fourbar_gap",
+    "link_length_mm": 39.9991,
+    "closed_crank_deg": 30.0007,
+    "range": [
+     0.0,
+     40.0
+    ],
+    "step": 0.5,
+    "to_display": "gap_mm = 2 * L * (sin(th0) - sin(th0 - q_deg))",
+    "from_display": "q_deg = th0 - degrees(asin(sin(th0) - gap_mm / (2 * L)))",
+    "note": "The control joint is an ANGLE; what a user wants to dial is the gap between the fingers in millimetres. A UI that understands `kind` may show the slider in `unit` over `range` and convert on the way in and out; one that does not still gets a correct degree slider."
+   }
+  },
+  "stroke_mm": {
+   "max_opening_mm": 40.0,
+   "at_jaw_deg": 30.001,
+   "closed_gap_mm": -0.012,
+   "source": "derived from the linkage geometry, NOT an upstream specification - upstream publishes no joint range",
+   "nose_x_mm": 70.654,
+   "closed_gap_note": "measured between the two registered Tip_Support meshes along Y. The exported state is fully closed, so this is the manufacturing clearance at the contact face, not a design gap.",
+   "verified": {
+    "meshes_vs_formula": [
+     {
+      "jaw_deg": 0.0,
+      "formula_mm": 0.0,
+      "measured_mm": 0.0
+     },
+     {
+      "jaw_deg": 10.0,
+      "formula_mm": 12.638,
+      "measured_mm": 12.638
+     },
+     {
+      "jaw_deg": 20.0,
+      "formula_mm": 26.1074,
+      "measured_mm": 26.1075
+     },
+     {
+      "jaw_deg": 30.0007,
+      "formula_mm": 39.9999,
+      "measured_mm": 40.0
+     }
+    ],
+    "meshes_vs_formula_max_mm": 0.0,
+    "bar_pivot_to_finger_pivot_max_mm": 0.0,
+    "how": "the two Tip_Support meshes were posed through the chain at each jaw angle and measured along Y; the bar check transports each bar's distal pivot through FK(bar link) and the same point through FK(finger link) and compares them."
+   }
+  }
+ },
+ "slots": {
+  "fingertips": {
+   "label": "Fingertips",
+   "hint": "The tip support that bolts to each finger on the 3x M2 pattern (X 51.64 \u00b13.5 and X 61.64, blind from the Y = -7.75 face).",
+   "anchor": "fingertip_pad",
+   "default": "original",
+   "mirrored": true,
+   "covers": [
+    "tip_support",
+    "tip_support_2",
+    "removable_tip",
+    "removable_tip_2"
+   ],
+   "interface": {
+    "holes_mm": [
+     [
+      51.64,
+      3.5
+     ],
+     [
+      51.64,
+      -3.5
+     ],
+     [
+      61.64,
+      0.0
+     ]
+    ],
+    "holes_axes": "X, Z in the assembly frame; blind into the finger from the Y = -7.75 face",
+    "screw": "M2 self-tapping (d2.05 pilot), or M2 heat-set inserts with the E mod (d3.00)",
+    "contact_face": "Y = 0",
+    "contact_area_mm2": 57.8
+   },
+   "options": [
+    {
+     "id": "original",
+     "label": "Original Tip_Support + Removable_Tip",
+     "kind": "components",
+     "show": [
+      "tip_support",
+      "tip_support_2",
+      "removable_tip",
+      "removable_tip_2"
+     ]
+    },
+    {
+     "id": "none",
+     "label": "No fingertips (bare fingers)",
+     "kind": "none"
+    },
+    {
+     "id": "import",
+     "label": "Import alternative STL...",
+     "kind": "import",
+     "mount": "fingertip_pad"
+    }
+   ]
+  }
+ },
+ "frames": {
+  "fingertip_pad": {
+   "origin": [
+    61.64,
+    0.0,
+    0.0
+   ],
+   "axes": "assembly frame",
+   "note": "centre of the 3x M2 tip pattern on the -Y finger; mirror in Y for the +Y finger"
+  },
+  "camera_plate": {
+   "seat_z": 19.5,
+   "hole_pattern_mm": [
+    15.0,
+    37.82
+   ],
+   "holes": [
+    [
+     -41.27,
+     18.91
+    ],
+    [
+     -41.27,
+     -18.91
+    ],
+    [
+     -26.27,
+     18.91
+    ],
+    [
+     -26.27,
+     -18.91
+    ]
+   ],
+   "holes_axes": "X, Y in the assembly frame, at Z = 19.50 (the Top_Plate camera face)",
+   "note": "The camera face on top of the gripper: four M2 holes at Z 19.50 on two 9 mm rails at Y 12.41..21.41. It carries the upstream camera stack, or whatever mount the host robot bolts there. Measured on these meshes."
+  }
+ },
+ "generated_by": "tools/build/make_robots.py"
+}

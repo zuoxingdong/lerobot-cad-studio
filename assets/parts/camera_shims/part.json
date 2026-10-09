@@ -1,0 +1,23 @@
+{
+ "schema": "rps/part@1",
+ "id": "camera_shims",
+ "label": "Camera pocket shims",
+ "robot": "lekiwi-pincopen",
+ "slot": null,
+ "frame": "robot",
+ "local": null,
+ "meshes": [
+  {
+   "id": "plate",
+   "label": "Camera pocket shims",
+   "print": "print/camera_shims_PRINT.stl",
+   "color": "#7fb2e8",
+   "volume_cm3": 2.662,
+   "note": "Depth shims behind the module, print only: 36 \u00d7 36 mm at 0.4 / 0.8 / 1.6 mm with the same 24 \u00d7 14 window. They stack to 2.8 mm in 0.4 mm steps, so a 9.5 or 10 mm camera still clamps solid in the 11.3 mm pocket. Shared by the corner mast and the wrist arch. Three shims on one plate, which is why the print check WARNs \"3 bodies\"."
+  }
+ ],
+ "cameras": null,
+ "mount": null,
+ "params": null,
+ "source": "this project"
+}

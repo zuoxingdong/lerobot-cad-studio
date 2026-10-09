@@ -1,0 +1,301 @@
+{
+ "lab": {
+  "schema": "rps/lab@2",
+  "T_mm": 277.33,
+  "room": {
+   "x": [
+    -2100,
+    2300
+   ],
+   "y": [
+    -1500,
+    1950
+   ]
+  },
+  "dock": [
+   0,
+   0,
+   0
+  ],
+  "clearance": {
+   "r_low": 167,
+   "r_high": 240,
+   "high_z": 350,
+   "min": 80
+  },
+  "stations": [
+   {
+    "id": "lh",
+    "kind": "liquid_handler",
+    "body": "st_lh",
+    "yaw": 0,
+    "park": [
+     0,
+     490,
+     0
+    ],
+    "plinth_rect": {
+     "x": [
+      -450,
+      450
+     ],
+     "y": [
+      750,
+      1310
+     ]
+    },
+    "top_z": 277.33,
+    "nest": {
+     "xy": [
+      0,
+      810
+     ],
+     "floor_z": 277.33,
+     "inner": 54,
+     "wall": 6,
+     "collar_h": 8,
+     "lead": 6,
+     "top_z": 291.33
+    },
+    "lid": null,
+    "cycle": null,
+    "start": "done"
+   },
+   {
+    "id": "inc",
+    "kind": "incubator",
+    "body": "st_inc",
+    "yaw": -90,
+    "park": [
+     740,
+     490,
+     -90
+    ],
+    "plinth_rect": {
+     "x": [
+      1000,
+      1450
+     ],
+     "y": [
+      190,
+      790
+     ]
+    },
+    "top_z": 277.33,
+    "nest": {
+     "xy": [
+      1060,
+      490
+     ],
+     "floor_z": 277.33,
+     "inner": 54,
+     "wall": 6,
+     "collar_h": 14,
+     "lead": 6,
+     "top_z": 297.33
+    },
+    "lid": {
+     "hinge": [
+      1115,
+      490,
+      395.33
+     ],
+     "axis": [
+      0,
+      -1,
+      0
+     ],
+     "closed_deg": 100
+    },
+    "cycle": {
+     "clear": 200,
+     "dwell": 1.0,
+     "close": 0.8,
+     "run": 4.0,
+     "open": 0.8
+    }
+   },
+   {
+    "id": "reader",
+    "kind": "reader",
+    "body": "st_reader",
+    "yaw": 90,
+    "park": [
+     -740,
+     490,
+     90
+    ],
+    "plinth_rect": {
+     "x": [
+      -1450,
+      -1000
+     ],
+     "y": [
+      190,
+      790
+     ]
+    },
+    "top_z": 277.33,
+    "nest": {
+     "xy": [
+      -1060,
+      490
+     ],
+     "floor_z": 277.33,
+     "inner": 54,
+     "wall": 6,
+     "collar_h": 8,
+     "lead": 6,
+     "top_z": 291.33
+    },
+    "lid": {
+     "hinge": [
+      -1115,
+      490,
+      417.33
+     ],
+     "axis": [
+      0,
+      1,
+      0
+     ],
+     "closed_deg": 95
+    },
+    "cycle": {
+     "clear": 200,
+     "dwell": 1.0,
+     "close": 0.6,
+     "run": 3.0,
+     "open": 0.6
+    },
+    "result": [
+     0.22,
+     0.31,
+     0.93,
+     0.27
+    ]
+   }
+  ],
+  "waypoints": [
+   {
+    "id": "via_mid",
+    "pose": [
+     0,
+     490,
+     0
+    ],
+    "via": true
+   }
+  ],
+  "props": [
+   {
+    "id": "puck_1",
+    "kind": "puck",
+    "body": "puck_1",
+    "joint": "puck_1_free",
+    "at": "lh",
+    "d": 50,
+    "post_d": 17,
+    "knob_top": 106,
+    "grip_z": 80,
+    "mass_kg": 0.05,
+    "start_bottom": [
+     0,
+     810,
+     277.33
+    ]
+   }
+  ],
+  "anim": [
+   {
+    "node": "inc.lid",
+    "station": "inc",
+    "kind": "hinge",
+    "geoms": [
+     "anim_inc_lid_0"
+    ],
+    "hinge": [
+     1115,
+     490,
+     395.33
+    ],
+    "axis": [
+     0,
+     -1,
+     0
+    ],
+    "closed_deg": 100
+   },
+   {
+    "node": "inc.led",
+    "station": "inc",
+    "kind": "led",
+    "geoms": [
+     "anim_inc_led_0",
+     "anim_inc_ring_0"
+    ]
+   },
+   {
+    "node": "reader.lid",
+    "station": "reader",
+    "kind": "hinge",
+    "geoms": [
+     "anim_reader_lid_0"
+    ],
+    "hinge": [
+     -1115,
+     490,
+     417.33
+    ],
+    "axis": [
+     0,
+     1,
+     0
+    ],
+    "closed_deg": 95
+   },
+   {
+    "node": "reader.bars",
+    "station": "reader",
+    "kind": "bars",
+    "geoms": [
+     "anim_reader_bar_1",
+     "anim_reader_bar_2",
+     "anim_reader_bar_3",
+     "anim_reader_bar_4"
+    ],
+    "base_z": 427.33,
+    "max_h": 40
+   },
+   {
+    "node": "lh.gantry",
+    "station": "lh",
+    "kind": "slide",
+    "geoms": [
+     "anim_lh_gantry_0"
+    ],
+    "axis": [
+     1,
+     0,
+     0
+    ],
+    "travel": [
+     -250,
+     250
+    ],
+    "period_s": 3
+   },
+   {
+    "node": "wall.loop",
+    "station": null,
+    "kind": "loop",
+    "geoms": [
+     "anim_wall_loop_1",
+     "anim_wall_loop_2",
+     "anim_wall_loop_3",
+     "anim_wall_loop_4"
+    ]
+   }
+  ]
+ }
+}

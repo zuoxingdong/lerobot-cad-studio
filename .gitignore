@@ -1,0 +1,40 @@
+node_modules/
+# uv's environment; uv.lock IS committed, so `uv sync --extra sim` is reproducible
+.venv/
+
+# local runs (tools/paths.py): the MP4s and sim-report.md on top; work/ the runs, renders, e2e outputs, caches
+/out/
+
+# site/ is the Pages root: CI rebuilds these; only the baked lab and the media are committed
+site/*.html
+site/favicon.svg
+site/vendor/
+site/lab/*.js
+site/THIRD_PARTY_LICENSES.txt
+
+# NOT ignored, on purpose: these keep the repo self-contained (no sibling directory, no upstream clone)
+#   assets/robots/*/        byte-identical copies of the pinned upstream urdf/meshes/print
+#   assets/parts/*/         this project's parts: part.json, mesh/, print/, record.json, img/
+#   src/data/packed.js      the packed bundle (npm run pack needs vtk 9.6.2, which CI lacks)
+#   tools/build/inputs/     the v3 profile, the PincOpen registration, the print-match cache
+#   tools/cad/vendor/       frozen pipeline modules and the measured deck rim
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.blend1
+# editor and OS droppings
+.DS_Store
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+*.log
+# secrets
+.env*
+
+# local agent and editor files
+CLAUDE.md
+.claude/
+*.blend

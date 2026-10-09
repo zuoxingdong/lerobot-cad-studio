@@ -1,0 +1,382 @@
+{
+ "schema": "rps/part-record@1",
+ "id": "corner_mast_printed",
+ "slot": "top_camera_mount",
+ "label": "Corner mast, printed \u00b7 45\u00b0",
+ "frame": "robot",
+ "local": null,
+ "printable": true,
+ "print_orientation": null,
+ "params": {
+  "variant": "printed",
+  "generator": "tools/cad/gen_corner_mast.py",
+  "post_x": -80.0,
+  "post_y": -45.0,
+  "cam_z": 500.0,
+  "head_fwd": 30.0,
+  "tilt_deg": 45.0,
+  "pan_deg": 10.0,
+  "deck_bolts": [
+   [
+    -60,
+    -60
+   ],
+   [
+    -60,
+    -40
+   ],
+   [
+    -60,
+    -20
+   ],
+   [
+    -80,
+    -20
+   ]
+  ],
+  "sensor_robot_mm": [
+   -75.3398685,
+   -18.571081,
+   504.8546824
+  ],
+  "camera_local_robot_frame": [
+   0.984807753,
+   -0.1736481777,
+   0.0,
+   0.0,
+   0.122787804,
+   0.6963642403,
+   0.7071067812,
+   0.0,
+   -0.122787804,
+   -0.6963642403,
+   0.7071067812,
+   0.0,
+   -75.3398685057,
+   -18.5710809793,
+   504.854682432,
+   1.0
+  ],
+  "tilt_settings_deg": [
+   40.0,
+   45.0,
+   50.0,
+   55.0,
+   60.0,
+   65.0,
+   70.0
+  ],
+  "split_z": 285.0,
+  "wall": 3.5,
+  "hinge_robot_mm": [
+   -79.883,
+   -44.3366,
+   484.3486
+  ],
+  "seat_z": 457.3486,
+  "tilt_index": {
+   "kind": "hinge detent fan",
+   "hinge": "M3 \u00d7 60 through both cheeks (54.2 mm of stack)",
+   "pin": "M3 \u00d7 8 into a BLIND 3.0 mm seat",
+   "rings_mm": [
+    25.0,
+    33.0
+   ],
+   "hole_d_mm": 3.2,
+   "step_deg": 5.0,
+   "holes_deg": [
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+   ],
+   "min_hole_pitch_mm": 4.363
+  },
+  "detent_cam_mm": {
+   "40": [
+    -75.6675,
+    -20.4292,
+    507.0569
+   ],
+   "45": [
+    -75.3399,
+    -18.5711,
+    504.8547
+   ],
+   "50": [
+    -75.0468,
+    -16.9091,
+    502.4964
+   ],
+   "55": [
+    -74.7906,
+    -15.4558,
+    500.0
+   ],
+   "60": [
+    -74.5731,
+    -14.2223,
+    497.3845
+   ],
+   "65": [
+    -74.396,
+    -13.218,
+    494.6698
+   ],
+   "70": [
+    -74.2606,
+    -12.4505,
+    491.8765
+   ]
+  },
+  "generator_design_tilt_deg": 55.0,
+  "shipped_detent_note": "45\u00b0 is one of the 7 holes on the index fan the head was printed with (40..70\u00b0 in 5\u00b0 steps). It is shipped because the DF200 is 87.3\u00b0 H, not the 60\u00b0 the pose sweep assumed, so the frame is half as wide again. Moving the pin is not a reprint: only head.stl and retainer.stl turn about the hinge, and spar_lower.stl, spar_upper.stl and every print/*.stl are untouched.",
+  "hfov_deg": 87.3,
+  "vfov_deg": 71.1,
+  "camera_module": {
+   "part": "df200.stl",
+   "printable": false,
+   "conn_axis": "image-up",
+   "preload_mm": 0.4,
+   "module_int_head_mm3": 0.001,
+   "module_int_retainer_mm3": 206.0,
+   "conn_int_retainer_mm3": 0.0,
+   "note": "The DF200 module and its retainer are part of the SET. `df200.stl` is the volumetric stand-in (36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 connector, sensor 4 mm behind the front face), seated in the pocket with its front face on the 3 mm lip. The connector is on the image-UP axis, so it passes the retainer's 24 \u00d7 14 window. The retainer boss presses the module's back face by 0.4 mm - the clamp preload; use a 0.5 mm pocket shim behind a thinner module. Measured on the exported meshes: module \u2229 head 0.001 mm\u00b3, connector \u2229 retainer 0.000 mm\u00b3."
+  },
+  "driver_relief": {
+   "deck_bolts": "\u00d87.5 \u00d7 26 mm bored up from the plate face at every deck bolt",
+   "tool_note": "the M3 heads sit in \u00d86.6 \u00d7 3.2 counterbores, so the tool that enters is a 2.5 mm hex key, not a \u00d87 socket. The \u00d87 figures are measured from the pad's top face, which is what decides whether a tool can get there."
+  },
+  "cable_route": {
+   "path": "retainer 24 \u00d7 14 window -> the head's vertical duct -> the hollow spar_upper -> the hollow spar_lower -> the +X cable slot at Z 85..101",
+   "note": "Thread it UP the spar from the +X cable slot BEFORE the Z 285 spigot closes the route, and leave a 60 mm service loop at the head."
+  },
+  "plates": [
+   "head",
+   "spar_lower",
+   "spar_upper"
+  ],
+  "plate_stats": {
+   "head": {
+    "bed_mm": [
+     43.4,
+     68.5,
+     17.5
+    ],
+    "volume_cm3": 13.68,
+    "mass_g_pla": 17.0
+   },
+   "spar_lower": {
+    "bed_mm": [
+     45.5,
+     58.5,
+     248.0
+    ],
+    "volume_cm3": 114.72,
+    "mass_g_pla": 142.3
+   },
+   "spar_upper": {
+    "bed_mm": [
+     58.9,
+     60.0,
+     229.6
+    ],
+    "volume_cm3": 72.56,
+    "mass_g_pla": 90.0
+   }
+  },
+  "bom": {
+   "deck_inserts": "4x M3 brass heat-set insert (M3 \u00d7 5.7, \u00d84.6 knurl) melted into the deck grid holes at [(-60.0, -60.0), (-60.0, -40.0), (-60.0, -20.0), (-80.0, -20.0)]. The stock grid hole measures \u00d83.50 on the deck plate: open it to \u00d84.0 with a hand drill first. The deck plate is 7.0 mm thick (Z 50..57), so a 5.7 mm insert sits flush in it with 1.3 mm to spare.",
+   "deck": "4x M3 \u00d7 8 socket cap. Head bears at Z 59.80 on a 2.80 mm pad, so 5.20 mm of the 5.70 mm insert is engaged and NOTHING protrudes below the deck - which is what matters, because three of the four bolts sit over the LiPo (pack top Z 46.50, deck underside Z 50.00). No nut, no blind fitting, and the battery stays in.",
+   "spigot": "3x M3 \u00d7 8, the Z 285 spar spigot: 2 on +X (Z 292 and 301) and 1 on -Y (Z 296.5), each a \u00d83.5 clearance hole in the upper half into a \u00d82.5 thread-forming pilot in the lower. No pinch clamp and no nuts - the joint is a chamfered rectangle that carries the torque and fixes the pan itself.",
+   "hinge": "1x M3 \u00d7 60 + nyloc, the head hinge (54.20 mm of stack, 5.80 mm proud)",
+   "index": "1x M3 \u00d7 8, the tilt index pin. 5.00 mm of cheek + 0.40 mm of gap leaves 2.60 mm in a 3.00 mm BLIND seat, so it cannot reach the camera module (0.00 mm\u00b3, measured). An M3 \u00d7 12 in the rev-1 through-seat stood 2.9 mm inside the module.",
+   "retainer": "2x M3 \u00d7 12 self-tapping, the camera retainer (4.00 mm of plate into a \u00d82.60 \u00d7 9.50 pilot: 8.0 mm of bite)",
+   "retainer_plate": "PRINT the shared \"Camera retainer plate\" upgrade - it is this set's retainer, the same solid to 0.005 mm. This set ships no second copy.",
+   "shims": "PRINT the shared \"Camera pocket shims\" upgrade if the module is under 11 mm deep: 36 \u00d7 36 mm spacers 0.4 / 0.8 / 1.6 mm thick with the same 24 \u00d7 14 window, stackable to 2.8 mm in 0.4 mm steps."
+  },
+  "shipped_detent_deg": 45.0,
+  "gusset": {
+   "runs_mm": {
+    "0": 0.0,
+    "90": 5.75,
+    "180": 0.0,
+    "270": 6.5
+   },
+   "note": "two fins on the deck plate, running out from the spar foot: +Y 5.75 mm, -Y 6.50 mm. There is no collar - the spar's own foot is the gusset, and the deck bolts' \u00d87.5 driver reliefs take the room the other two ways."
+  },
+  "gates_note": "Gates: at least 90 % of the tip poses in frame, at most 20 % of the frame on the robot, at least 70 % of the floor, the table visible, and at least 0.8 m of context ahead. Every detent from 40 to 65\u00b0 passes; 70\u00b0 fails the context gate at 0.74 m. 45\u00b0 is shipped because it puts the least of the robot in frame (4.6 % against 8.6 % at 55\u00b0), starts the ground at the front wheels (Y 69 mm) and still carries 3.2 m of context.",
+  "framing": {
+   "40": {
+    "tilt_deg": 40.0,
+    "robot_pct": 17.5,
+    "floor_pct": 81,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": 116,
+    "ground_far_mm": 6863,
+    "workspace_pct": 15.1
+   },
+   "45": {
+    "tilt_deg": 45.0,
+    "robot_pct": 4.6,
+    "floor_pct": 88,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": 69,
+    "ground_far_mm": 3174,
+    "workspace_pct": 15.5
+   },
+   "50": {
+    "tilt_deg": 50.0,
+    "robot_pct": 6.8,
+    "floor_pct": 89,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": 24,
+    "ground_far_mm": 2034,
+    "workspace_pct": 14.3
+   },
+   "55": {
+    "tilt_deg": 55.0,
+    "robot_pct": 8.6,
+    "floor_pct": 89,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": -21,
+    "ground_far_mm": 1473,
+    "workspace_pct": 13.4
+   },
+   "60": {
+    "tilt_deg": 60.0,
+    "robot_pct": 9.9,
+    "floor_pct": 89,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": -65,
+    "ground_far_mm": 1136,
+    "workspace_pct": 12.9
+   },
+   "65": {
+    "tilt_deg": 65.0,
+    "robot_pct": 10.9,
+    "floor_pct": 88,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 100,
+    "ground_near_mm": -110,
+    "ground_far_mm": 908,
+    "workspace_pct": 12.8
+   },
+   "70": {
+    "tilt_deg": 70.0,
+    "robot_pct": 11.9,
+    "floor_pct": 88,
+    "table_pct": 100,
+    "tip_floor_pct": 100,
+    "tip_table_pct": 98,
+    "ground_near_mm": -157,
+    "ground_far_mm": 742,
+    "workspace_pct": 12.9
+   }
+  },
+  "framing_gates": {
+   "tip_pct_min": 90,
+   "robot_pct_max": 20,
+   "floor_pct_min": 70,
+   "table_visible": true,
+   "context_mm_min": 800,
+   "note": "the gripper tip in frame over the floor and table pose sets, the robot itself out of most of the frame, the reachable floor in frame, the table visible, and at least 0.8 m of ground ahead of the near edge"
+  },
+  "framing_source": "a 384-pose sweep at the real hFOV 87.3\u00b0, run at every detent with the shipped meshes in the scene; the table is printed in DESIGN.md",
+  "access_audit": {
+   "method": "\u00d87 \u00d7 60 driver cast (and \u00d83.6 \u00d7 60 straight key, and a \u00d83.6 cone to 25\u00b0 for a ball-end key) from each bearing face, against the assembled robot at the parked pose with this mast and the DF200 arch fitted; mm of clear tube",
+   "fasteners": 12,
+   "clear_mm_O7": {
+    "deck_-60_-60": 60.0,
+    "deck_-60_-40": 26.0,
+    "deck_-60_-20": 60.0,
+    "deck_-80_-20": 60.0,
+    "spigot_+X_z292": 60.0,
+    "spigot_+X_z301": 60.0,
+    "spigot_-Y_z296.5": 60.0,
+    "hinge_bolt_head": 60.0,
+    "hinge_bolt_nut": "14.0 (full cast)",
+    "index_pin": 60.0,
+    "retainer_up": 60.0,
+    "retainer_down": 60.0
+   },
+   "verdict": "no fastener of this set is blocked and none needs a ball-end key; the deck bolt at (-60, -40) takes 26 mm of \u00d87 where the spar's own corner overhangs it, which is what its \u00d87.5 \u00d7 26 driver relief is for",
+   "sequence": "deck base -> camera cable up the spar -> upper spar on the Z 285 spigot -> 3 spigot screws -> head on the hinge -> index pin -> module -> retainer"
+  },
+  "shared_plates": {
+   "retainer": "The shared \"Camera retainer plate\" print-only upgrade - the same solid as this set's own retainer mesh to 0.005 mm (measured on the exported meshes). Printed once, it serves every camera head this project builds: the corner mast and the wrist arch.",
+   "pocket_shims": "The shared \"Camera pocket shims\" print-only upgrade - 36 \u00d7 36 mm at 0.4 / 0.8 / 1.6 mm, with the same 24 \u00d7 14 window. Stack them for 0.4 to 2.8 mm in 0.4 mm steps."
+  },
+  "pan": "FIXED at the design 10\u00b0 by the Z 285 spigot section, which is a chamfered rectangle and goes together two ways round only. There is no pan ring and no screw that could give one. To change it, regenerate the spar with a different `pan_deg`.",
+  "usable_detents_deg": [
+   40.0,
+   45.0,
+   50.0,
+   55.0,
+   60.0,
+   65.0
+  ]
+ },
+ "cameras": {
+  "top": {
+   "local": [
+    0.984807753,
+    -0.1736481777,
+    0.0,
+    0.0,
+    0.122787804,
+    0.6963642403,
+    0.7071067812,
+    0.0,
+    -0.122787804,
+    -0.6963642403,
+    0.7071067812,
+    0.0,
+    -75.3398685057,
+    -18.5710809793,
+    504.854682432,
+    1.0
+   ],
+   "hfov_deg": 87.3,
+   "vfov_deg": 71.1,
+   "aspect": 1.3333333333333333,
+   "source": "user-confirmed JR DF200 \"100\u00b0 without distortion\", 640 \u00d7 480 MJPG 4:3, rectilinear -> 87.3\u00b0 H / 71.1\u00b0 V (2026-09-15)"
+  }
+ },
+ "print_files": [
+  "print/head_PRINT.stl",
+  "print/spar_lower_PRINT.stl",
+  "print/spar_upper_PRINT.stl"
+ ],
+ "source": "inbox 2026-09-14",
+ "notes": "Corner mast, printed \u00b7 45\u00b0. Sensor (-75.3399, -18.5711, 504.8547) at the shipped 45\u00b0 detent, optical axis (0.122788, 0.696364, -0.707107); hFOV 87.3 / vFOV 71.1 (JR DF200). 3 plates, 249.3 g of PLA, tallest 248.0 mm in Z: `head` 43.4 \u00d7 68.5 \u00d7 17.5 mm, 17.0 g; `spar_lower` 45.5 \u00d7 58.5 \u00d7 248.0 mm, 142.3 g; `spar_upper` 58.9 \u00d7 60.0 \u00d7 229.6 mm, 90.0 g. Robot-frame meshes drawn by the studio: df200.stl, head.stl, retainer.stl, spar_lower.stl, spar_upper.stl.\n\nThe plate count is down to the parts that carry load: the list above IS the set. The retainer plate and the pocket shims are the two SHARED print-only upgrades, \"Camera retainer plate\" and \"Camera pocket shims\", which this set references instead of shipping a second copy. The retainer is the same solid as this set's own retainer mesh to 0.005 mm, measured on the exported meshes. The tilt index seat in the head is BLIND at 3.0 mm and its pin is M3 \u00d7 8, so the pin cannot enter the camera module, and the head's cable duct is vertical and inside the wall.\n\nThis is the printed-spar mount, and the default overhead camera mount: three printed plates, no aluminium and nothing drilled. `spar_lower` carries the deck base and the lower spar; `spar_upper` grows the two hinge cheeks and the index fan directly off the top of the tapered spar. There is no metal tube, no base collar, no seat disc, no separate yoke or neck, no pinch clamp and no pan ring. The two halves meet on the Z 285 spigot, a chamfered rectangle that carries the torque AND fixes the pan, so pan is FIXED at the design 10\u00b0; regenerate the spar with a different `pan_deg` to change it. The section is symmetric, so a printed witness chevron on the -X face of each half says which way round the joint goes; get it wrong and the camera looks behind the robot. Thread the camera cable up the hollow spar BEFORE the spigot closes. The deck bolts are M3 \u00d7 8 into heat-set inserts, so nothing protrudes under the deck and the LiPo stays in. The two spar halves are 248.0 and 229.6 mm tall, so both need 250 mm of Z: an MK4 (220 mm) will not take them, an Ender 3 (250 mm) has 2.0 mm to spare on the taller one.\n\nHardware beyond the printed plates - the 8 lines of `params.bom`, which the generator builds for THIS variant: `deck_inserts`, `deck`, `spigot`, `hinge`, `index`, `retainer`, `retainer_plate`, `shims`.\n\nDesign tilt 55\u00b0, shipped detent 45\u00b0. The index fan was printed with 7 holes (40, 45, 50, 55, 60, 65, 70\u00b0) and the head and the retainer are those same meshes rotated about the hinge, so moving the index pin is NOT a reprint and every `print/*.stl` is unchanged by it - `params.shipped_detent_note` records why the shipped hole moved. `df200.stl` is the camera-module stand-in (36 \u00d7 36 \u00d7 11 body, \u00d820 \u00d7 9 barrel, \u00d813 \u00d7 3 hood, 9 \u00d7 5 \u00d7 4 connector, sensor 4 mm behind the front face) seated in the head pocket at that detent with its front face on the 3 mm lip, connector along the image-UP axis so it passes the retainer's 24 \u00d7 14 window. Measured on the meshes this run exported: module \u2229 head 0.001 mm\u00b3, module \u2229 retainer 205.997 mm\u00b3, connector \u2229 retainer 0.000 mm\u00b3.\n\nAssembly order, the fastener-by-fastener driver-access cast and the cable routes are in `ASSEMBLY.md` beside this file; `DESIGN.md` is the design record and the alternatives this one was chosen against. Every measured number behind them is in this set's own `params` block.",
+ "summary": "THE overhead mount: an over-the-shoulder spar on the rear-LEFT corner, all-PLA and tapered, split at Z 285, whose upper half grows the hinge cheeks and the index fan itself. No metal, no hardware store, THREE plates. The tallest is 248.0 mm, so it needs 250 mm of Z. Sensor (-75.34, -18.57, 504.85) robot mm, 45\u00b0 nose-down, panned 10\u00b0, hFOV 87.3 / vFOV 71.1 (JR DF200). Tilt is a hinge detent, 40..70\u00b0 in 5\u00b0 steps; the shipped pin is in the 45\u00b0 hole.",
+ "hinge": {
+  "frame": "robot",
+  "origin": [
+   -79.88301725254878,
+   -44.33655787117101,
+   484.3485857775715
+  ],
+  "axis": [
+   -0.9848077530122081,
+   0.17364817766693036,
+   0.0
+  ],
+  "positive": "a right-hand turn about the axis raises the tilt"
+ }
+}

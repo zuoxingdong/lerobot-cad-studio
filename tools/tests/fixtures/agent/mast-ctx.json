@@ -1,0 +1,279 @@
+{
+ "date": "2026-09-24",
+ "folderName": "lekiwi-designs",
+ "robot": {
+  "id": "lekiwi-pincopen",
+  "name": "LeKiwi + PincOpen",
+  "source": {
+   "repo": "https://github.com/SIGRobotics-UIUC/LeKiwi",
+   "commit": "efa608d7ee5a495a4803b1d28cd0c955b4f1e033"
+  },
+  "units": "mm",
+  "frame": "+X right, +Y forward, +Z up",
+  "groundZ": -32.9
+ },
+ "slot": {
+  "id": "top_camera_mount",
+  "label": "Overhead camera mount",
+  "frame": "robot",
+  "anchor": {
+   "name": "deck_top_centre_rear",
+   "matrix": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    -36.5,
+    57,
+    1
+   ]
+  },
+  "interface": {
+   "deck_grid": "M3 bolt grid on the top deck: 20 mm pitch at Z 57, usable radius 107 mm, holes 3.5 mm (M3 clearance), M3 heat-set inserts"
+  },
+  "mount": {
+   "interface": "deck_grid",
+   "bolts_mm": [
+    [
+     -60,
+     -60
+    ],
+    [
+     -60,
+     -40
+    ],
+    [
+     -60,
+     -20
+    ],
+    [
+     -80,
+     -20
+    ]
+   ],
+   "face": {
+    "point": [
+     -63.1473,
+     -33.4511,
+     57.0
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "params": {
+   "tilt_deg": {
+    "kind": "hinge",
+    "value": 45.0,
+    "values": [
+     40.0,
+     45.0,
+     50.0,
+     55.0,
+     60.0,
+     65.0,
+     70.0
+    ],
+    "usable": [
+     40.0,
+     65.0
+    ],
+    "origin": [
+     -79.88301725254878,
+     -44.33655787117101,
+     484.3485857775715
+    ],
+    "axis": [
+     -0.984807753012208,
+     0.17364817766693033,
+     0.0
+    ],
+    "design": 45.0,
+    "moves": [
+     "head",
+     "retainer",
+     "df200"
+    ],
+    "camera": "top"
+   }
+  },
+  "keepOuts": [
+   "the arm sweep at the presets",
+   "the deck edge: stay inside the 107 mm grid radius"
+  ],
+  "current": {
+   "id": "corner_mast_printed",
+   "label": "Corner mast, printed · 45°"
+  }
+ },
+ "parts": [
+  {
+   "id": "spar_lower",
+   "name": "Corner mast (printed) · lower spar + deck base",
+   "bbox": {
+    "min": [
+     -98.0,
+     -71.0,
+     57.0
+    ],
+    "max": [
+     -52.5,
+     -12.5,
+     305.0
+    ]
+   },
+   "volume": 114.72,
+   "mass": 142.3,
+   "hasPrint": true,
+   "note": "The deck plate and the tapered hollow spar in one part, Z 57 to the Z 285 spigot, with 3.5 mm walls. 4x M3 × 8 into M3 heat-set inserts in the deck grid, a Ø7.5 × 26 driver relief above every bolt, and two gusset fins fore and aft where the plate has room for them. 248.0 mm on the bed, so it needs 250 mm of Z: an MK4 (220 mm) will not take it, an Ender 3 (250 mm) has 2.0 mm to spare."
+  },
+  {
+   "id": "spar_upper",
+   "name": "Corner mast (printed) · upper spar + yoke",
+   "bbox": {
+    "min": [
+     -109.3,
+     -64.8,
+     285.0
+    ],
+    "max": [
+     -50.4,
+     -4.8,
+     514.6
+    ]
+   },
+   "volume": 72.56,
+   "mass": 90.0,
+   "hasPrint": true,
+   "note": "Z 285 to the top of the index fan: the spar AND the yoke in one part. The tapered section grows the two hinge cheeks, the M3 × 60 hinge (54.2 mm of stack) and the 40..70° index fan directly - no collar, no seat disc, no clamp and no joint under the cheeks. 229.6 mm on the bed, 90.0 g, 337 mm² of bed contact."
+  },
+  {
+   "id": "head",
+   "name": "Corner mast · camera head",
+   "bbox": {
+    "min": [
+     -102.8,
+     -57.2,
+     475.2
+    ],
+    "max": [
+     -50.8,
+     4.7,
+     532.4
+    ]
+   },
+   "volume": 13.68,
+   "mass": 17.0,
+   "hasPrint": true,
+   "note": "The clamp block alone: 36.4 × 36.4 pocket, 3 mm lip, OPEN REAR, two ears. The tilt index seats are BLIND, 3.0 mm deep, and cut in BOTH side walls, which is what makes this ONE STL for the corner mast and the wrist arch. Prints lens face down on 975.8 mm² of bed contact, 5.5 % overhang. Support the two hinge-lug ends - a 23.7 mm bridge."
+  },
+  {
+   "id": "retainer",
+   "name": "Corner mast · camera retainer",
+   "bbox": {
+    "min": [
+     -93.0,
+     -50.2,
+     491.4
+    ],
+    "max": [
+     -60.7,
+     -3.7,
+     535.3
+    ]
+   },
+   "volume": 6.0,
+   "mass": 7.4,
+   "printRef": "part:cam_retainer",
+   "hasPrint": false,
+   "note": "The 58 × 26 retainer plate with its 24 × 14 cable window, at its seated pose on the head's ears. NOT a plate of this set: print the shared \"Camera retainer plate\" upgrade instead. It is the same solid to 0.005 mm, measured on the exported meshes, and one of them serves every camera head this project builds. 2x M3 × 12 self-tapping into Ø2.60 × 9.50 pilots, 8.0 mm of bite."
+  },
+  {
+   "id": "df200",
+   "name": "Corner mast · DF200 module (stand-in)",
+   "bbox": {
+    "min": [
+     -96.1,
+     -39.1,
+     488.6
+    ],
+    "max": [
+     -54.9,
+     -0.1,
+     522.5
+    ]
+   },
+   "volume": 17.64,
+   "hardware": true,
+   "hasPrint": false,
+   "note": "The JR DF200 module itself, as a volumetric stand-in: 36 × 36 × 11 body, Ø20 × 9 lens barrel, Ø13 × 3 hood, 9 × 5 × 4 rear connector, sensor 4 mm behind the front face. Seated in the pocket at the shipped detent, front face on the 3 mm lip, barrel through the 30 × 30 aperture. The connector is on the image-UP axis, so it passes the retainer's 24 × 14 window. Measured on the exported meshes: module n head 0.001 mm³, connector n retainer 0.000 mm³. The retainer boss presses the back face by 0.40 mm (206 mm³ - the clamp preload; a 0.5 mm pocket shim goes behind a thinner module). NOT a printable part: it is what you buy."
+  }
+ ],
+ "neighbours": {
+  "note": "deck, Pi case and the arm at the four presets, decimated, robot frame"
+ },
+ "cameras": [
+  {
+   "id": "top",
+   "hfov": 87.3,
+   "vfov": 71.1,
+   "aspect": 1.3333333333333333,
+   "local": [
+    0.984807753,
+    -0.1736481777,
+    0.0,
+    0.0,
+    0.122787804,
+    0.6963642403,
+    0.7071067812,
+    0.0,
+    -0.122787804,
+    -0.6963642403,
+    0.7071067812,
+    0.0,
+    -75.3398685057,
+    -18.5710809793,
+    504.854682432,
+    1.0
+   ]
+  }
+ ],
+ "printer": {
+  "name": "Bambu Lab A1 / P1S",
+  "bed": [
+   256,
+   256,
+   256
+  ]
+ },
+ "checks": {
+  "presets": [
+   "stowed",
+   "reach_floor",
+   "reach_table",
+   "raised_max"
+  ],
+  "camera": [
+   "a pose is published for `top`, the camera this slot provides.",
+   "the robot fills little of the frame; the fitted mast gives 4.6 % at 45°."
+  ]
+ },
+ "constraints": {
+  "keepMount": true,
+  "keepCamera": false,
+  "material": "PLA",
+  "maxOverhangDeg": 45
+ }
+}
