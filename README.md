@@ -2,6 +2,8 @@
 
 Design 3D-printed parts for a LeRobot robot with your AI agent, check that they print and fit, then drive the robot in MuJoCo. All in one browser page.
 
+**[Open the studio](https://zuoxingdong.github.io/lerobot-cad-studio/) · [Watch the showcase](https://zuoxingdong.github.io/lerobot-cad-studio/showcase.html)**
+
 [![LeKiwi + PincOpen carries a sample puck to the incubator in the photoreal showcase](site/media/hero-poster.jpg)](https://zuoxingdong.github.io/lerobot-cad-studio/showcase.html)
 
 ## Motivation

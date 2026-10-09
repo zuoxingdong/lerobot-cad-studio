@@ -1,5 +1,5 @@
-/* The Home page: onboarding, not a dashboard.  Exactly two primary actions — open the
-   default package, or import a robot; packages and recent designs sit below, quieter.
+/* The Home page: onboarding, not a dashboard.  Two primary actions — open the default
+   package, or import a robot — plus the showcase link; packages and recent designs sit below.
    Needs core/package.js, ui/dom.js, ui/icons.js and ui/dialogs.js. */
 
 import { ROBOTS, robotIds, isRobot } from '../data/assets.js';
@@ -139,6 +139,7 @@ export function mountHome(root, ctx) {
   const defId = isRobot(DEFAULT_ROBOT) ? DEFAULT_ROBOT : robotIds()[0];
   primary.appendChild(bigCard(defId));
   primary.appendChild(importCard());
+  primary.appendChild(showcaseCard());
   main.appendChild(primary);
 
   /* packages */
@@ -209,6 +210,24 @@ export function mountHome(root, ctx) {
     const drop = el('div', 'code dim', 'or drop anywhere on this page');
     card.append(t, fmts, choose, drop);
     card.onclick = () => openImportDialog({ onImported: ctx.onImportedModel });
+    return card;
+  }
+
+  /* the photoreal showcase is its own page; the poster is a site/ file, so the card drops it when missing */
+  function showcaseCard() {
+    const card = el('a', 'card3');
+    card.href = 'showcase.html';
+    const img = document.createElement('img');
+    img.className = 'shot';
+    img.alt = '';
+    img.src = 'media/hero-poster.jpg';
+    img.onerror = () => img.remove();
+    const body = el('div', 'body');
+    const t = el('div', 't', 'Watch the showcase');
+    const sub = el('div', 'code dim', 'LeKiwi + PincOpen in a photoreal lab');
+    const play = el('span', 'btn lg', '▶ Play');
+    body.append(t, sub, play);
+    card.append(img, body);
     return card;
   }
 

@@ -241,7 +241,7 @@
   .rail[hidden]{display:none!important}
   .rail .grip{display:none}
   .home-main{padding:32px 24px 48px}
-  .card1,.card2{width:100%}
+  .card1,.card2,.card3{flex-basis:100%;max-width:none}
 }
 @media (max-width:899px){
   .topbar{height:auto;min-height:48px;flex-wrap:wrap;row-gap:var(--sp-2);padding:var(--sp-2) var(--sp-4);column-gap:var(--sp-4)}
@@ -249,6 +249,13 @@
   .topbar .sp{flex:1 0 100%;height:0}
   .robotchip{max-width:46vw;overflow:hidden}
   .robotchip span:not(.dot){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+/* phones: the default card stacks its shot above the text */
+@media (max-width:599px){
+  .card1{flex-direction:column;height:auto}
+  .card1 .shot{width:100%;height:180px;border-right:0;border-bottom:1px solid var(--line-soft)}
+  .card1 .body{gap:var(--sp-4)}
+  .card2{height:auto;padding:var(--sp-8) var(--sp-5)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
