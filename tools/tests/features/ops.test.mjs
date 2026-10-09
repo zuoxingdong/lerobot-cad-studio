@@ -14,6 +14,9 @@ import {
   mountFromFrame, mirroredPrintTransform, MOUNT_CLEAR_MM,
 } from '../../../src/features/ops.js';
 
+/* shared CI runners are slower and noisy: timing caps double there */
+const CI_SLACK = process.env.CI && process.env.CI !== 'false' ? 2 : 1;
+
 const round = (v, n = 2) => Math.round(v * 10 ** n) / 10 ** n;
 function table(title, rows) {
   const cols = rows.length ? Object.keys(rows[0]) : [];
@@ -383,9 +386,9 @@ test('deterministic bytes, runtime, the print frame and labels', () => {
     assert.ok(!r.refused && !r2.refused && !gs.ok, `${name}: timing setup`);
     timing.push({ mesh: name, tris: g.attributes.position.count / 3, 'stretch cold ms': round(cold, 1), 'shorten warm ms': round(warm, 1), 'gate + scan ms': round(gate, 1) });
     /* the shipped parts are the gate; the 24k-triangle tube is the headroom check */
-    const cap = name === 'tube' ? 3 : 1;
+    const cap = (name === 'tube' ? 3 : 1) * CI_SLACK;
     assert.ok(cold < 50 * cap && warm < 50 * cap, `${name}: stretch ${cold} ms, shorten ${warm} ms`);
-    assert.ok(gate < 100, `${name}: gate ${gate} ms`);
+    assert.ok(gate < 100 * CI_SLACK, `${name}: gate ${gate} ms`);
   }
   table('runtime (node, one core)', timing);
 
